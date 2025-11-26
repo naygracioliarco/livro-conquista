@@ -1,0 +1,67 @@
+import { AlternativeQuestion, UserAnswers } from '../types/questions';
+
+interface QuestionAlternativeProps {
+  question: AlternativeQuestion;
+  userAnswers: UserAnswers;
+  onAnswerChange: (questionId: string, answer: number) => void;
+  showResults?: boolean;
+}
+
+function QuestionAlternative({
+  question,
+  userAnswers,
+  onAnswerChange,
+  showResults = false,
+}: QuestionAlternativeProps) {
+  const selectedAnswer = userAnswers[question.id];
+  const isCorrect = selectedAnswer === question.correctAnswer;
+
+  return (
+    <div className="mb-6 p-4 bg-emerald-50 rounded-lg border border-emerald-200">
+      <p className="font-semibold text-slate-800 mb-4">{question.question}</p>
+      <div className="space-y-3">
+        {question.options.map((option, index) => (
+          <label
+            key={index}
+            className={`flex items-center gap-3 p-3 rounded cursor-pointer transition-colors ${
+              selectedAnswer === index
+                ? 'bg-emerald-100 border-l-4 border-emerald-600'
+                : 'bg-white hover:bg-emerald-50'
+            } ${
+              showResults && selectedAnswer === index
+                ? isCorrect
+                  ? 'border-l-4 border-green-600 bg-green-50'
+                  : 'border-l-4 border-red-600 bg-red-50'
+                : ''
+            }`}
+          >
+            <input
+              type="radio"
+              name={question.id}
+              value={index}
+              checked={selectedAnswer === index}
+              onChange={() => onAnswerChange(question.id, index)}
+              className="w-4 h-4"
+              disabled={showResults}
+            />
+            <span className="text-slate-700">{option}</span>
+            {showResults && selectedAnswer === index && (
+              <span className={`ml-auto text-sm font-semibold ${
+                isCorrect ? 'text-green-600' : 'text-red-600'
+              }`}>
+                {isCorrect ? '✓ Correto' : '✗ Incorreto'}
+              </span>
+            )}
+          </label>
+        ))}
+      </div>
+      {showResults && selectedAnswer !== question.correctAnswer && (
+        <p className="mt-3 text-sm text-red-600">
+          Resposta correta: <strong>{question.options[question.correctAnswer]}</strong>
+        </p>
+      )}
+    </div>
+  );
+}
+
+export default QuestionAlternative;
