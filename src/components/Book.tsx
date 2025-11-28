@@ -3,6 +3,7 @@ import TableOfContents from './TableOfContents';
 import Chapter from './Chapter';
 import DataTable from './DataTable';
 import TeacherPanel from './TeacherPanel';
+import TeacherButton from './TeacherButton';
 import { chapterQuestions } from '../data/questions';
 import { UserAnswers } from '../types/questions';
 import { loadAnswers, saveAnswers } from '../utils/storage';
@@ -86,11 +87,44 @@ function Book() {
                   informações. Dos hieróglifos egípcios aos livros digitais modernos, a
                   evolução dos meios de comunicação moldou profundamente nossa sociedade.
                 </p>
-                <p>
+                <p className="mb-6">
                   Neste capítulo, examinaremos como diferentes culturas desenvolveram sistemas
                   únicos de organização e transmissão do conhecimento, e o impacto dessas
                   práticas no desenvolvimento humano.
                 </p>
+                
+                <div className="my-6">
+                  <TeacherButton
+                    title="Capítulo 1 - Orientações Pedagógicas"
+                    content={
+                      <>
+                        <p className="mb-3">
+                          Este capítulo introduz os conceitos fundamentais de conhecimento e comunicação.
+                        </p>
+                        <p className="mb-3">
+                          <strong>Objetivos de aprendizagem:</strong>
+                        </p>
+                        <ul className="list-disc list-inside mb-3 space-y-1">
+                          <li>Compreender a evolução dos meios de comunicação</li>
+                          <li>Identificar diferentes sistemas de organização do conhecimento</li>
+                          <li>Refletir sobre o impacto da escrita na sociedade</li>
+                        </ul>
+                      </>
+                    }
+                    answers={
+                      <>
+                        <p className="mb-3">
+                          <strong>Gabarito das questões:</strong>
+                        </p>
+                        <ul className="list-disc list-inside space-y-2">
+                          <li>Questão 1: Resposta correta - Alternativa B</li>
+                          <li>Questão 2: Resposta correta - Alternativa A</li>
+                          <li>Questão 3: Resposta correta - Verdadeiro</li>
+                        </ul>
+                      </>
+                    }
+                  />
+                </div>
               </>
             }
             questions={chapterQuestions.chapter1}
