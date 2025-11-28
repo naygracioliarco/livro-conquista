@@ -74,7 +74,7 @@ function Book() {
           <Chapter
             id="chapter1"
             number={1}
-            title="Introdução ao Conhecimento"
+            title="Notícias"
             content={
               <>
                 <p className="mb-4">

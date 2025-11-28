@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import { Info } from 'lucide-react';
 
 interface TeacherButtonProps {
     title?: string;
@@ -26,15 +25,19 @@ function TeacherButton({
                 }}
             >
                 <div
-                    className="w-6 h-6 rounded-full flex items-center justify-center text-white font-bold text-sm shadow-md"
+                    className="rounded-full flex items-center justify-center"
                     style={{
-                        backgroundColor: 'rgba(129, 36, 36, 0.2)',
+                        width: '48px',
+                        height: '48px',
+                        backgroundColor: '#BF3154',
+                        boxShadow: '0 2px 0 0 #9C2F4B',
                     }}
                 >
                     <img
                         src="/images/iconTeacher.svg"
-                        alt="Union"
-                        style={{width: '40.316px',
+                        alt="Ícone Professor"
+                        style={{
+                            width: '40.316px',
                             height: '40.316px',
                         }}
                     />
