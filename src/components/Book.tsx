@@ -6,6 +6,7 @@ import TeacherPanel from './TeacherPanel';
 import { chapterQuestions } from '../data/questions';
 import { UserAnswers } from '../types/questions';
 import { loadAnswers, saveAnswers } from '../utils/storage';
+import Pagination from './Pagination';
 
 function Book() {
   const [userAnswers, setUserAnswers] = useState<UserAnswers>({});
@@ -68,7 +69,7 @@ function Book() {
 
         <div className="p-8 md:p-12">
           <TableOfContents />
-
+          <Pagination currentPage={4} />
           <Chapter
             id="chapter1"
             number={1}
