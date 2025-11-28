@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react';
-import { BookOpen } from 'lucide-react';
 import TableOfContents from './TableOfContents';
 import Chapter from './Chapter';
 import DataTable from './DataTable';
@@ -28,12 +27,25 @@ function Book() {
   return (
     <div className="min-h-screen bg-gray-200 w-full">
       <div className="mx-auto bg-white shadow-2xl rounded-lg overflow-hidden" style={{ maxWidth: '53%', marginLeft: 'auto', marginRight: 'auto' }}>
-        <header className="bg-slate-800 text-white py-8 px-8">
-          <div className="flex items-center gap-3 mb-2">
-            <BookOpen size={32} />
-            <h1 className="text-3xl font-serif font-bold">Livro Digital</h1>
+        <header 
+          className="relative text-white py-8 px-8 bg-cover bg-center bg-no-repeat"
+          style={{
+            backgroundImage: 'url(/images/Capa-1.png)',
+          }}
+        >
+          
+          {/* Conteúdo do header */}
+          <div className="relative z-10">
+            <div className="flex items-center gap-3 mb-2">
+              <img 
+                src="/images/icon.png" 
+                alt="Ícone" 
+                className="w-23 h-29 object-contain"
+              />
+              <h1 className="text-4xl font-hwt-artz font-bold">PRODUÇÃO DE TEXTOS</h1>
+            </div>
+            <p className="text-slate-300 text-sm">6º ANO - VOLUMES 1 E 2</p>
           </div>
-          <p className="text-slate-300 text-sm">Uma jornada através do conhecimento</p>
         </header>
 
         <div className="p-8 md:p-12">
