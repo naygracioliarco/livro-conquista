@@ -26,8 +26,8 @@ function Book() {
   };
 
   return (
-    <div className="min-h-screen bg-amber-50 py-12 px-4">
-      <div className="mx-auto bg-white shadow-2xl rounded-lg overflow-hidden" style={{ maxWidth: '85%', marginLeft: 'auto', marginRight: 'auto' }}>
+    <div className="min-h-screen bg-gray-200 w-full">
+      <div className="mx-auto bg-white shadow-2xl rounded-lg overflow-hidden" style={{ maxWidth: '53%', marginLeft: 'auto', marginRight: 'auto' }}>
         <header className="bg-slate-800 text-white py-8 px-8">
           <div className="flex items-center gap-3 mb-2">
             <BookOpen size={32} />
