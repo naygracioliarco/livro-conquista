@@ -42,9 +42,27 @@ function Book() {
                 alt="Ícone" 
                 className="w-23 h-29 object-contain"
               />
-              <h1 className="text-4xl font-hwt-artz font-bold">PRODUÇÃO DE TEXTOS</h1>
+              <div className="flex flex-col">
+                <h1 
+                  className="text-4xl font-hwt-artz font-bold"
+                  style={{
+                    WebkitTextStroke: '1.5px #000000',
+                    fontWeight: 800,
+                  }}
+                >
+                  PRODUÇÃO DE TEXTOS
+                </h1>
+                <p 
+                  className="text-white text-1xl font-hwt-artz rounded-[20px] px-4 py-2 inline-block w-fit mt-4"
+                  style={{
+                    backgroundColor: '#9C2F4B',
+                    fontWeight: 700,
+                  }}
+                >
+                  6º ANO - VOLUMES 1 E 2
+                </p>
+              </div>
             </div>
-            <p className="text-slate-300 text-sm">6º ANO - VOLUMES 1 E 2</p>
           </div>
         </header>
 
