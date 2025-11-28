@@ -5,6 +5,7 @@ export default {
     extend: {
       fontFamily: {
         'hwt-artz': ['HWT Artz', 'sans-serif'],
+        'ubuntu': ['Ubuntu', 'sans-serif'],
       },
     },
   },

@@ -1,5 +1,3 @@
-import { List } from 'lucide-react';
-
 function TableOfContents() {
   const scrollToChapter = (chapterId: string) => {
     const element = document.getElementById(chapterId);
@@ -9,39 +7,117 @@ function TableOfContents() {
   };
 
   return (
-    <nav className="mb-12 p-6 bg-slate-50 rounded-lg border border-slate-200">
-      <div className="flex items-center gap-2 mb-4">
-        <List size={24} className="text-slate-700" />
-        <h2 className="text-2xl font-serif font-bold text-slate-800">Sumário</h2>
+    <nav
+      className="mb-12 p-6 rounded-lg border border-slate-200"
+      style={{
+        backgroundColor: '#EEE6D4',
+      }}
+    >
+      <div className="flex gap-6">
+        {/* Seção Sumário */}
+        <div className="flex-1">
+          <div className="flex items-center gap-2 mb-4">
+            <h2
+              className="font-hwt-artz"
+              style={{
+                color: '#0E3B5D',
+                fontSize: '28px',
+                fontStyle: 'normal',
+                fontWeight: 800,
+                lineHeight: 'normal',
+              }}
+            >
+              SUMÁRIO
+            </h2>
+          </div>
+          <ol className="space-y-3">
+            <li>
+              <button
+                onClick={() => scrollToChapter('chapter1')}
+                className="text-left w-full font-ubuntu flex items-center gap-2"
+                style={{
+                  color: '#144468',
+                  fontSize: '16px',
+                  fontStyle: 'normal',
+                  fontWeight: 500,
+                  lineHeight: 'normal',
+                }}
+              >
+                <img
+                  src="/images/Union.svg"
+                  alt="Union"
+                  className="w-4 h-4 object-contain"
+                />
+                <span>
+                  Capítulo 1:
+                </span>{' '}
+                <span>
+                  Notícias
+                </span>
+              </button>
+            </li>
+            <li>
+              <button
+                onClick={() => scrollToChapter('chapter2')}
+                className="text-left w-full font-ubuntu flex items-center gap-2"
+                style={{
+                  color: '#144468',
+                  fontSize: '16px',
+                  fontStyle: 'normal',
+                  fontWeight: 500,
+                  lineHeight: 'normal',
+                }}
+              >
+                <img
+                  src="/images/Union.svg"
+                  alt="Union"
+                  className="w-4 h-4 object-contain"
+                />
+                <span>
+                  Capítulo 2:
+                </span>{' '}
+                <span>
+                  Fábulas
+                </span>
+              </button>
+            </li>
+          </ol>
+        </div>
+
+        {/* Divisor vertical */}
+        <div
+          style={{
+            backgroundColor: '#0E3B5D',
+            width: '3px',
+          }}
+        />
+
+        {/* Seção Tutorial */}
+        <div className="flex-1 flex items-center justify-between gap-4">
+          <p
+            className="font-hwt-artz"
+            style={{
+              color: '#0E3B5D',
+              fontSize: '20px',
+              fontWeight: 700,
+            }}
+          >
+            ACESSE O TUTORIAL E APRENDA A MEXER NO LIVRO DIGITAL
+          </p>
+          <a
+            href="https://example.com/tutorial"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="cursor-pointer"
+          >
+            <img
+              src="/images/qrCode.svg"
+              alt="QR Code Tutorial"
+              className="w-24 h-24 object-contain"
+            />
+          </a>
+        </div>
       </div>
-      <ol className="space-y-3">
-        <li>
-          <button
-            onClick={() => scrollToChapter('chapter1')}
-            className="text-left w-full hover:text-blue-600 transition-colors group"
-          >
-            <span className="font-semibold text-slate-700 group-hover:text-blue-600">
-              Capítulo 1:
-            </span>{' '}
-            <span className="text-slate-600 group-hover:text-blue-500">
-              Introdução ao Conhecimento
-            </span>
-          </button>
-        </li>
-        <li>
-          <button
-            onClick={() => scrollToChapter('chapter2')}
-            className="text-left w-full hover:text-blue-600 transition-colors group"
-          >
-            <span className="font-semibold text-slate-700 group-hover:text-blue-600">
-              Capítulo 2:
-            </span>{' '}
-            <span className="text-slate-600 group-hover:text-blue-500">
-              Dados e Informação
-            </span>
-          </button>
-        </li>
-      </ol>
     </nav>
   );
 }
