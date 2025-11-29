@@ -29,7 +29,7 @@ function Book() {
       paginationElements.forEach((el) => {
         const rect = el.getBoundingClientRect();
         const page = parseInt(el.getAttribute('data-page') || '4');
-        
+
         // Verifica se o elemento está visível na viewport
         if (rect.top >= 0 && rect.top < window.innerHeight && rect.bottom > 0) {
           // Se está visível, escolhe a página mais próxima do topo
@@ -46,7 +46,7 @@ function Book() {
           const rect = el.getBoundingClientRect();
           const page = parseInt(el.getAttribute('data-page') || '4');
           const distanceFromTop = Math.abs(rect.top);
-          
+
           if (distanceFromTop < closestToTop) {
             closestToTop = distanceFromTop;
             visiblePage = page;
@@ -251,7 +251,7 @@ function Book() {
                   A forma como o texto está escrito pode destacar uma parte do fato, causar surpresa, criar senso de urgência ou fazer o leitor se preocupar mais com um lado da história do que com outro. Isso pode revelar o posicionamento do jornal ou do site em que a notícia
                   foi publicada.
                 </p>
-
+                <Pagination currentPage={6} />
               </>
             }
           />
