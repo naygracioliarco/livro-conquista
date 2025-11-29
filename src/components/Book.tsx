@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { ArrowUp } from 'lucide-react';
 import TableOfContents from './TableOfContents';
 import Chapter from './Chapter';
 import DataTable from './DataTable';
@@ -12,9 +13,69 @@ import Pagination from './Pagination';
 function Book() {
   const [userAnswers, setUserAnswers] = useState<UserAnswers>({});
   const [showTeacherView, setShowTeacherView] = useState(false);
+  const [currentPage, setCurrentPage] = useState(4);
 
   useEffect(() => {
     setUserAnswers(loadAnswers());
+  }, []);
+
+  useEffect(() => {
+    // Detecta qual página está visível na viewport
+    const updateCurrentPage = () => {
+      const paginationElements = document.querySelectorAll('[data-page]');
+      let visiblePage = 4; // padrão
+      let closestToTop = Infinity;
+
+      paginationElements.forEach((el) => {
+        const rect = el.getBoundingClientRect();
+        const page = parseInt(el.getAttribute('data-page') || '4');
+        
+        // Verifica se o elemento está visível na viewport
+        if (rect.top >= 0 && rect.top < window.innerHeight && rect.bottom > 0) {
+          // Se está visível, escolhe a página mais próxima do topo
+          if (rect.top < closestToTop) {
+            closestToTop = rect.top;
+            visiblePage = page;
+          }
+        }
+      });
+
+      // Se nenhuma página está visível no topo, verifica qual está mais próxima do topo
+      if (closestToTop === Infinity) {
+        paginationElements.forEach((el) => {
+          const rect = el.getBoundingClientRect();
+          const page = parseInt(el.getAttribute('data-page') || '4');
+          const distanceFromTop = Math.abs(rect.top);
+          
+          if (distanceFromTop < closestToTop) {
+            closestToTop = distanceFromTop;
+            visiblePage = page;
+          }
+        });
+      }
+
+      setCurrentPage(visiblePage);
+    };
+
+    // Verifica imediatamente
+    updateCurrentPage();
+
+    // Atualiza quando o usuário faz scroll
+    window.addEventListener('scroll', updateCurrentPage);
+    window.addEventListener('resize', updateCurrentPage);
+
+    // Observa mudanças no DOM
+    const observer = new MutationObserver(updateCurrentPage);
+    observer.observe(document.body, {
+      childList: true,
+      subtree: true,
+    });
+
+    return () => {
+      window.removeEventListener('scroll', updateCurrentPage);
+      window.removeEventListener('resize', updateCurrentPage);
+      observer.disconnect();
+    };
   }, []);
 
   const handleAnswerChange = (questionId: string, answer: any) => {
@@ -24,6 +85,14 @@ function Book() {
     };
     setUserAnswers(updatedAnswers);
     saveAnswers(updatedAnswers);
+  };
+
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    // Atualiza a página após o scroll terminar
+    setTimeout(() => {
+      setCurrentPage(4);
+    }, 500);
   };
 
   return (
@@ -69,11 +138,13 @@ function Book() {
         </header>
 
         <div className="p-8 md:p-12">
+          {/* Conteúdo do sumário */}
           <TableOfContents />
-          <Pagination currentPage={4} />
+          {/* Paginação */}
+          <Pagination currentPage={currentPage} />
+          {/* Conteúdo do botão do professor */}
           <div className="my-6">
             <TeacherButton
-              // title="Capítulo 1 - Orientações Pedagógicas"
               content={
                 <>
                   <p className="mb-3">
@@ -87,6 +158,7 @@ function Book() {
 
             />
           </div>
+          {/* Conteúdo do Capítulo 1 */}
           <Chapter
             id="chapter1"
             number={1}
@@ -109,20 +181,81 @@ function Book() {
                   Essas histórias mostram como a tecnologia pode transformar a vida das pessoas e são
                   exemplos de como alguns acontecimentos chamam a atenção de jornais, sites e telejornais.
                 </p>
+                {/* Conteúdo de lista */}
                 <ul className="list-disc marker:text-[#BF3154] ml-6">
                   <li>Por que algumas histórias viram notícia e outras não?</li>
                   <li>O que torna um fato interessante ou importante para ser compartilhado
                     com milhares de pessoas?</li>
                 </ul>
+                {/* Imagem */}
                 <div className="flex flex-col items-center my-6">
                   <img src="/images/noticias.png" className="max-w-full" />
                   <p className="text-sm text-slate-600 mt-2">SachiDesigns, Mykola Syvak/stock.adobe.com
                   </p>
                 </div>
+                <Pagination currentPage={5} />
+                <div className="my-6">
+                  <TeacherButton
+                    content={
+                      <>
+                        <p className="mb-3">
+                          EF69LP16, EF69LP17, EF06LP02, EF67LP06, EF06LP05. Nesta seção, os alunos ampliam sua
+                          compreensão sobre o gênero <strong>notícia</strong>, analisando a função social, a estrutura composicional e os efeitos de sentido produzidos pela linguagem. Conduza uma leitura comentada,
+                          destacando como o texto noticioso transmite pontos de vista mesmo sem emitir opinião
+                          explícita. Essa análise prepara os alunos para interpretar notícias com atenção à linguagem
+                          e reconhecer que toda notícia é uma construção orientada por escolhas.
+
+                        </p>
+                      </>
+                    }
+
+                  />
+                </div>
+                <h3>O que é notícia?</h3>
+                <p className="mb-4 indent-6">
+                  A notícia é um gênero textual do campo jornalístico e tem como principal objetivo
+                  informar o público sobre um fato que já aconteceu ou que está acontecendo. Esse fato
+                  precisa ser verdadeiro, concreto e de interesse público.
+                </p>
+                <p className="mb-4 indent-6">
+                  O gênero está presente em jornais, revistas, <em>sites</em> e programas de rádio ou TV e pode
+                  ser ouvido, lido ou assistido em diversos formatos. É um texto predominantemente expositivo e informativo, pois apresenta acontecimentos do mundo com base em dados, relatos
+                  e registros confiáveis.
+                </p>
+                <p className="mb-4 indent-6">
+                  Por ser um gênero que circula amplamente na sociedade e que influencia a opinião
+                  pública, a notícia cumpre uma função social importante: ajuda a formar a opinião das pessoas sobre diferentes assuntos. Por isso, deve ser produzida com responsabilidade, fundamentada em fontes confiáveis e organizada de modo a permitir ao leitor que compreenda
+                  plenamente os fatos e o contexto em eles que se inserem.
+                </p>
+                <p className="mb-4 indent-6">
+                  As principais características da notícia estão listadas a seguir.
+                </p>
+                <ul className="list-disc marker:text-[#BF3154] ml-6">
+                  <li><strong>Foco na objetividade</strong>: o autor não deve expressar sua opinião. </li>
+                  <li><strong>Uso da terceira pessoa</strong>: evita-se o uso de pronomes como <strong>eu</strong> ou <strong>nós</strong>. </li>
+                  <li><strong>Presença de lide</strong>: as informações mais importantes aparecem no início do texto. </li>
+                  <li><strong>Emprego predominante de verbos no passado</strong>:  os acontecimentos já ocorridos são apresentados nessa forma verbal. </li>
+                  <li><strong>Uso de linguagem informativa e estrutura em ordem direta</strong>: evita-se o uso de frases em ordem indireta ou ambíguas. </li>
+                  <li><strong>Apresentação de evidências</strong>: dados, depoimentos e registros dão credibilidade às informações. </li>
+                  <li><strong>Organização típica</strong>: o texto segue a estrutura de pirâmide invertida, com título, linha-fina, lide, corpo da notícia e fechamento, de modo que as informações essenciais são apresentadas no início e as menos essenciais, no fim do texto. </li>
+                </ul>
+                <p className="mb-4 indent-6">
+                  Na internet, além de texto escrito e imagens, as notícias costumam apresentar outros recursos, como vídeos, mapas interativos,infográficos, áudios e hiperlinks. Esse conjunto de elementos é chamado de <strong>recursos multimodais</strong>.
+                </p>
+                <h4>A linguagem na notícia</h4>
+                <p className="mb-4 indent-6">
+                  Embora a principal intenção da notícia seja informar com objetividade, a maneira como ela é escrita envolve escolhas que podem revelar diferentes pontos de vista, mesmo que o autor não exponha sua opinião diretamente. Por exemplo, o título “Robôs trazem autonomia e segurança para idosos” destaca um benefício da tecnologia. Já o título “Robôs substituem cuidados humanos com idosos” mostra outra perspectiva em relação ao uso da tecnologia,
+                  destacando uma preocupação.
+                </p>
+                <p className="mb-4 indent-6">
+                  A forma como o texto está escrito pode destacar uma parte do fato, causar surpresa, criar senso de urgência ou fazer o leitor se preocupar mais com um lado da história do que com outro. Isso pode revelar o posicionamento do jornal ou do site em que a notícia
+                  foi publicada.
+                </p>
+
               </>
             }
           />
-          <Pagination currentPage={5} />
+          {/* Conteúdo do Capítulo 2 */}
           <Chapter
             id="chapter2"
             number={2}
@@ -166,6 +299,16 @@ function Book() {
         onToggleTeacherMode={setShowTeacherView}
         showTeacherView={showTeacherView}
       />
+
+      {currentPage >= 5 && (
+        <button
+          onClick={scrollToTop}
+          className="fixed bottom-24 right-6 z-40 bg-gradient-to-r from-blue-600 to-blue-700 text-white p-3 rounded-full shadow-lg hover:shadow-xl hover:scale-110 transition-all"
+          title="Voltar ao início do livro"
+        >
+          <ArrowUp size={24} />
+        </button>
+      )}
     </div>
   );
 }

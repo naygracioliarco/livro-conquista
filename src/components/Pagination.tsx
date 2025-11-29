@@ -6,6 +6,7 @@ interface PaginationProps {
 function Pagination({ currentPage }: PaginationProps) {
   return (
     <div
+      data-page={currentPage}
       className="flex items-center justify-center -mx-8 md:-mx-12"
       style={{
         display: 'flex',
