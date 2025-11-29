@@ -98,7 +98,7 @@ function TableOfContents() {
             className="font-hwt-artz"
             style={{
               color: '#0E3B5D',
-              fontSize: '20px',
+              fontSize: '18px',
               fontWeight: 700,
             }}
           >
@@ -113,7 +113,7 @@ function TableOfContents() {
             <img
               src="/images/qrCode.svg"
               alt="QR Code Tutorial"
-              className="w-24 h-24 object-contain"
+              className="w-28 h-28 object-contain"
             />
           </a>
         </div>
