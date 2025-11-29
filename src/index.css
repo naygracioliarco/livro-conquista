@@ -11,3 +11,21 @@
   font-style: normal;
   font-display: swap;
 }
+
+.chapter-content h3 {
+  color: #BF3154;
+  font-family: "HWT Artz", sans-serif;
+  font-size: 26px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+
+.chapter-content h4 {
+  color: #00776E;
+  font-family: "HWT Artz", sans-serif;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}

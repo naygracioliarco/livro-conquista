@@ -7,7 +7,7 @@ interface TeacherButtonProps {
 }
 
 function TeacherButton({
-    title = "Conteúdo do Professor",
+    title,
     content,
     answers
 }: TeacherButtonProps) {
@@ -70,7 +70,6 @@ function TeacherButton({
 
                         {content && (
                             <div className="mb-6">
-                                <h5 className="text-lg font-semibold text-slate-600 mb-3">Conteúdo:</h5>
                                 <div className="text-slate-700 prose max-w-none">
                                     {content}
                                 </div>
