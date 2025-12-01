@@ -63,6 +63,7 @@ function QuestionRenderer({
           number={question.number}
           columns={question.columns}
           rows={question.rows}
+          subQuestions={question.subQuestions}
           userAnswers={userAnswers}
           onAnswerChange={(questionId, fieldId, answer) => onAnswerChange(fieldId, answer)}
           showResults={showResults}

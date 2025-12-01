@@ -64,6 +64,15 @@ export interface TableFillQuestion {
     text1?: string;
     text2?: string;
   }>;
+  correctAnswer?: {
+    [fieldId: string]: string; // Mapeia fieldId (questionId_rowId_colN) para a resposta correta
+  };
+  subQuestions?: Array<{
+    letter: string; // Letra da subquestão (ex: 'a', 'b', 'c')
+    question: string; // Texto da subquestão
+    placeholder?: string;
+    correctAnswer?: string;
+  }>;
 }
 
 export type Question = MultipleChoiceQuestion | TrueFalseQuestion | AlternativeQuestion | TextInputQuestion | TableFillQuestion;

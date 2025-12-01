@@ -662,6 +662,67 @@ function Book() {
                   onAnswerChange={handleAnswerChange}
                   showResults={showTeacherView}
                 />
+                {/* Conteúdo do botão do professor - Tabela comparativa */}
+                <div className="my-6">
+                  <TeacherButton
+                    content={
+                      <>
+                        <p className="mb-3">
+                          Respostas:
+                        </p>
+                        {(() => {
+                          const question = chapterQuestions.chapter1.find(q => q.id === 'ch1_q7');
+                          if (question && question.type === 'table-fill') {
+                            return (
+                              <>
+                                {/* Respostas da tabela */}
+                                {question.correctAnswer && (
+                                  <>
+                                    <p className="mb-2 font-semibold">Tabela:</p>
+                                    {question.rows.map((row) => {
+                                      const correctAnswers = question.correctAnswer!;
+                                      const col1FieldId = `${question.id}_${row.id}_col1`;
+                                      const col2FieldId = `${question.id}_${row.id}_col2`;
+                                      const answer1 = correctAnswers[col1FieldId] || '';
+                                      const answer2 = correctAnswers[col2FieldId] || '';
+                                      
+                                      return (
+                                        <div key={row.id} className="mb-4">
+                                          <p className="mb-2 font-semibold" style={{ color: '#0E3B5D' }}>
+                                            Parágrafo {row.paragraph}:
+                                          </p>
+                                          <p className="mb-1">
+                                            <strong>Texto I:</strong> {answer1}
+                                          </p>
+                                          <p className="mb-1">
+                                            <strong>Texto II:</strong> {answer2}
+                                          </p>
+                                        </div>
+                                      );
+                                    })}
+                                  </>
+                                )}
+                                {/* Respostas das subquestões */}
+                                {question.subQuestions && question.subQuestions.length > 0 && (
+                                  <>
+                                    <p className="mb-2 mt-4 font-semibold">Subquestões:</p>
+                                    {question.subQuestions.map((subQ) => (
+                                      <p key={subQ.letter} className="mb-3">
+                                        <span style={{ color: '#00776E', fontWeight: 'bold' }}>{subQ.letter}) </span>
+                                        <span dangerouslySetInnerHTML={{ __html: subQ.correctAnswer || '' }} />
+                                      </p>
+                                    ))}
+                                  </>
+                                )}
+                              </>
+                            );
+                          }
+                          return null;
+                        })()}
+                      </>
+                    }
+                  />
+                </div>
 
 
 

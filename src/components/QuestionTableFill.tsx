@@ -7,12 +7,20 @@ interface TableRow {
   text2?: string;
 }
 
+interface SubQuestion {
+  letter: string;
+  question: string;
+  placeholder?: string;
+  correctAnswer?: string;
+}
+
 interface QuestionTableFillProps {
   questionId: string;
   title?: string;
   number?: number;
   columns: string[];
   rows: TableRow[];
+  subQuestions?: SubQuestion[];
   userAnswers: UserAnswers;
   onAnswerChange: (questionId: string, fieldId: string, answer: string) => void;
   showResults?: boolean;
@@ -24,21 +32,22 @@ function QuestionTableFill({
   number,
   columns,
   rows,
+  subQuestions,
   userAnswers,
   onAnswerChange,
   showResults = false,
 }: QuestionTableFillProps) {
   return (
-    <div className="mb-6 text-center">
+    <div className="mb-6">
       {title && (
-        <p className="mb-4 font-semibold" style={{ color: 'black' }}>
+        <p className="mb-4 font-semibold text-left" style={{ color: 'black' }}>
           {number !== undefined && (
             <span style={{ color: '#00776E', fontWeight: 'bold' }}>{number}. </span>
           )}
           <span style={{ color: 'black' }}>{title}</span>
         </p>
       )}
-      <div className="overflow-x-auto">
+      <div className="overflow-x-auto mb-6">
         <table
           className="w-full border-collapse"
           style={{
@@ -112,6 +121,34 @@ function QuestionTableFill({
           </tbody>
         </table>
       </div>
+      {/* Subquestões */}
+      {subQuestions && subQuestions.length > 0 && (
+        <div className="space-y-4">
+          {subQuestions.map((subQ) => {
+            const subQuestionId = `${questionId}_${subQ.letter}`;
+            const subUserAnswer = (userAnswers[subQuestionId] as string) || '';
+            
+            return (
+              <div key={subQ.letter} className="mb-4">
+                <p className="mb-2">
+                  <span style={{ color: '#00776E', fontWeight: 'bold' }}>{subQ.letter}) </span>
+                  <span style={{ color: 'black' }}>{subQ.question}</span>
+                </p>
+                <textarea
+                  value={subUserAnswer}
+                  onChange={(e) => onAnswerChange(questionId, subQuestionId, e.target.value)}
+                  placeholder={subQ.placeholder || 'Digite sua resposta aqui...'}
+                  disabled={showResults}
+                  className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent resize-y min-h-[80px] text-black"
+                  style={{
+                    fontFamily: 'Ubuntu, sans-serif',
+                  }}
+                />
+              </div>
+            );
+          })}
+        </div>
+      )}
     </div>
   );
 }
