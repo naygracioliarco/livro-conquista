@@ -1,0 +1,26 @@
+function TrilhaTexto() {
+  return (
+    <div className="flex items-center gap-3 my-6">
+      <img
+        src="/images/trilhaTexto.png"
+        alt="Trilha do texto"
+        className="object-contain"
+      />
+      <h2
+        style={{
+          color: '#0E3B5D',
+          fontFamily: 'HWT Artz',
+          fontSize: '26px',
+          fontStyle: 'normal',
+          fontWeight: 700,
+          lineHeight: 'normal',
+        }}
+      >
+        Na trilha do texto
+      </h2>
+    </div>
+  );
+}
+
+export default TrilhaTexto;
+

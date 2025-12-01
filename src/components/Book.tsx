@@ -9,6 +9,7 @@ import { chapterQuestions } from '../data/questions';
 import { UserAnswers } from '../types/questions';
 import { loadAnswers, saveAnswers } from '../utils/storage';
 import Pagination from './Pagination';
+import TrilhaTexto from './TrilhaTexto';
 
 function Book() {
   const [userAnswers, setUserAnswers] = useState<UserAnswers>({});
@@ -252,6 +253,8 @@ function Book() {
                   foi publicada.
                 </p>
                 <Pagination currentPage={6} />
+                <TrilhaTexto />
+                
               </>
             }
           />
