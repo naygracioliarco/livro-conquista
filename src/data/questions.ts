@@ -26,6 +26,18 @@ export const chapterQuestions: Record<string, Question[]> = {
           placeholder: 'Digite sua resposta aqui...',
           correctAnswer: 'Em 8 de agosto de 2025. (Lide)',
         },
+        {
+          letter: 'd',
+          question: 'Quem esteve envolvido?',
+          placeholder: 'Digite sua resposta aqui...',
+          correctAnswer: 'Empresas chinesas de robótica e Wang Yifan, diretor do Robot Mall. (Linha-fina e corpo da notícia)',
+        },
+        {
+          letter: 'e',
+          question: 'Que tipos de serviços são oferecidos?',
+          placeholder: 'Digite sua resposta aqui...',
+          correctAnswer: 'Venda e manutenção de robôs humanoides, fornecimento de peças e coleta de <em>feedbacks</em> dos clientes. (Título, lide e corpo da notícia) ',
+        },
       ],
     },
     {

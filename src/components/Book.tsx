@@ -370,13 +370,38 @@ function Book() {
                 <p className="text-[10px] text-slate-600 mt-2">KAORU, Thâmara. <em>China inaugura primeira loja que une venda, serviço e peças para robôs humanoides.</em> Disponível em: <a href="https://epocanegocios.globo.com/tecnologia/noticia/2025/08/china-inaugura-primeira-loja-que-une-venda-servico-e-pecas-para-robos-humanoides.ghtml" target="_blank" rel="noopener noreferrer">https://epocanegocios.globo.com/tecnologia/noticia/2025/08/china-inaugura-primeira-loja-que-une-venda-servico-e-pecas-para-robos-humanoides.ghtml</a>
                 </p>
                 <Pagination currentPage={7} />
+                {/* Conteúdo do botão do professor */}
+                <div className="my-6">
+                  <TeacherButton
+                    content={
+                      <>
+                        <p className="mb-3">
+                          Respostas:
+                        </p>
+                        {(() => {
+                          const question = chapterQuestions.chapter1.find(q => q.id === 'ch1_q1');
+                          if (question && question.type === 'text-input' && question.subQuestions) {
+                            return question.subQuestions.map((subQ) => (
+                              <p key={subQ.letter} className="mb-3">
+                                {question.number}. {subQ.letter}):{' '}
+                                <span dangerouslySetInnerHTML={{ __html: subQ.correctAnswer || '' }} />
+                              </p>
+                            ));
+                          }
+                          return null;
+                        })()}
+                      </>
+                    }
+
+                  />
+                </div>
                 <p className="mb-4 indent-6">
                   Depois da leitura, analise como a notícia está organizada e quais foram as escolhas da
                   autora ao apresentar as informações.
                 </p>
                 {/* Questão intercalada no conteúdo */}
                 <QuestionRenderer
-                  question={chapterQuestions.chapter1[3]}
+                  question={chapterQuestions.chapter1[0]}
                   userAnswers={userAnswers}
                   onAnswerChange={handleAnswerChange}
                   showResults={showTeacherView}
