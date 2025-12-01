@@ -1,4 +1,4 @@
-export type QuestionType = 'multiple-choice' | 'true-false' | 'alternative' | 'text-input';
+export type QuestionType = 'multiple-choice' | 'true-false' | 'alternative' | 'text-input' | 'table-fill';
 
 export interface MultipleChoiceQuestion {
   id: string;
@@ -52,7 +52,21 @@ export interface TextInputQuestion {
   }>;
 }
 
-export type Question = MultipleChoiceQuestion | TrueFalseQuestion | AlternativeQuestion | TextInputQuestion;
+export interface TableFillQuestion {
+  id: string;
+  type: 'table-fill';
+  question?: string;
+  number?: number;
+  columns: string[];
+  rows: Array<{
+    id: string;
+    paragraph: string;
+    text1?: string;
+    text2?: string;
+  }>;
+}
+
+export type Question = MultipleChoiceQuestion | TrueFalseQuestion | AlternativeQuestion | TextInputQuestion | TableFillQuestion;
 
 export interface UserAnswers {
   [questionId: string]: string | number | boolean;

@@ -3,6 +3,7 @@ import QuestionMultipleChoice from './QuestionMultipleChoice';
 import QuestionTrueFalse from './QuestionTrueFalse';
 import QuestionAlternative from './QuestionAlternative';
 import QuestionTextInput from './QuestionTextInput';
+import QuestionTableFill from './QuestionTableFill';
 
 interface QuestionRendererProps {
   question: Question;
@@ -51,6 +52,19 @@ function QuestionRenderer({
           question={question}
           userAnswers={userAnswers}
           onAnswerChange={onAnswerChange}
+          showResults={showResults}
+        />
+      );
+    case 'table-fill':
+      return (
+        <QuestionTableFill
+          questionId={question.id}
+          title={question.question}
+          number={question.number}
+          columns={question.columns}
+          rows={question.rows}
+          userAnswers={userAnswers}
+          onAnswerChange={(questionId, fieldId, answer) => onAnswerChange(fieldId, answer)}
           showResults={showResults}
         />
       );

@@ -176,6 +176,57 @@ export const chapterQuestions: Record<string, Question[]> = {
     },
     {
       id: 'ch1_q7',
+      type: 'table-fill',
+      number: 3,
+      question: 'Leia novamente os dois textos e identifique quais são as informações principais de cada parágrafo. Em seguida, responda às questões.',
+      columns: ['Parágrafo', 'Texto I', 'Texto II'],
+      rows: [
+        {
+          id: 'row1',
+          paragraph: '1',
+          text1: '',
+          text2: '',
+        },
+        {
+          id: 'row2',
+          paragraph: '2',
+          text1: '',
+          text2: '',
+        },
+        {
+          id: 'row3',
+          paragraph: '3',
+          text1: '',
+          text2: '',
+        },
+        {
+          id: 'row4',
+          paragraph: '4',
+          text1: '',
+          text2: '',
+        },
+        {
+          id: 'row5',
+          paragraph: '5, 6 e 7',
+          text1: '',
+          text2: '',
+        },
+        {
+          id: 'row6',
+          paragraph: '8',
+          text1: '',
+          text2: '',
+        },
+        {
+          id: 'row7',
+          paragraph: '9',
+          text1: '',
+          text2: '',
+        },
+      ],
+    },
+    {
+      id: 'ch1_q8',
       type: 'text-input',
       question: '1. Responda a cada pergunt a informação aparece.',
       placeholder: 'Digite sua resposta aqui...',

@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import { UserAnswers } from '../types/questions';
 
 interface Criterio {
@@ -32,6 +31,7 @@ function CriteriosAvaliacao({
         className="w-full border-collapse"
         style={{
           border: '3px solid #0E3B5D',
+          fontFamily: 'hwt-artz, sans-serif',
         }}
       >
         <thead>
@@ -55,7 +55,7 @@ function CriteriosAvaliacao({
             <th
               className="p-3 text-center"
               style={{
-                border: '1px solid #0E3B5D',
+                border: '3px solid #0E3B5D',
                 backgroundColor: 'white',
               }}
             >
@@ -64,7 +64,7 @@ function CriteriosAvaliacao({
             <th
               className="p-3 text-center"
               style={{
-                border: '1px solid #0E3B5D',
+                border: '3px solid #0E3B5D',
                 backgroundColor: 'white',
               }}
             >
@@ -83,9 +83,11 @@ function CriteriosAvaliacao({
                 <td
                   className="p-3 font-semibold"
                   style={{
-                    border: '1px solid #0E3B5D',
+                    border: '3px solid #0E3B5D',
                     color: '#0E3B5D',
                     backgroundColor: 'white',
+                    fontFamily: 'hwt-artz, sans-serif',
+                    fontSize: '20px',
                   }}
                 >
                   {criterio.nome}
@@ -93,9 +95,10 @@ function CriteriosAvaliacao({
                 <td
                   className="p-3"
                   style={{
-                    border: '1px solid #0E3B5D',
+                    border: '3px solid #0E3B5D',
                     color: '#0E3B5D',
                     backgroundColor: 'white',
+                    fontFamily: 'Ubuntu, sans-serif',
                   }}
                 >
                   {criterio.pergunta}
@@ -103,7 +106,7 @@ function CriteriosAvaliacao({
                 <td
                   className="p-3 text-center"
                   style={{
-                    border: '1px solid #0E3B5D',
+                    border: '3px solid #0E3B5D',
                     backgroundColor: 'white',
                   }}
                 >
@@ -121,7 +124,7 @@ function CriteriosAvaliacao({
                 <td
                   className="p-3 text-center"
                   style={{
-                    border: '1px solid #0E3B5D',
+                    border: '3px solid #0E3B5D',
                     backgroundColor: 'white',
                   }}
                 >

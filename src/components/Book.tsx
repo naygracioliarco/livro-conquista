@@ -333,15 +333,16 @@ function Book() {
                     </p>
                   </div>
                 </CaixaTexto>
-                <span
-                  className="text-[10px] mt-2"
+                <p
+                  className="mt-2 mb-6"
                   style={{
                     fontFamily: 'Ubuntu, sans-serif',
                     color: '#000000',
+                    fontSize: '10px',
                   }}
                 >
                   KAORU, Thâmara. <em>China inaugura primeira loja que une venda, serviço e peças para robôs humanoides.</em> Disponível em: <a href="https://epocanegocios.globo.com/tecnologia/noticia/2025/08/china-inaugura-primeira-loja-que-une-venda-servico-e-pecas-para-robos-humanoides.ghtml" target="_blank" rel="noopener noreferrer">https://epocanegocios.globo.com/tecnologia/noticia/2025/08/china-inaugura-primeira-loja-que-une-venda-servico-e-pecas-para-robos-humanoides.ghtml</a>. Acesso em: 23 set. 2025.
-                </span>
+                </p>
                 <Pagination currentPage={7} />
                 {/* Conteúdo do botão do professor */}
                 <div className="my-6">
@@ -584,15 +585,16 @@ function Book() {
                     O shopping foi inaugurado na mesma semana em que é realizada a Conferência Mundial de Robôs de 2025, precedendo também os primeiros Jogos Mundiais de Robôs Humanoides, marcados para o período entre 14 e 17 de agosto.
                   </p>
                 </CaixaTexto>
-                <span
-                  className="text-[10px] mt-2"
+                <p
+                  className="mt-2 mb-6"
                   style={{
                     fontFamily: 'Ubuntu, sans-serif',
                     color: '#000000',
-              
+                    fontSize: '10px',
                   }}
-                >BARONE, Bruna. <em>China inaugura o primeiro “shopping de robôs” do mundo.</em> Disponível em: <a href="https://epocanegocios.globo.com/tecnologia/noticia/2025/08/china-inaugura-primeira-loja-que-une-venda-servico-e-pecas-para-robos-humanoides.ghtml" target="_blank" rel="noopener noreferrer">https://epocanegocios.globo.com/tecnologia/noticia/2025/08/china-inaugura-primeira-loja-que-une-venda-servico-e-pecas-para-robos-humanoides.ghtml</a>. Acesso em: 23 set. 2025.
-                </span>
+                >
+                  BARONE, Bruna. <em>China inaugura o primeiro "shopping de robôs" do mundo.</em> Disponível em: <a href="https://epocanegocios.globo.com/tecnologia/noticia/2025/08/china-inaugura-primeira-loja-que-une-venda-servico-e-pecas-para-robos-humanoides.ghtml" target="_blank" rel="noopener noreferrer">https://epocanegocios.globo.com/tecnologia/noticia/2025/08/china-inaugura-primeira-loja-que-une-venda-servico-e-pecas-para-robos-humanoides.ghtml</a>. Acesso em: 23 set. 2025.
+                </p>
                 {/* Questão intercalada no conteúdo */}
                 <QuestionRenderer
                   question={chapterQuestions.chapter1[4]}
@@ -606,43 +608,6 @@ function Book() {
                   userAnswers={userAnswers}
                   onAnswerChange={handleAnswerChange}
                   showResults={showTeacherView}
-                />
-                {/* Tabela de Critérios de Avaliação */}
-                <CriteriosAvaliacao
-                  criterios={[
-                    {
-                      id: 'criterio_titulo',
-                      nome: 'TÍTULO',
-                      pergunta: 'Apresenta o assunto principal de forma atrativa?',
-                    },
-                    {
-                      id: 'criterio_linha_fina',
-                      nome: 'LINHA-FINA',
-                      pergunta: 'Complementa o título com uma informação importante ou que aprofunda o assunto?',
-                    },
-                    {
-                      id: 'criterio_lide',
-                      nome: 'LIDE',
-                      pergunta: 'Apresenta as informações essenciais (o quê, quem, quando, onde) de forma clara?',
-                    },
-                    {
-                      id: 'criterio_corpo',
-                      nome: 'CORPO DA NOTÍCIA',
-                      pergunta: 'Desenvolve o assunto de forma organizada e completa?',
-                    },
-                    {
-                      id: 'criterio_linguagem',
-                      nome: 'LINGUAGEM',
-                      pergunta: 'Utiliza linguagem objetiva e adequada ao gênero notícia?',
-                    },
-                    {
-                      id: 'criterio_foco',
-                      nome: 'FOCO',
-                      pergunta: 'Mantém o foco no fato noticiado sem expressar opinião?',
-                    },
-                  ]}
-                  userAnswers={userAnswers}
-                  onAnswerChange={handleAnswerChange}
                 />
                 <Pagination currentPage={10} />
                 {/* Conteúdo do botão do professor */}
@@ -690,6 +655,60 @@ function Book() {
 
                   />
                 </div>
+                {/* Questão intercalada no conteúdo - Tabela comparativa */}
+                <QuestionRenderer
+                  question={chapterQuestions.chapter1[6]}
+                  userAnswers={userAnswers}
+                  onAnswerChange={handleAnswerChange}
+                  showResults={showTeacherView}
+                />
+
+
+
+
+
+
+
+
+
+
+                {/* Tabela de Critérios de Avaliação */}
+                <CriteriosAvaliacao
+                  criterios={[
+                    {
+                      id: 'criterio_titulo',
+                      nome: 'TÍTULO',
+                      pergunta: 'Apresenta o assunto principal de forma atrativa?',
+                    },
+                    {
+                      id: 'criterio_linha_fina',
+                      nome: 'LINHA-FINA',
+                      pergunta: 'Complementa o título com uma informação importante ou que aprofunda o assunto?',
+                    },
+                    {
+                      id: 'criterio_lide',
+                      nome: 'LIDE',
+                      pergunta: 'Apresenta as informações essenciais (o quê, quem, quando, onde) de forma clara?',
+                    },
+                    {
+                      id: 'criterio_corpo',
+                      nome: 'CORPO DA NOTÍCIA',
+                      pergunta: 'Desenvolve o assunto de forma organizada e completa?',
+                    },
+                    {
+                      id: 'criterio_linguagem',
+                      nome: 'LINGUAGEM',
+                      pergunta: 'Utiliza linguagem objetiva e adequada ao gênero notícia?',
+                    },
+                    {
+                      id: 'criterio_foco',
+                      nome: 'FOCO',
+                      pergunta: 'Mantém o foco no fato noticiado sem expressar opinião?',
+                    },
+                  ]}
+                  userAnswers={userAnswers}
+                  onAnswerChange={handleAnswerChange}
+                />
               </>
             }
           />
