@@ -284,6 +284,32 @@ function Book() {
                     <strong>Robot Mall tem mais de 100 tipos de robôs de mais de
                       40 marcas chinesas, como a Ubtech Robotics e a Unitree Robotics</strong>
                   </p>
+                  <p
+                    className="mb-2 indent-6"
+                    style={{
+                      fontSize: '10px',
+                      fontStyle: 'normal',
+                      fontWeight: 400,
+                      lineHeight: 'normal',
+                    }}
+                  >
+                    Por Thâmara Kaoru
+                  </p>
+                  <p
+                    className="mb-2 indent-6"
+                    style={{
+                      fontSize: '10px',
+                      fontStyle: 'normal',
+                      fontWeight: 400,
+                      lineHeight: 'normal',
+                    }}
+                  >
+                    10/08/2025
+                  </p>
+                  <p className="mb-4 indent-6">
+                    Se você está em busca de um robô humanoide para chamar de seu, a China pode ser o lugar
+                    ideal para sua compra. Na última sexta-feira (8), Pequim abriu as portas do Robot Mall, considerado a primeira loja de robôs inteligentes humanoides 4S do mundo.
+                  </p>
                 </CaixaTexto>
 
               </>

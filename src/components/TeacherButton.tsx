@@ -17,32 +17,54 @@ function TeacherButton({
         <>
             <button
                 onClick={() => setIsOpen(true)}
-                className="flex items-center gap-3 px-6 py-3 text-white font-semibold transition-all"
+                className="professor-button"
                 style={{
-                    borderRadius: '0 30px 30px 0',
+                    position: 'relative',
+                    padding: '10px 10px 10px 45px',
                     backgroundColor: '#BF3154',
-                    boxShadow: '0 4px 0 0 #9C2F4B',
+                    boxShadow: '0px 4px 0px #9C2F4B',
+                    borderRadius: '0 30px 30px 0',
+                    color: 'white',
+                    fontFamily: "'Simply Rounded', Helvetica, Arial, sans-serif",
+                    fontSize: '12px',
+                    fontWeight: 700,
+                    lineHeight: '1.4em',
+                    textTransform: 'uppercase',
+                    textDecoration: 'none',
+                    margin: '1em 0.4em 1.4em 1.4em',
+                    border: 'none',
+                    cursor: 'pointer',
+                    display: 'flex',
+                    alignItems: 'center',
+                }}
+                // onMouseEnter={(e) => {
+                //     e.currentTarget.style.backgroundColor = '#E04F16';
+                //     e.currentTarget.style.boxShadow = '4px 4px 0px #9E3D17';
+                // }}
+                onMouseLeave={(e) => {
+                    e.currentTarget.style.backgroundColor = '#BF3154';
+                    e.currentTarget.style.boxShadow = '4px 4px 0px #9C2F4B';
                 }}
             >
                 <div
-                    className="rounded-full flex items-center justify-center"
                     style={{
-                        width: '48px',
-                        height: '48px',
+                        position: 'absolute',
+                        left: '-15px',
+                        top: '50%',
+                        transform: 'translateY(-50%)',
+                        width: '40px',
+                        height: '40px',
+                        borderRadius: '50%',
                         backgroundColor: '#BF3154',
-                        boxShadow: '0 2px 0 0 #9C2F4B',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        zIndex: 1,
+                        background: 'transparent url("/images/iconTeacher.svg") no-repeat center',
+                        backgroundSize: '100%',
                     }}
-                >
-                    <img
-                        src="/images/iconTeacher.svg"
-                        alt="Ícone Professor"
-                        style={{
-                            width: '40.316px',
-                            height: '40.316px',
-                        }}
-                    />
-                </div>
-                <span>PARA O PROFESSOR</span>
+                />
+                PARA O PROFESSOR
             </button>
 
             {isOpen && (
