@@ -10,6 +10,7 @@ import { UserAnswers } from '../types/questions';
 import { loadAnswers, saveAnswers } from '../utils/storage';
 import Pagination from './Pagination';
 import TrilhaTexto from './TrilhaTexto';
+import CaixaTexto from './CaixaTexto';
 
 function Book() {
   const [userAnswers, setUserAnswers] = useState<UserAnswers>({});
@@ -253,8 +254,38 @@ function Book() {
                   foi publicada.
                 </p>
                 <Pagination currentPage={6} />
+                <div className="my-6">
+                  <TeacherButton
+                    content={
+                      <>
+                        <p className="mb-3">
+                          EF69LP03, EF69LP16, EF69LP17, EF06LP01, EF67LP06, EF67LP07. Incentive a leitura atenta da notícia e oriente os alunos
+                          a localizar no texto os elementos da estrutura do gênero (título, linha-fina, lide e corpo), além de observar o uso da terceira
+                          pessoa e identificar as informações mais importantes. Retome o conteúdo trabalhado nas páginas anteriores e proponha uma conversa inicial: O que foi noticiado? Como os dados estão organizados? Que recursos a autora usou para tornar
+                          a notícia informativa e interessante?
+                        </p>
+                      </>
+                    }
+
+                  />
+                </div>
                 <TrilhaTexto />
-                
+                <p className="mb-4 indent-6">
+                  Agora que você já explorou as principais características da notícia, chegou o momento
+                  de ler um exemplo real. Fique atento à linguagem usada, à estrutura do texto e às escolhas
+                  da autora.
+                </p>
+                <p className="mb-4 indent-6">
+                  <strong>Texto I</strong>
+                </p>
+                <CaixaTexto title='China inaugura primeira loja que une venda, 
+                serviço e peças para robôs humanoides'>
+                  <p className="mb-4 indent-6">
+                    <strong>Robot Mall tem mais de 100 tipos de robôs de mais de
+                      40 marcas chinesas, como a Ubtech Robotics e a Unitree Robotics</strong>
+                  </p>
+                </CaixaTexto>
+
               </>
             }
           />
