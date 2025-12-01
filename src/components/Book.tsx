@@ -819,6 +819,75 @@ function Book() {
                 />
                 <Pagination currentPage={12} />
                 <ProducaoTexto />
+                <Pagination currentPage={13} />
+                {/* Conteúdo do botão do professor */}
+                <div className="my-6">
+                  <TeacherButton
+                    content={
+                      <>
+                        <p className="mb-3">
+                          EF69LP16, EF69LP17, EF69LP19, EF06LP01, EF67LP03. Nesta seção, os alunos ampliam sua compreensão sobre o gênero notícia ao explorar como ele é adaptado para veículos audiovisuais, como a televisão. O objetivo é reconhecer as mudanças que ocorrem no texto quando ele é planejado para ser falado e assistido, e não apenas lido.
+                        </p>
+                        <p className="mb-3">
+                          EF69LP16, EF69LP17, EF69LP19, EF06LP01, EF67LP03. Apresente a adaptação da notícia para o telejornal, destacando
+                          elementos como entonação, uso de linguagem mais simples, comentários expressivos e sequenciamento mais natural. Oriente os alunos a ler o texto em voz alta para que percebam as marcas de oralidade e a maneira como os temas
+                          discutidos anteriormente são apresentados nesse formato. As atividades propostas permitem identificar informações principais (como em uma notícia convencional); reconhecer marcas da linguagem oral e recursos do suporte audiovisual; comparar a estrutura da notícia falada com a da notícia escrita; e refletir sobre os efeitos de sentido criados por
+                          cada forma de apresentação.
+                        </p>
+                      </>
+                    }
+                  />
+                </div>
+                <h4>Quando a notícia vai para a TV</h4>
+                <p className="mb-4 indent-6">A notícia é um texto que informa um fato, com estrutura organizada e linguagem objetiva. Essa estrutura geralmente segue o modelo de pirâmide invertida: primeiro aparecem as informações mais importantes e, depois, os detalhes no corpo da notícia.
+                </p>
+                <p className="mb-4 indent-6">Mas, quando a notícia é adaptada para outras mídias, como a televisão, o rádio ou os <em>podcasts</em>, alguns elementos mudam.
+                </p>
+                <ul className="list-disc marker:text-[#BF3154] ml-6">
+                  <li>O título e o lide são falados por quem apresenta a notícia.  </li>
+                  <li>O tom oral e o ritmo das frases marcam a narração, com pausas naturais e repetições.  </li>
+                  <li>O corpo da notícia e seu desfecho são frequentemente desenvolvidos de forma multimodal, incorporando recursos linguísticos expressivos, como emoção, jogos de palavras e comentários de efeito, característicos desse tipo de cobertura, e elementos visuais e audiovisuais, como imagens, vídeos do ocorrido ou do local dos fatos, gráficos, infográficos, ilustrações, entre outros.
+                  </li>
+
+                </ul>
+                <TrilhaTexto />
+                <p className="mb-4 indent-6">
+                  Leia, a seguir, a transcrição de duas notícias exibidas em telejornais. Atente à escolha das palavras e às diferenças desse formato em relação às notícias lidas anteriormente.
+                </p>
+                <p className="mb-4 indent-6"><strong>Texto III</strong></p>
+                <CaixaTexto title=''>
+                  <p className="mb-4 indent-6">
+                  Em Pequim, robôs humanoides disputam um campeonato nada convencional. Futebol, boxe, atletismo… Em vez de atletas de carne e osso, quem brigou foram as máquinas com cara e corpo de gente. Pequim sediou a Olimpíada dos Robôs Humanoides. Na cerimônia de abertura, breakdance, artes marciais e música ao vivo. Mas, na hora da competição, a coisa era séria. Na partida de futebol, teve goleada e comemoração exagerada, com direito a queda dramática que precisou de socorro humano para sair de campo. O evento testa inteligência artificial, coordenação motora e resistência das máquinas, que ainda tropeçam, mas já dão um show. Engenheiros aproveitaram cada segundo para anotar as categorias e preparar os robôs para a próxima edição do campeonato.
+                  </p>
+                </CaixaTexto>
+                <p
+                  className="mt-2 mb-6"
+                  style={{
+                    fontFamily: 'Ubuntu, sans-serif',
+                    color: '#000000',
+                    fontSize: '10px',
+                  }}
+                >
+                  OLIMPÍADAS de robôs humanoides na China. Publicado pelo canal Band Jornalismo. 1 vídeo (1 min 05 s). Disponível em:  <a href="https://www.youtube.com/shorts/UHpLpQPrkrw" target="_blank" rel="noopener noreferrer">https://www.youtube.com/shorts/UHpLpQPrkrw</a>. Acesso em: 24 set. 2025.
+                </p>
+                <p className="mb-4 indent-6"><strong>Texto IV</strong></p>
+                <CaixaTexto title=''>
+                  <p className="mb-4 indent-6">
+                  Vou trazer uma notícia agora que envolve tecnologia. Foi realizada a primeira edição dos Jogos Mundiais dos Robôs. Pois é, o evento durou 4 dias e atraiu mais de 280 equipes de 16 países diferentes. Os robôs, que têm forma de humanos, como a gente está vendo, correram, alguns jogaram futebol e outros participaram de competições com obstáculos. Olha só os jogadores aí. Todos eles ali disputando a bola. Realmente chama muita atenção. Esse evento foi realizado na China. E tem um detalhe, foi a primeira edição, mas já tem data marcada para a segunda edição, que será em 2026.
+                  </p>
+                </CaixaTexto>
+                <p
+                  className="mt-2 mb-6"
+                  style={{
+                    fontFamily: 'Ubuntu, sans-serif',
+                    color: '#000000',
+                    fontSize: '10px',
+                  }}
+                >
+                  EM ‘OLIMPÍADAS de robôs’, máquinas apostam corrida e jogam futebol. Publicado pelo canal SBT News. Disponível em:  <a href="https://www.youtube.com/watch?v=FJgXK06RHUY" target="_blank" rel="noopener noreferrer">https://www.youtube.com/watch?v=FJgXK06RHUY</a>. Acesso em: 18 ago. 2025.
+                </p>
+                <Pagination currentPage={14} />
+
               </>
             }
           />
