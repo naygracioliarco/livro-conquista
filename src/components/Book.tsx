@@ -307,8 +307,8 @@ function Book() {
                     10/08/2025
                   </p>
                   <p className="mb-4 indent-6">
-                    Se você está em busca de um robô humanoide para chamar de seu, a China pode ser o lugar
-                    ideal para sua compra. Na última sexta-feira (8), Pequim abriu as portas do Robot Mall, considerado a primeira loja de robôs inteligentes humanoides 4S do mundo.
+                    Se você está em busca de um <span className="bg-[#fff225] px-1">robô humanoide</span> para chamar de seu, a China pode ser o lugar
+                    ideal para sua compra. Na última sexta-feira (8), Pequim abriu as portas do <span className="bg-[#fff225] px-1">Robot Mall</span>, considerado a primeira loja de robôs inteligentes humanoides 4S do mundo.
                   </p>
                   <p className="mb-4 indent-6">
                     O modelo “4S” significa que eles oferecem vendas, peças de reposição, manutenção e pesquisas —
@@ -318,7 +318,7 @@ function Book() {
                     Segundo Wang Yifan, diretor do Robot Mall, a instalação de quatro andares é a primeira loja
                     desse tipo na China, embora outras cidades também estejam construindo modelos como esse,
                     informou a  agência de notícias AP. O Robot Mall tem mais de 100 tipos de robôs de mais de
-                    40 marcas chinesas, como a Ubtech Robotics e a Unitree Robotics, de acordo com a Reuters.
+                    40 marcas chinesas, como a Ubtech Robotics e a Unitree Robotics, de acordo com a <span className="bg-[#fff225] px-1">Reuters</span>.
                   </p>
                   <p className="mb-4 indent-6">
                     “Se os robôs vão entrar em milhares de lares, depender apenas
@@ -396,10 +396,10 @@ function Book() {
                             return question.statements.map((stmt) => {
                               // Se tiver correção, mostra V/F primeiro e depois a correção. Se não, mostra apenas V ou F
                               const correctAnswerText = stmt.correctAnswer ? 'Verdadeiro (V)' : 'Falso (F)';
-                              const answerText = stmt.correction 
+                              const answerText = stmt.correction
                                 ? `${correctAnswerText}. ${stmt.correction}`
                                 : correctAnswerText;
-                              
+
                               return (
                                 <p key={stmt.letter} className="mb-3">
                                   {question.number}. {stmt.letter}):{' '}
@@ -407,6 +407,20 @@ function Book() {
                                 </p>
                               );
                             });
+                          }
+                          return null;
+                        })()}
+                        {(() => {
+                          const question = chapterQuestions.chapter1.find(q => q.id === 'ch1_q3');
+                          if (question && question.type === 'alternative' && question.options) {
+                            const correctOption = question.options[question.correctAnswer];
+                            const correctLetter = String.fromCharCode(97 + question.correctAnswer); // a, b, c, d...
+                            return (
+                              <p className="mb-3">
+                                {question.number}. {correctLetter}):{' '}
+                                <span dangerouslySetInnerHTML={{ __html: correctOption || '' }} />
+                              </p>
+                            );
                           }
                           return null;
                         })()}
@@ -440,7 +454,94 @@ function Book() {
                   onAnswerChange={handleAnswerChange}
                   showResults={showTeacherView}
                 />
+                <Pagination currentPage={8} />
+                {/* Conteúdo do botão do professor */}
+                <div className="my-6">
+                  <TeacherButton
+                    content={
+                      <>
+                        <p className="mb-3">
+                          Respostas:
+                        </p>
+                        {(() => {
+                          const question = chapterQuestions.chapter1.find(q => q.id === 'ch1_q4');
+                          if (question && question.type === 'text-input' && question.subQuestions) {
+                            return question.subQuestions.map((subQ) => (
+                              <p key={subQ.letter} className="mb-3">
+                                {question.number}. {subQ.letter}):{' '}
+                                <span dangerouslySetInnerHTML={{ __html: subQ.correctAnswer || '' }} />
+                              </p>
+                            ));
+                          }
+                          return null;
+                        })()}
+                        <p>Na trilha do texto: EF69LP03, EF69LP16, EF69LP17, EF06LP01, EF67LP03, EF67LP06, EF67LP37. Estimule uma leitura comparativa desde
+                          o início do trabalho com o Texto II, mesmo que as atividades de contraste direto apareçam mais adiante no capítulo.
+                          A sequência de atividades propostas após a leitura do segundo texto conduz os alunos à observação da estrutura, das
+                          escolhas de vocabulário e do ponto de vista da autora, culminando em uma comparação mais sistematizada entre os dois textos. O quadro comparativo contribui para tornar visível a variação na
+                          organização dos parágrafos, nos temas priorizados e nos efeitos de sentido
+                          produzidos por cada texto. Na atividade final, os alunos devem relacionar
+                          essas diferenças aos perfis editoriais dos portais, o que promove a formação
+                          de leitores mais críticos e conscientes da influência dos meios de comunicação na construção de notícias.
+                        </p>
+                      </>
 
+                    }
+                  />
+                </div>
+                {/* Questão intercalada no conteúdo */}
+                <QuestionRenderer
+                  question={chapterQuestions.chapter1[3]}
+                  userAnswers={userAnswers}
+                  onAnswerChange={handleAnswerChange}
+                  showResults={showTeacherView}
+                />
+                <TrilhaTexto />
+                <p className="mb-4 indent-6">
+                  Agora, leia outra notícia que trata da inauguração do Robot Mall. Que aspectos do mesmo fato são destacados? O que muda no vocabulário? E na estrutura?
+                </p>
+                <p className="mb-4 indent-6">
+                  <strong>Texto II</strong>
+                </p>
+                <CaixaTexto title='China inaugura o primeiro “shopping de robôs” do mundo'>
+                  <p className="mb-4 indent-6">
+                    <strong>País asiático se coloca como fabricante líder e busca normalizar a interação entre
+                      humanos e humanoides na vida diária</strong>
+                  </p>
+                  <p
+                    className="mb-2 indent-6"
+                    style={{
+                      fontSize: '10px',
+                      fontStyle: 'normal',
+                      fontWeight: 400,
+                      lineHeight: 'normal',
+                    }}
+                  >
+                    Por Bruna Barone, editado por Bruno Capozzi
+                  </p>
+                  <p
+                    className="mb-2 indent-6"
+                    style={{
+                      fontSize: '10px',
+                      fontStyle: 'normal',
+                      fontWeight: 400,
+                      lineHeight: 'normal',
+                    }}
+                  >
+                    11/08/2025
+                  </p>
+                  <p className="mb-4 indent-6">
+                    Um prédio de quatro andares no bairro E-Town, em Pequim, na China, é a sede do primeiro  “shopping de robôs” do mundo. A loja foi inspirada no modelo 4S usado em concessionárias de
+                    veículos, com peças de reposição e diversos serviços oferecidos por duzentas marcas, incluindo as chinesas Unitree Robotics e UBTech Robotics, segundo a Reuters.
+                  </p>
+                  <p className="mb-4 indent-6">
+                    A ideia do “Robot Mall” é aproximar o público geral do mundo da robótica. Pequenos robôs podem ser encontrados por 2.000 yuans (R$ 1,5 mil pela cotação atual), por exemplo. Há também cães robóticos, robôs jogadores de xadrez e máquinas dançantes à disposição.
+                  </p>
+                  <p className="mb-4 indent-6">
+                    Um dos grandes destaques é o  humanoide  do cientista  Albert Einstein  em tamanho real, vendido por 670.000 yuans (R$ 507 mil). Outras figuras históricas incluem o imperador Qin Shi
+                    Huang, o físico Isaac Newton e o renomado poeta chinês Li Bai.
+                  </p>
+                </CaixaTexto>
               </>
             }
           />
