@@ -45,7 +45,8 @@ function QuestionMultipleChoice({
               disabled={showResults}
             />
             <span className="text-slate-700">
-              <strong>{option.toUpperCase()})</strong> {question.options[option]}
+              <span style={{ color: '#00776E', fontWeight: 'bold' }}>{option.toUpperCase()}) </span>
+              {question.options[option]}
             </span>
             {showResults && selectedAnswer === option && (
               <span className={`ml-auto text-sm font-semibold ${

@@ -43,12 +43,45 @@ export const chapterQuestions: Record<string, Question[]> = {
     {
       id: 'ch1_q2',
       type: 'true-false',
-      question: 'A escrita foi inventada simultaneamente em todas as regiões do mundo.',
-      correctAnswer: false,
+      number: 2,
+      question: 'Leia as afirmações abaixo e identifique se são verdadeiras ou falsas. Depois, corrija as afirmações falsas.',
+      hasCorrectionBox: true,
+      correctionPlaceholder: 'Corrija as afirmações falsas aqui...',
+      statements: [
+        {
+          letter: 'a',
+          statement: 'A linha-fina é usada para expressar a opinião da autora sobre o tema da notícia.',
+          correctAnswer: false,
+          correction: 'A linha-fina não expressa opinião; ela antecipa ou destaca uma informação relevante, complementando o título.',
+        },
+        {
+          letter: 'b',
+          statement: 'A autora da notícia usa terceira pessoa para contar o fato.',
+          correctAnswer: true,
+        },
+        {
+          letter: 'c',
+          statement: 'A notícia apresenta falas do diretor do Robot Mall como fonte.',
+          correctAnswer: true,
+        },
+        {
+          letter: 'd',
+          statement: 'Os verbos principais da notícia estão no tempo futuro, pois o evento ainda vai acontecer.',
+          correctAnswer: false,
+          correction: 'Os verbos estão no passado, porque o fato já aconteceu.',
+        },
+        {
+          letter: 'e',
+          statement: 'As informações mais importantes da notícia aparecem no final do texto.',
+          correctAnswer: false,
+          correction: 'As informações mais importantes aparecem no início da notícia, como é típico do gênero.',
+        },
+      ],
     },
     {
       id: 'ch1_q3',
       type: 'alternative',
+      number: 3,
       question: 'Qual foi o impacto mais significativo da invenção da escrita?',
       options: [
         'Permitiu a preservação e compartilhamento de informações através do tempo',

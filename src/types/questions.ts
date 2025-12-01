@@ -16,7 +16,16 @@ export interface TrueFalseQuestion {
   id: string;
   type: 'true-false';
   question: string;
-  correctAnswer: boolean;
+  correctAnswer?: boolean; // Para compatibilidade com formato antigo (opcional quando há statements)
+  number?: number; // Número da questão (ex: 2, 3, 4...)
+  statements?: Array<{
+    letter: string; // Letra da afirmação (ex: 'a', 'b', 'c')
+    statement: string; // Texto da afirmação
+    correctAnswer: boolean; // Se a afirmação é verdadeira ou falsa
+    correction?: string; // Correção para afirmações falsas (opcional)
+  }>;
+  hasCorrectionBox?: boolean; // Se deve mostrar campo de texto para correções
+  correctionPlaceholder?: string; // Placeholder para o campo de correção
 }
 
 export interface AlternativeQuestion {
@@ -25,6 +34,7 @@ export interface AlternativeQuestion {
   question: string;
   options: string[];
   correctAnswer: number;
+  number?: number; // Número da questão (ex: 3, 4, 5...)
 }
 
 export interface TextInputQuestion {

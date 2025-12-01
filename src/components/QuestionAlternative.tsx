@@ -17,8 +17,13 @@ function QuestionAlternative({
   const isCorrect = selectedAnswer === question.correctAnswer;
 
   return (
-    <div className="mb-6 p-4 bg-emerald-50 rounded-lg border border-emerald-200">
-      <p className="font-semibold text-slate-800 mb-4">{question.question}</p>
+    <div className="mb-6 p-4 rounded-lg">
+      <p className="mb-4">
+        {question.number !== undefined && (
+          <span style={{ color: '#00776E', fontWeight: 'bold' }}>{question.number}. </span>
+        )}
+        <span style={{ color: 'black' }}>{question.question}</span>
+      </p>
       <div className="space-y-3">
         {question.options.map((option, index) => (
           <label
@@ -44,7 +49,12 @@ function QuestionAlternative({
               className="w-4 h-4"
               disabled={showResults}
             />
-            <span className="text-slate-700">{option}</span>
+            <span className="text-slate-700">
+              <span style={{ color: '#00776E', fontWeight: 'bold' }}>
+                {String.fromCharCode(97 + index)}){' '}
+              </span>
+              {option}
+            </span>
             {showResults && selectedAnswer === index && (
               <span className={`ml-auto text-sm font-semibold ${
                 isCorrect ? 'text-green-600' : 'text-red-600'

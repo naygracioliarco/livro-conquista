@@ -390,6 +390,26 @@ function Book() {
                           }
                           return null;
                         })()}
+                        {(() => {
+                          const question = chapterQuestions.chapter1.find(q => q.id === 'ch1_q2');
+                          if (question && question.type === 'true-false' && question.statements) {
+                            return question.statements.map((stmt) => {
+                              // Se tiver correção, mostra V/F primeiro e depois a correção. Se não, mostra apenas V ou F
+                              const correctAnswerText = stmt.correctAnswer ? 'Verdadeiro (V)' : 'Falso (F)';
+                              const answerText = stmt.correction 
+                                ? `${correctAnswerText}. ${stmt.correction}`
+                                : correctAnswerText;
+                              
+                              return (
+                                <p key={stmt.letter} className="mb-3">
+                                  {question.number}. {stmt.letter}):{' '}
+                                  <span dangerouslySetInnerHTML={{ __html: answerText }} />
+                                </p>
+                              );
+                            });
+                          }
+                          return null;
+                        })()}
                       </>
                     }
 
@@ -402,6 +422,20 @@ function Book() {
                 {/* Questão intercalada no conteúdo */}
                 <QuestionRenderer
                   question={chapterQuestions.chapter1[0]}
+                  userAnswers={userAnswers}
+                  onAnswerChange={handleAnswerChange}
+                  showResults={showTeacherView}
+                />
+                {/* Questão intercalada no conteúdo */}
+                <QuestionRenderer
+                  question={chapterQuestions.chapter1[1]}
+                  userAnswers={userAnswers}
+                  onAnswerChange={handleAnswerChange}
+                  showResults={showTeacherView}
+                />
+                {/* Questão intercalada no conteúdo */}
+                <QuestionRenderer
+                  question={chapterQuestions.chapter1[2]}
                   userAnswers={userAnswers}
                   onAnswerChange={handleAnswerChange}
                   showResults={showTeacherView}
