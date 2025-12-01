@@ -10,6 +10,7 @@ function CaixaTexto({ title, children }: CaixaTextoProps) {
     <div
       style={{
         border: '3px solid #0E3B5D',
+        position: "relative",
       }}
       className="p-4 my-4"
     >

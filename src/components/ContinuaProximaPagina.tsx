@@ -1,0 +1,15 @@
+function ContinuaProximaPagina() {
+  return (
+    <div className="flex items-center justify-center gap-2">
+      <div
+        className="absolute left-1/2 -translate-x-1/2 bg-[#0E3B5D] px-4 py-2 
+                   text-white text-sm font-semibold -bottom-3"
+      >
+        continua na próxima página
+      </div>
+    </div>
+  );
+}
+
+export default ContinuaProximaPagina;
+

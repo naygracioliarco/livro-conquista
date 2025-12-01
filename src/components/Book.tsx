@@ -11,6 +11,7 @@ import Pagination from './Pagination';
 import TrilhaTexto from './TrilhaTexto';
 import CaixaTexto from './CaixaTexto';
 import QuestionRenderer from './QuestionRenderer';
+import ContinuaProximaPagina from './ContinuaProximaPagina';
 
 function Book() {
   const [userAnswers, setUserAnswers] = useState<UserAnswers>({});
@@ -335,8 +336,8 @@ function Book() {
                     <img src="/images/roboHumanoide.png" className="max-w-[50%]" />
                     <p className="text-[10px] text-slate-600 mt-2">ADEK BERRY/AFP
                     </p>
-                    <div className="border-l-[2px] border-[#00B99D] pl-1 mb-1">
-                      <p className="text-[15px]">Robô humanoide parecido com
+                    <div className="border-l-[2px] border-[#00B99D] pl-2 mb-1">
+                      <p className="text-[10px]">Robô humanoide parecido com
                         Albert Einstein no Robot Mall.
                       </p>
                     </div>
@@ -541,6 +542,7 @@ function Book() {
                     Um dos grandes destaques é o  humanoide  do cientista  Albert Einstein  em tamanho real, vendido por 670.000 yuans (R$ 507 mil). Outras figuras históricas incluem o imperador Qin Shi
                     Huang, o físico Isaac Newton e o renomado poeta chinês Li Bai.
                   </p>
+                  <ContinuaProximaPagina />
                 </CaixaTexto>
               </>
             }
