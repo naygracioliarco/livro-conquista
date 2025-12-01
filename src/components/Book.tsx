@@ -10,6 +10,8 @@ import { UserAnswers } from '../types/questions';
 import { loadAnswers, saveAnswers } from '../utils/storage';
 import Pagination from './Pagination';
 import TrilhaTexto from './TrilhaTexto';
+import MinhaVersao from './MinhaVersao';
+import ProducaoTexto from './ProducaoTexto';
 import CaixaTexto from './CaixaTexto';
 import QuestionRenderer from './QuestionRenderer';
 import ContinuaProximaPagina from './ContinuaProximaPagina';
@@ -357,7 +359,10 @@ function Book() {
                           if (question && question.type === 'text-input' && question.subQuestions) {
                             return question.subQuestions.map((subQ) => (
                               <p key={subQ.letter} className="mb-3">
-                                {question.number}. {subQ.letter}):{' '}
+                                {question.number !== undefined && (
+                                  <span style={{ color: '#00776E', fontWeight: 'bold' }}>{question.number}. </span>
+                                )}
+                                <span style={{ color: '#00776E', fontWeight: 'bold' }}>{subQ.letter}) </span>
                                 <span dangerouslySetInnerHTML={{ __html: subQ.correctAnswer || '' }} />
                               </p>
                             ));
@@ -376,7 +381,10 @@ function Book() {
 
                               return (
                                 <p key={stmt.letter} className="mb-3">
-                                  {question.number}. {stmt.letter}):{' '}
+                                  {question.number !== undefined && (
+                                    <span style={{ color: '#00776E', fontWeight: 'bold' }}>{question.number}. </span>
+                                  )}
+                                  <span style={{ color: '#00776E', fontWeight: 'bold' }}>{stmt.letter}) </span>
                                   <span dangerouslySetInnerHTML={{ __html: answerText }} />
                                 </p>
                               );
@@ -391,7 +399,10 @@ function Book() {
                             const correctLetter = String.fromCharCode(97 + question.correctAnswer); // a, b, c, d...
                             return (
                               <p className="mb-3">
-                                {question.number}. {correctLetter}):{' '}
+                                {question.number !== undefined && (
+                                  <span style={{ color: '#00776E', fontWeight: 'bold' }}>{question.number}. </span>
+                                )}
+                                <span style={{ color: '#00776E', fontWeight: 'bold' }}>{correctLetter}) </span>
                                 <span dangerouslySetInnerHTML={{ __html: correctOption || '' }} />
                               </p>
                             );
@@ -442,7 +453,10 @@ function Book() {
                           if (question && question.type === 'text-input' && question.subQuestions) {
                             return question.subQuestions.map((subQ) => (
                               <p key={subQ.letter} className="mb-3">
-                                {question.number}. {subQ.letter}):{' '}
+                                {question.number !== undefined && (
+                                  <span style={{ color: '#00776E', fontWeight: 'bold' }}>{question.number}. </span>
+                                )}
+                                <span style={{ color: '#00776E', fontWeight: 'bold' }}>{subQ.letter}) </span>
                                 <span dangerouslySetInnerHTML={{ __html: subQ.correctAnswer || '' }} />
                               </p>
                             ));
@@ -538,7 +552,10 @@ function Book() {
 
                               return (
                                 <p key={stmt.letter} className="mb-3">
-                                  {question.number}. {stmt.letter}):{' '}
+                                  {question.number !== undefined && (
+                                    <span style={{ color: '#00776E', fontWeight: 'bold' }}>{question.number}. </span>
+                                  )}
+                                  <span style={{ color: '#00776E', fontWeight: 'bold' }}>{stmt.letter}) </span>
                                   <span dangerouslySetInnerHTML={{ __html: answerText }} />
                                 </p>
                               );
@@ -551,7 +568,10 @@ function Book() {
                           if (question && question.type === 'text-input' && question.subQuestions) {
                             return question.subQuestions.map((subQ) => (
                               <p key={subQ.letter} className="mb-3">
-                                {question.number}. {subQ.letter}):{' '}
+                                {question.number !== undefined && (
+                                  <span style={{ color: '#00776E', fontWeight: 'bold' }}>{question.number}. </span>
+                                )}
+                                <span style={{ color: '#00776E', fontWeight: 'bold' }}>{subQ.letter}) </span>
                                 <span dangerouslySetInnerHTML={{ __html: subQ.correctAnswer || '' }} />
                               </p>
                             ));
@@ -610,58 +630,6 @@ function Book() {
                   showResults={showTeacherView}
                 />
                 <Pagination currentPage={10} />
-                {/* Conteúdo do botão do professor */}
-                <div className="my-6">
-                  <TeacherButton
-                    content={
-                      <>
-                        <p className="mb-3">
-                          Respostas:
-                        </p>
-                        {(() => {
-                          const question = chapterQuestions.chapter1.find(q => q.id === 'ch1_q5');
-                          if (question && question.type === 'true-false' && question.statements) {
-                            return question.statements.map((stmt) => {
-                              // Se tiver correção, mostra V/F primeiro e depois a correção. Se não, mostra apenas V ou F
-                              const correctAnswerText = stmt.correctAnswer ? 'Verdadeiro (V)' : 'Falso (F)';
-                              const answerText = stmt.correction
-                                ? `${correctAnswerText}. ${stmt.correction}`
-                                : correctAnswerText;
-
-                              return (
-                                <p key={stmt.letter} className="mb-3">
-                                  {question.number}. {stmt.letter}):{' '}
-                                  <span dangerouslySetInnerHTML={{ __html: answerText }} />
-                                </p>
-                              );
-                            });
-                          }
-                          return null;
-                        })()}
-                        {(() => {
-                          const question = chapterQuestions.chapter1.find(q => q.id === 'ch1_q6');
-                          if (question && question.type === 'text-input' && question.subQuestions) {
-                            return question.subQuestions.map((subQ) => (
-                              <p key={subQ.letter} className="mb-3">
-                                {question.number}. {subQ.letter}):{' '}
-                                <span dangerouslySetInnerHTML={{ __html: subQ.correctAnswer || '' }} />
-                              </p>
-                            ));
-                          }
-                          return null;
-                        })()}
-                      </>
-                    }
-
-                  />
-                </div>
-                {/* Questão intercalada no conteúdo - Tabela comparativa */}
-                <QuestionRenderer
-                  question={chapterQuestions.chapter1[6]}
-                  userAnswers={userAnswers}
-                  onAnswerChange={handleAnswerChange}
-                  showResults={showTeacherView}
-                />
                 {/* Conteúdo do botão do professor - Tabela comparativa */}
                 <div className="my-6">
                   <TeacherButton
@@ -678,14 +646,19 @@ function Book() {
                                 {/* Respostas da tabela */}
                                 {question.correctAnswer && (
                                   <>
-                                    <p className="mb-2 font-semibold">Tabela:</p>
+                                    <p className="mb-2 font-semibold">
+                                      {question.number !== undefined && (
+                                        <span style={{ color: '#00776E', fontWeight: 'bold' }}>{question.number}. </span>
+                                      )}
+                                      Tabela:
+                                    </p>
                                     {question.rows.map((row) => {
                                       const correctAnswers = question.correctAnswer!;
                                       const col1FieldId = `${question.id}_${row.id}_col1`;
                                       const col2FieldId = `${question.id}_${row.id}_col2`;
                                       const answer1 = correctAnswers[col1FieldId] || '';
                                       const answer2 = correctAnswers[col2FieldId] || '';
-                                      
+
                                       return (
                                         <div key={row.id} className="mb-4">
                                           <p className="mb-2 font-semibold" style={{ color: '#0E3B5D' }}>
@@ -719,20 +692,94 @@ function Book() {
                           }
                           return null;
                         })()}
+                        {(() => {
+                          const question = chapterQuestions.chapter1.find(q => q.id === 'ch1_q8');
+                          if (question && question.type === 'text-input') {
+                            // Se tiver subquestões, renderiza cada uma
+                            if (question.subQuestions && question.subQuestions.length > 0) {
+                              return question.subQuestions.map((subQ) => (
+                                <p key={subQ.letter} className="mb-3">
+                                  {question.number !== undefined && (
+                                    <span style={{ color: '#00776E', fontWeight: 'bold' }}>{question.number}. </span>
+                                  )}
+                                  <span style={{ color: '#00776E', fontWeight: 'bold' }}>{subQ.letter}) </span>
+                                  <span dangerouslySetInnerHTML={{ __html: subQ.correctAnswer || '' }} />
+                                </p>
+                              ));
+                            }
+                            // Se não tiver subquestões, renderiza a resposta direta
+                            if (question.correctAnswer) {
+                              return (
+                                <p className="mb-3">
+                                  {question.number !== undefined && (
+                                    <span style={{ color: '#00776E', fontWeight: 'bold' }}>{question.number}. </span>
+                                  )}
+                                  <span dangerouslySetInnerHTML={{ __html: question.correctAnswer }} />
+                                </p>
+                              );
+                            }
+                          }
+                          return null;
+                        })()}
                       </>
                     }
                   />
                 </div>
+                {/* Questão intercalada no conteúdo - Tabela comparativa */}
+                <QuestionRenderer
+                  question={chapterQuestions.chapter1[6]}
+                  userAnswers={userAnswers}
+                  onAnswerChange={handleAnswerChange}
+                  showResults={showTeacherView}
+                />
+                {/* Questão intercalada no conteúdo */}
+                <QuestionRenderer
+                  question={chapterQuestions.chapter1[7]}
+                  userAnswers={userAnswers}
+                  onAnswerChange={handleAnswerChange}
+                  showResults={showTeacherView}
+                />
+                <Pagination currentPage={11} />
+                {/* Conteúdo do botão do professor */}
+                <div className="my-6">
+                  <TeacherButton
+                    content={
+                      <>
+                        <p className="mb-3">
+                          EF69LP06, EF69LP07, EF69LP08, EF67LP09, EF67LP10, EF67LP32, EF67LP33, EF06LP05, EF06LP06, EF06LP11, EF06LP12,
+                          EF67LP36. Antes da produção, retome com a turma os elementos essenciais da estrutura da notícia: título, linha-fina, lide,
+                          corpo e fechamento. Enfatize que o foco da atividade não é apenas repetir informações, mas selecionar, organizar e redigir
+                          uma notícia com um ponto de vista consciente e intencional, respeitando as características do gênero. A proposta favorece a construção da autonomia escritora e o desenvolvimento da habilidade de tomar decisões comunicativas, competências centrais para a formação de leitores e produtores conscientes de textos.
 
-
-
-
-
-
-
-
-
-
+                        </p>
+                      </>
+                    }
+                  />
+                </div>
+                <MinhaVersao />
+                <p className="mb-4 indent-6">
+                  Você leu duas notícias diferentes sobre a inauguração do Robot Mall, na China. Agora, sua tarefa será produzir uma nova versão dessa notícia, com base nas escolhas que considerar mais importantes, interessantes ou relevantes para o leitor. Para isso, utilize os dados principais dos dois textos, as observações registradas no quadro comparativo e as análises realizadas ao longo do capítulo.
+                </p>
+                <p className="mb-4 indent-6"><strong>Preparação</strong></p>
+                <p className="mb-4 indent-6">Sua notícia deve conter os elementos listados a seguir.
+                </p>
+                <ul className="list-disc marker:text-[#BF3154] ml-6">
+                  <li><strong>Título </strong>: chamativo e informativo, que antecipe o assunto e indique o enfoque escolhido
+                    para o texto.  </li>
+                  <li><strong>Linha-fina </strong>: complementar ao título, com um dado ou uma ideia que aprofunde o tema.  </li>
+                  <li><strong>Lide </strong>: com as informações essenciais (o que, quem, quando, onde, como e por quê).  </li>
+                  <li><strong>Corpo da notícia </strong>: detalhado, com informações adicionais, exemplos, citações (caso
+                    deseje utilizá-las), contexto e possíveis desdobramentos.  </li>
+                  <li><strong>Fechamento </strong>: conclusivo, com uma informação final que dê sentido de encerramento.  </li>
+                </ul>
+                <p className="mb-4 indent-6"><strong>Produção</strong></p>
+                <p className="mb-4 indent-6">Durante a produção, refita sobre o tipo de informação que você vai destacar e que
+                  elementos e dados das duas notícias você considera essenciais e precisa manter em
+                  sua produção.
+                </p>
+                <p className="mb-4 indent-6"><strong>Avaliação</strong></p>
+                <p className="mb-4 indent-6">Antes de finalizar a sua versão, confira o <em>checklist</em> a seguir para aprimorá-la.
+                </p>
                 {/* Tabela de Critérios de Avaliação */}
                 <CriteriosAvaliacao
                   criterios={[
@@ -770,6 +817,8 @@ function Book() {
                   userAnswers={userAnswers}
                   onAnswerChange={handleAnswerChange}
                 />
+                <Pagination currentPage={12} />
+                <ProducaoTexto />
               </>
             }
           />

@@ -258,9 +258,10 @@ export const chapterQuestions: Record<string, Question[]> = {
     {
       id: 'ch1_q8',
       type: 'text-input',
-      question: '1. Responda a cada pergunt a informação aparece.',
+      number: 4,
+      question: 'Pesquise os portais onde cada notícia foi publicada: a <em>Época Negócios e o Olhar Digital</em>. Como as escolhas feitas pelas autoras refletem a identidade de cada um deles?',
       placeholder: 'Digite sua resposta aqui...',
-      correctAnswer: 'Exemplo: O que aconteceu? A China inaugurou a primeira loja dedicada à venda e à manutenção de robôs humanoides. (Título)',
+      correctAnswer: 'A Época Negócios, voltada para temas de economia, inovação e modelos de negócio, estruturou a notícia com foco mais técnico, abordando o funcionamento da loja, os serviços oferecidos e a proposta do modelo 4S. Já o Olhar Digital, voltado para tecnologia e tendências de consumo, usou linguagem mais acessível e deu ênfase à experiência do público com os robôs, mostrando curiosidades, impacto social e o protagonismo da China no setor tecnológico. Essas escolhas refletem os diferentes públicos-alvo e os objetivos de cada veículo de comunicação.',
     },
   ],
   chapter2: [
