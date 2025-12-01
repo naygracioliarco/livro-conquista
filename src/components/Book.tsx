@@ -191,7 +191,7 @@ function Book() {
                 {/* Imagem */}
                 <div className="flex flex-col items-center my-6">
                   <img src="/images/noticias.png" className="max-w-full" />
-                  <p className="text-sm text-slate-600 mt-2">SachiDesigns, Mykola Syvak/stock.adobe.com
+                  <p className="text-[10px] text-slate-600 mt-2">SachiDesigns, Mykola Syvak/stock.adobe.com
                   </p>
                 </div>
                 <Pagination currentPage={5} />
@@ -309,8 +309,52 @@ function Book() {
                     Se você está em busca de um robô humanoide para chamar de seu, a China pode ser o lugar
                     ideal para sua compra. Na última sexta-feira (8), Pequim abriu as portas do Robot Mall, considerado a primeira loja de robôs inteligentes humanoides 4S do mundo.
                   </p>
+                  <p className="mb-4 indent-6">
+                    O modelo “4S” significa que eles oferecem vendas, peças de reposição, manutenção e pesquisas —
+                    ou seja, coleta e análise de feedback dos clientes, como se fosse uma concessionária de automóveis.
+                  </p>
+                  <p className="mb-4 indent-6">
+                    Segundo Wang Yifan, diretor do Robot Mall, a instalação de quatro andares é a primeira loja
+                    desse tipo na China, embora outras cidades também estejam construindo modelos como esse,
+                    informou a  agência de notícias AP. O Robot Mall tem mais de 100 tipos de robôs de mais de
+                    40 marcas chinesas, como a Ubtech Robotics e a Unitree Robotics, de acordo com a Reuters.
+                  </p>
+                  <p className="mb-4 indent-6">
+                    “Se os robôs vão entrar em milhares de lares, depender apenas
+                    de empresas de robótica não é suficiente”, disse Wang, enfatizando a necessidade de soluções personalizadas para os consumidores. Ele afirma que os preços dos robôs variam de 2.000 yuans
+                    (cerca de R$ 1.510) a vários milhões de yuans.
+                  </p>
+                  <p className="mb-4 indent-6">
+                    Entre os itens mais curiosos à venda estão cães robóticos e robôs que jogam xadrez. A loja também exibe peças de destaque,
+                    como um robô humanoide em tamanho real de Albert Einstein
+                    e um robô humanoide representando o imperador Qin Shi Huang.
+                  </p>
+                  {/* Imagem */}
+                  <div className="flex flex-col items-center my-6">
+                    <img src="/images/roboHumanoide.png" className="max-w-[50%]" />
+                    <p className="text-[10px] text-slate-600 mt-2">ADEK BERRY/AFP
+                    </p>
+                    <div className="border-l-[2px] border-[#00B99D] pl-1 mb-1">
+                      <p className="text-[15px]">Robô humanoide parecido com
+                        Albert Einstein no Robot Mall.
+                      </p>
+                    </div>
+                  </div>
+                  <p className="mb-4 indent-6">
+                    Também há robôs para preparar café e distribuir medicamentos. Clientes também poderão ser atendidos por garçons robóticos e provar pratos preparados por chefs robôs.
+                  </p>
+                  <p className="mb-4 indent-6">
+                    O espaço conta ainda com uma área de entretenimento, onde
+                    visitantes podem assistir a esportes praticados por robôs, como futebol.
+                  </p>
+                  <p className="mb-4 indent-6">
+                    Segundo AP, o objetivo da loja é ajudar empresas de robótica a comercializar o que até agora
+                    tem sido, em grande parte, um esforço focado em pesquisa.
+                  </p>
                 </CaixaTexto>
-
+                <p className="text-[10px] text-slate-600 mt-2">KAORU, Thâmara. <em>China inaugura primeira loja que une venda, serviço e peças para robôs humanoides.</em> Disponível em: <a href="https://epocanegocios.globo.com/tecnologia/noticia/2025/08/china-inaugura-primeira-loja-que-une-venda-servico-e-pecas-para-robos-humanoides.ghtml" target="_blank" rel="noopener noreferrer">https://epocanegocios.globo.com/tecnologia/noticia/2025/08/china-inaugura-primeira-loja-que-une-venda-servico-e-pecas-para-robos-humanoides.ghtml</a>
+                </p>
+                <Pagination currentPage={7} />
               </>
             }
           />

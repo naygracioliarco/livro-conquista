@@ -18,6 +18,7 @@ function Pagination({ currentPage }: PaginationProps) {
         gap: '10px',
         backgroundColor: '#F8B9CB',
         marginBottom: '40px',
+        marginTop: '40px',
         position: 'relative',
         left: '50%',
         right: '50%',

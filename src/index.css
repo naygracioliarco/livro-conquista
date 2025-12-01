@@ -29,3 +29,11 @@
   font-weight: 700;
   line-height: normal;
 }
+
+.chapter-content p, .chapter-content li {
+  color: black;
+}
+
+.texto-corrido p {
+  color: black;
+}
