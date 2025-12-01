@@ -25,7 +25,7 @@ function TeacherButton({
                     boxShadow: '0px 4px 0px #9C2F4B',
                     borderRadius: '0 30px 30px 0',
                     color: 'white',
-                    fontFamily: "'Simply Rounded', Helvetica, Arial, sans-serif",
+                    fontFamily: 'Ubuntu',
                     fontSize: '12px',
                     fontWeight: 700,
                     lineHeight: '1.4em',

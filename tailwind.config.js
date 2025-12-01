@@ -4,10 +4,11 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        'hwt-artz': ['HWT Artz', 'sans-serif'],
+        'hwtArtz': ['hwt-artz', 'sans-serif'],
         'ubuntu': ['Ubuntu', 'sans-serif'],
       },
     },
   },
   plugins: [],
 };
+

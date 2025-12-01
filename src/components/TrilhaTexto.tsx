@@ -9,7 +9,7 @@ function TrilhaTexto() {
       <h2
         style={{
           color: '#0E3B5D',
-          fontFamily: 'HWT Artz',
+          fontFamily: 'hwt-artz',
           fontSize: '26px',
           fontStyle: 'normal',
           fontWeight: 700,

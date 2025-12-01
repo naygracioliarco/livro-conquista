@@ -17,7 +17,7 @@ function CaixaTexto({ title, children }: CaixaTextoProps) {
       <h4
         style={{
           color: '#BF3154',
-          fontFamily: 'HWT Artz',
+          fontFamily: 'hwt-artz',
           fontSize: '20px',
           fontStyle: 'normal',
           fontWeight: 700,

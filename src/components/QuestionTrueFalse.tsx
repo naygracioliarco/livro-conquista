@@ -25,7 +25,7 @@ function QuestionTrueFalse({
           {question.number !== undefined && (
             <span style={{ color: '#00776E', fontWeight: 'bold' }}>{question.number}. </span>
           )}
-          <span style={{ color: 'black' }}>{question.question}</span>
+          <span style={{ color: 'black' }} dangerouslySetInnerHTML={{ __html: question.question }} />
         </p>
 
         {/* Afirmações */}
@@ -118,7 +118,7 @@ function QuestionTrueFalse({
 
   return (
     <div className="mb-6 p-4 bg-purple-50 rounded-lg border border-purple-200">
-      <p className="font-semibold text-slate-800 mb-4">{question.question}</p>
+      <p className="font-semibold text-slate-800 mb-4" dangerouslySetInnerHTML={{ __html: question.question }} />
       <div className="flex gap-4">
         {[true, false].map((value) => {
           const label = value ? 'Verdadeiro' : 'Falso';

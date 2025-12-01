@@ -24,6 +24,7 @@ function Pagination({ currentPage }: PaginationProps) {
         right: '50%',
         marginLeft: '-50vw',
         marginRight: '-50vw',
+        fontFamily: 'Ubuntu',
       }}
     >
       <span>Página - {currentPage}</span>

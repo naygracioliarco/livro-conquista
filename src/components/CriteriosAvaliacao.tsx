@@ -1,0 +1,149 @@
+import { useState } from 'react';
+import { UserAnswers } from '../types/questions';
+
+interface Criterio {
+  id: string;
+  nome: string;
+  pergunta: string;
+}
+
+interface CriteriosAvaliacaoProps {
+  title?: string;
+  criterios: Criterio[];
+  userAnswers?: UserAnswers;
+  onAnswerChange?: (criterioId: string, answer: boolean) => void;
+}
+
+function CriteriosAvaliacao({
+  title = 'CRITÉRIOS DE AVALIAÇÃO',
+  criterios,
+  userAnswers = {},
+  onAnswerChange,
+}: CriteriosAvaliacaoProps) {
+  const handleAnswerChange = (criterioId: string, answer: boolean) => {
+    if (onAnswerChange) {
+      onAnswerChange(criterioId, answer);
+    }
+  };
+
+  return (
+    <div className="my-6">
+      <table
+        className="w-full border-collapse"
+        style={{
+          border: '3px solid #0E3B5D',
+        }}
+      >
+        <thead>
+          <tr>
+            <th
+            colSpan={2}
+              className="p-3 text-left"
+              style={{
+                border: '3px solid #0E3B5D',
+                backgroundColor: 'white',
+              }}
+            ><h3
+            className="mb-4 font-bold"
+            style={{
+              color: '#BF3154',
+            }}
+          >
+            {title}
+          </h3></th>
+            
+            <th
+              className="p-3 text-center"
+              style={{
+                border: '1px solid #0E3B5D',
+                backgroundColor: 'white',
+              }}
+            >
+              <span style={{ fontSize: '24px' }}><img src="/images/iconeFeliz.png" alt="Sim" /></span>
+            </th>
+            <th
+              className="p-3 text-center"
+              style={{
+                border: '1px solid #0E3B5D',
+                backgroundColor: 'white',
+              }}
+            >
+              <span style={{ fontSize: '24px' }}><img src="/images/iconeTriste.png" alt="Não" /></span>
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          {criterios.map((criterio) => {
+            const answer = userAnswers[criterio.id] as boolean | undefined;
+            const isYes = answer === true;
+            const isNo = answer === false;
+
+            return (
+              <tr key={criterio.id}>
+                <td
+                  className="p-3 font-semibold"
+                  style={{
+                    border: '1px solid #0E3B5D',
+                    color: '#0E3B5D',
+                    backgroundColor: 'white',
+                  }}
+                >
+                  {criterio.nome}
+                </td>
+                <td
+                  className="p-3"
+                  style={{
+                    border: '1px solid #0E3B5D',
+                    color: '#0E3B5D',
+                    backgroundColor: 'white',
+                  }}
+                >
+                  {criterio.pergunta}
+                </td>
+                <td
+                  className="p-3 text-center"
+                  style={{
+                    border: '1px solid #0E3B5D',
+                    backgroundColor: 'white',
+                  }}
+                >
+                  <input
+                    type="radio"
+                    name={criterio.id}
+                    checked={isYes}
+                    onChange={() => handleAnswerChange(criterio.id, true)}
+                    className="w-4 h-4"
+                    style={{
+                      accentColor: '#0E3B5D',
+                    }}
+                  />
+                </td>
+                <td
+                  className="p-3 text-center"
+                  style={{
+                    border: '1px solid #0E3B5D',
+                    backgroundColor: 'white',
+                  }}
+                >
+                  <input
+                    type="radio"
+                    name={criterio.id}
+                    checked={isNo}
+                    onChange={() => handleAnswerChange(criterio.id, false)}
+                    className="w-4 h-4"
+                    style={{
+                      accentColor: '#BF3154',
+                    }}
+                  />
+                </td>
+              </tr>
+            );
+          })}
+        </tbody>
+      </table>
+    </div>
+  );
+}
+
+export default CriteriosAvaliacao;
+

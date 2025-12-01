@@ -125,6 +125,57 @@ export const chapterQuestions: Record<string, Question[]> = {
     },
     {
       id: 'ch1_q5',
+      type: 'true-false',
+      number: 1,
+      question: 'Analise as frases a seguir sobre o Texto II. Identifique se são verdadeiras (<strong>V</strong>) ou falsas (<strong>F</strong>). Depois, corrija as afirmações falsas.',
+      hasCorrectionBox: true,
+      correctionPlaceholder: 'Corrija as afirmações falsas aqui...',
+      statements: [
+        {
+          letter: 'a',
+          statement: 'A notícia trata apenas da venda de robôs para o uso doméstico.',
+          correctAnswer: false,
+          correction: ' A notícia trata da venda de robôs, mas também destaca seus usos em espaços públicos, na cultura, no entretenimento e em serviços promovidos por políticas públicas.',
+        },
+        {
+          letter: 'b',
+          statement: 'O texto informa quanto custa o robô com a aparência de Albert Einstein, em moeda local e convertida.',
+          correctAnswer: true,
+        },
+        {
+          letter: 'c',
+          statement: 'A China é apresentada no texto como país líder em robótica e inovação.',
+          correctAnswer: true,
+        },
+        {
+          letter: 'd',
+          statement: 'O texto menciona a realização de um evento chamado Jogos Mundiais de Robôs Humanoides.',
+          correctAnswer: true,
+        },
+        {
+          letter: 'e',
+          statement: 'A notícia está escrita em primeira pessoa.',
+          correctAnswer: false,
+          correction: 'A notícia está escrita em terceira pessoa.',
+        },
+      ],
+    },
+    {
+      id: 'ch1_q6',
+      type: 'text-input',
+      number: 2,
+      question: 'Retorne aos títulos das duas notícias, releia-os e responda à questão.',
+      subQuestions: [
+        {
+          letter: 'a',
+          question: 'Qual título parece mais técnico e direto e qual tem apelo mais chamativo? Por que isso acontece?',
+          placeholder: 'Digite sua resposta aqui...',
+          correctAnswer: 'O título do Texto I parece mais técnico, com termos como “venda”, “serviço” e “peças”. Já o título do Texto II, por caracterizar o lugar como “primeiro do mundo”, tem um apelo mais chamativo.',
+        },
+      ],
+    },
+    {
+      id: 'ch1_q7',
       type: 'text-input',
       question: '1. Responda a cada pergunt a informação aparece.',
       placeholder: 'Digite sua resposta aqui...',

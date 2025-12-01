@@ -4,6 +4,7 @@ import TableOfContents from './TableOfContents';
 import Chapter from './Chapter';
 import DataTable from './DataTable';
 import TeacherButton from './TeacherButton';
+import Header from './Header';
 import { chapterQuestions } from '../data/questions';
 import { UserAnswers } from '../types/questions';
 import { loadAnswers, saveAnswers } from '../utils/storage';
@@ -12,6 +13,7 @@ import TrilhaTexto from './TrilhaTexto';
 import CaixaTexto from './CaixaTexto';
 import QuestionRenderer from './QuestionRenderer';
 import ContinuaProximaPagina from './ContinuaProximaPagina';
+import CriteriosAvaliacao from './CriteriosAvaliacao';
 
 function Book() {
   const [userAnswers, setUserAnswers] = useState<UserAnswers>({});
@@ -101,44 +103,7 @@ function Book() {
   return (
     <div className="min-h-screen bg-gray-200 w-full">
       <div className="mx-auto bg-white shadow-2xl rounded-lg overflow-hidden" style={{ maxWidth: '63%', marginLeft: 'auto', marginRight: 'auto' }}>
-        <header
-          className="relative text-white py-8 px-8 bg-cover bg-center bg-no-repeat"
-          style={{
-            backgroundImage: 'url(/images/Capa-1.png)',
-          }}
-        >
-
-          {/* Conteúdo do header */}
-          <div className="relative z-10">
-            <div className="flex items-center gap-3 mb-2">
-              <img
-                src="/images/icon.png"
-                alt="Ícone"
-                className="w-23 h-29 object-contain"
-              />
-              <div className="flex flex-col">
-                <h1
-                  className="text-4xl font-hwt-artz font-bold"
-                  style={{
-                    WebkitTextStroke: '1.5px #000000',
-                    fontWeight: 800,
-                  }}
-                >
-                  PRODUÇÃO DE TEXTOS
-                </h1>
-                <p
-                  className="text-white text-1xl font-hwt-artz rounded-[20px] px-4 py-2 inline-block w-fit mt-4"
-                  style={{
-                    backgroundColor: '#9C2F4B',
-                    fontWeight: 700,
-                  }}
-                >
-                  6º ANO - VOLUMES 1 E 2
-                </p>
-              </div>
-            </div>
-          </div>
-        </header>
+        <Header />
 
         <div className="p-8 md:p-12">
           {/* Conteúdo do sumário */}
@@ -368,7 +333,7 @@ function Book() {
                     </p>
                   </div>
                 </CaixaTexto>
-                <p className="text-[10px] text-slate-600 mt-2">KAORU, Thâmara. <em>China inaugura primeira loja que une venda, serviço e peças para robôs humanoides.</em> Disponível em: <a href="https://epocanegocios.globo.com/tecnologia/noticia/2025/08/china-inaugura-primeira-loja-que-une-venda-servico-e-pecas-para-robos-humanoides.ghtml" target="_blank" rel="noopener noreferrer">https://epocanegocios.globo.com/tecnologia/noticia/2025/08/china-inaugura-primeira-loja-que-une-venda-servico-e-pecas-para-robos-humanoides.ghtml</a>
+                <p className="text-[10px] text-slate-600 mt-2">KAORU, Thâmara. <em>China inaugura primeira loja que une venda, serviço e peças para robôs humanoides.</em> Disponível em: <a href="https://epocanegocios.globo.com/tecnologia/noticia/2025/08/china-inaugura-primeira-loja-que-une-venda-servico-e-pecas-para-robos-humanoides.ghtml" target="_blank" rel="noopener noreferrer">https://epocanegocios.globo.com/tecnologia/noticia/2025/08/china-inaugura-primeira-loja-que-une-venda-servico-e-pecas-para-robos-humanoides.ghtml</a>. Acesso em: 23 set. 2025.
                 </p>
                 <Pagination currentPage={7} />
                 {/* Conteúdo do botão do professor */}
@@ -544,6 +509,173 @@ function Book() {
                   </p>
                   <ContinuaProximaPagina />
                 </CaixaTexto>
+                <Pagination currentPage={9} />
+                {/* Conteúdo do botão do professor */}
+                <div className="my-6">
+                  <TeacherButton
+                    content={
+                      <>
+                        <p className="mb-3">
+                          Respostas:
+                        </p>
+                        {(() => {
+                          const question = chapterQuestions.chapter1.find(q => q.id === 'ch1_q5');
+                          if (question && question.type === 'true-false' && question.statements) {
+                            return question.statements.map((stmt) => {
+                              // Se tiver correção, mostra V/F primeiro e depois a correção. Se não, mostra apenas V ou F
+                              const correctAnswerText = stmt.correctAnswer ? 'Verdadeiro (V)' : 'Falso (F)';
+                              const answerText = stmt.correction
+                                ? `${correctAnswerText}. ${stmt.correction}`
+                                : correctAnswerText;
+
+                              return (
+                                <p key={stmt.letter} className="mb-3">
+                                  {question.number}. {stmt.letter}):{' '}
+                                  <span dangerouslySetInnerHTML={{ __html: answerText }} />
+                                </p>
+                              );
+                            });
+                          }
+                          return null;
+                        })()}
+                        {(() => {
+                          const question = chapterQuestions.chapter1.find(q => q.id === 'ch1_q6');
+                          if (question && question.type === 'text-input' && question.subQuestions) {
+                            return question.subQuestions.map((subQ) => (
+                              <p key={subQ.letter} className="mb-3">
+                                {question.number}. {subQ.letter}):{' '}
+                                <span dangerouslySetInnerHTML={{ __html: subQ.correctAnswer || '' }} />
+                              </p>
+                            ));
+                          }
+                          return null;
+                        })()}
+                      </>
+                    }
+
+                  />
+                </div>
+                <CaixaTexto title=''>
+                  <p className="mb-4 indent-6"><strong>Robôs para a vida</strong></p>
+                  <p className="mb-4 indent-6">
+                    As marcas também vão levar opções de robôs que ajudam no dia a dia (ou simplesmente fazem companhia), como aqueles que cozinham, fazem café, distribuem medicamentos, pintam e jogam basquete, por exemplo.
+                  </p>
+                  <p className="mb-4 indent-6">
+                    No “Robot Mall”, os visitantes podem acessar uma área de entretenimento para assistir esportes robóticos, incluindo futebol e eventos de atletismo. Vale lembrar que a China foi o primeiro país do mundo a criar torneios esportivos para robôs, como a World Robot Soccer League, relatada pelo Olhar Digital.
+                  </p>
+                  <p className="mb-4 indent-6">
+                    O formato da nova loja cria uma experiência de “playground de tecnologia”, bem longe do showroom tradicional: aqui, o público é encorajado a interagir com os produtos. No restaurante do shopping, aliás, garçons robôs servem pratos preparados por… chefs robóticos.
+                  </p>
+                  <p className="mb-4 indent-6"><strong>O poder da China</strong></p>
+                  <p className="mb-4 indent-6">
+                    Com esse projeto, a China tira o foco de novidades futuristas e busca normalizar a interação entre humanos e robôs na vida diária [...]. É uma estratégia que posiciona o país não só como fabricante líder, mas também na integração com estilos de vida.
+                  </p>
+                  <p className="mb-4 indent-6">
+                    E isso vem com apoio financeiro. No ano passado, o governo chinês liberou mais de US$ 20 bilhões (R$ 108 bilhões) em subsídios para ajudar startups de inteligência artificial e robótica – e planeja ampliar o fundo para US$ 137 bilhões (R$ 744 bilhões).
+                  </p>
+                  <p className="mb-4 indent-6">
+                    O shopping foi inaugurado na mesma semana em que é realizada a Conferência Mundial de Robôs de 2025, precedendo também os primeiros Jogos Mundiais de Robôs Humanoides, marcados para o período entre 14 e 17 de agosto.
+                  </p>
+                </CaixaTexto>
+                <p className="text-[10px] text-slate-600 mt-2">BARONE, Bruna. <em>China inaugura o primeiro “shopping de robôs” do mundo.</em> Disponível em: <a href="https://epocanegocios.globo.com/tecnologia/noticia/2025/08/china-inaugura-primeira-loja-que-une-venda-servico-e-pecas-para-robos-humanoides.ghtml" target="_blank" rel="noopener noreferrer">https://epocanegocios.globo.com/tecnologia/noticia/2025/08/china-inaugura-primeira-loja-que-une-venda-servico-e-pecas-para-robos-humanoides.ghtml</a>. Acesso em: 23 set. 2025.
+                </p>
+                {/* Questão intercalada no conteúdo */}
+                <QuestionRenderer
+                  question={chapterQuestions.chapter1[4]}
+                  userAnswers={userAnswers}
+                  onAnswerChange={handleAnswerChange}
+                  showResults={showTeacherView}
+                />
+                {/* Questão intercalada no conteúdo */}
+                <QuestionRenderer
+                  question={chapterQuestions.chapter1[5]}
+                  userAnswers={userAnswers}
+                  onAnswerChange={handleAnswerChange}
+                  showResults={showTeacherView}
+                />
+                {/* Tabela de Critérios de Avaliação */}
+                <CriteriosAvaliacao
+                  criterios={[
+                    {
+                      id: 'criterio_titulo',
+                      nome: 'TÍTULO',
+                      pergunta: 'Apresenta o assunto principal de forma atrativa?',
+                    },
+                    {
+                      id: 'criterio_linha_fina',
+                      nome: 'LINHA-FINA',
+                      pergunta: 'Complementa o título com uma informação importante ou que aprofunda o assunto?',
+                    },
+                    {
+                      id: 'criterio_lide',
+                      nome: 'LIDE',
+                      pergunta: 'Apresenta as informações essenciais (o quê, quem, quando, onde) de forma clara?',
+                    },
+                    {
+                      id: 'criterio_corpo',
+                      nome: 'CORPO DA NOTÍCIA',
+                      pergunta: 'Desenvolve o assunto de forma organizada e completa?',
+                    },
+                    {
+                      id: 'criterio_linguagem',
+                      nome: 'LINGUAGEM',
+                      pergunta: 'Utiliza linguagem objetiva e adequada ao gênero notícia?',
+                    },
+                    {
+                      id: 'criterio_foco',
+                      nome: 'FOCO',
+                      pergunta: 'Mantém o foco no fato noticiado sem expressar opinião?',
+                    },
+                  ]}
+                  userAnswers={userAnswers}
+                  onAnswerChange={handleAnswerChange}
+                />
+                <Pagination currentPage={10} />
+                {/* Conteúdo do botão do professor */}
+                <div className="my-6">
+                  <TeacherButton
+                    content={
+                      <>
+                        <p className="mb-3">
+                          Respostas:
+                        </p>
+                        {(() => {
+                          const question = chapterQuestions.chapter1.find(q => q.id === 'ch1_q5');
+                          if (question && question.type === 'true-false' && question.statements) {
+                            return question.statements.map((stmt) => {
+                              // Se tiver correção, mostra V/F primeiro e depois a correção. Se não, mostra apenas V ou F
+                              const correctAnswerText = stmt.correctAnswer ? 'Verdadeiro (V)' : 'Falso (F)';
+                              const answerText = stmt.correction
+                                ? `${correctAnswerText}. ${stmt.correction}`
+                                : correctAnswerText;
+
+                              return (
+                                <p key={stmt.letter} className="mb-3">
+                                  {question.number}. {stmt.letter}):{' '}
+                                  <span dangerouslySetInnerHTML={{ __html: answerText }} />
+                                </p>
+                              );
+                            });
+                          }
+                          return null;
+                        })()}
+                        {(() => {
+                          const question = chapterQuestions.chapter1.find(q => q.id === 'ch1_q6');
+                          if (question && question.type === 'text-input' && question.subQuestions) {
+                            return question.subQuestions.map((subQ) => (
+                              <p key={subQ.letter} className="mb-3">
+                                {question.number}. {subQ.letter}):{' '}
+                                <span dangerouslySetInnerHTML={{ __html: subQ.correctAnswer || '' }} />
+                              </p>
+                            ));
+                          }
+                          return null;
+                        })()}
+                      </>
+                    }
+
+                  />
+                </div>
               </>
             }
           />
