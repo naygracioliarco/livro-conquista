@@ -1,4 +1,4 @@
-export type QuestionType = 'multiple-choice' | 'true-false' | 'alternative';
+export type QuestionType = 'multiple-choice' | 'true-false' | 'alternative' | 'text-input';
 
 export interface MultipleChoiceQuestion {
   id: string;
@@ -27,7 +27,15 @@ export interface AlternativeQuestion {
   correctAnswer: number;
 }
 
-export type Question = MultipleChoiceQuestion | TrueFalseQuestion | AlternativeQuestion;
+export interface TextInputQuestion {
+  id: string;
+  type: 'text-input';
+  question: string;
+  placeholder?: string;
+  correctAnswer?: string; // Opcional, para validação na visão do professor
+}
+
+export type Question = MultipleChoiceQuestion | TrueFalseQuestion | AlternativeQuestion | TextInputQuestion;
 
 export interface UserAnswers {
   [questionId: string]: string | number | boolean;

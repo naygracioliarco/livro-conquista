@@ -355,8 +355,13 @@ function Book() {
                 <p className="text-[10px] text-slate-600 mt-2">KAORU, Thâmara. <em>China inaugura primeira loja que une venda, serviço e peças para robôs humanoides.</em> Disponível em: <a href="https://epocanegocios.globo.com/tecnologia/noticia/2025/08/china-inaugura-primeira-loja-que-une-venda-servico-e-pecas-para-robos-humanoides.ghtml" target="_blank" rel="noopener noreferrer">https://epocanegocios.globo.com/tecnologia/noticia/2025/08/china-inaugura-primeira-loja-que-une-venda-servico-e-pecas-para-robos-humanoides.ghtml</a>
                 </p>
                 <Pagination currentPage={7} />
+                
               </>
             }
+            questions={chapterQuestions.chapter1}
+            userAnswers={userAnswers}
+            onAnswerChange={handleAnswerChange}
+            showTeacherView={showTeacherView}
           />
           {/* Conteúdo do Capítulo 2 */}
           <Chapter

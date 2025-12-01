@@ -31,6 +31,13 @@ export const chapterQuestions: Record<string, Question[]> = {
       ],
       correctAnswer: 0,
     },
+    {
+      id: 'ch1_q4',
+      type: 'text-input',
+      question: 'Responda a cada pergunta e indique em que parte da notícia a informação aparece.',
+      placeholder: 'Digite sua resposta aqui...',
+      correctAnswer: 'Exemplo: O que aconteceu? A China inaugurou a primeira loja dedicada à venda e à manutenção de robôs humanoides. (Título)',
+    },
   ],
   chapter2: [
     {
