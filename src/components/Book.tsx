@@ -3,7 +3,6 @@ import { ArrowUp } from 'lucide-react';
 import TableOfContents from './TableOfContents';
 import Chapter from './Chapter';
 import DataTable from './DataTable';
-import TeacherPanel from './TeacherPanel';
 import TeacherButton from './TeacherButton';
 import { chapterQuestions } from '../data/questions';
 import { UserAnswers } from '../types/questions';
@@ -353,12 +352,6 @@ function Book() {
           </p>
         </footer>
       </div>
-
-      <TeacherPanel
-        userAnswers={userAnswers}
-        onToggleTeacherMode={setShowTeacherView}
-        showTeacherView={showTeacherView}
-      />
 
       {currentPage >= 5 && (
         <button
