@@ -18,7 +18,7 @@ function QuestionMultipleChoice({
 
   return (
     <div className="mb-6 p-4 bg-blue-50 rounded-lg border border-blue-200">
-      <p className="font-semibold text-slate-800 mb-4">{question.question}</p>
+      <p className="font-semibold text-slate-800 mb-4 font-hwtArtz">{question.question}</p>
       <div className="space-y-3">
         {(['a', 'b', 'c'] as const).map((option) => (
           <label
@@ -45,7 +45,7 @@ function QuestionMultipleChoice({
               disabled={showResults}
             />
             <span className="text-slate-700">
-              <span style={{ color: '#00776E', fontWeight: 'bold' }}>{option.toUpperCase()}) </span>
+              <span style={{ color: '#00776E', fontWeight: 'bold', }}>{option.toUpperCase()}) </span>
               {question.options[option]}
             </span>
             {showResults && selectedAnswer === option && (

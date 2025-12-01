@@ -4,6 +4,9 @@ function ContinuaProximaPagina() {
       <div
         className="absolute left-1/2 -translate-x-1/2 bg-[#0E3B5D] px-4 py-2 
                    text-white text-sm font-semibold -bottom-3"
+        style={{
+          fontFamily: 'Ubuntu',
+        }}
       >
         continua na próxima página
       </div>

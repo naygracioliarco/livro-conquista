@@ -18,7 +18,7 @@ function TableOfContents() {
         <div className="flex-1">
           <div className="flex items-center gap-2 mb-4">
             <h2
-              className="font-hwt-artz"
+              className="font-hwtArtz"
               style={{
                 color: '#0E3B5D',
                 fontSize: '28px',
@@ -34,7 +34,7 @@ function TableOfContents() {
             <li>
               <button
                 onClick={() => scrollToChapter('chapter1')}
-                className="text-left w-full font-ubuntu flex items-center gap-2"
+                className="text-left w-full font-Ubuntu flex items-center gap-2"
                 style={{
                   color: '#144468',
                   fontSize: '16px',
@@ -59,7 +59,7 @@ function TableOfContents() {
             <li>
               <button
                 onClick={() => scrollToChapter('chapter2')}
-                className="text-left w-full font-ubuntu flex items-center gap-2"
+                className="text-left w-full font-Ubuntu flex items-center gap-2"
                 style={{
                   color: '#144468',
                   fontSize: '16px',
@@ -95,10 +95,10 @@ function TableOfContents() {
         {/* Seção Tutorial */}
         <div className="flex-1 flex items-center justify-between gap-4">
           <p
-            className="font-hwt-artz"
+            className="font-hwtArtz"
             style={{
               color: '#0E3B5D',
-              fontSize: '18px',
+              fontSize: '20px',
               fontWeight: 700,
             }}
           >

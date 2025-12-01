@@ -49,7 +49,7 @@ function QuestionAlternative({
               className="w-4 h-4"
               disabled={showResults}
             />
-            <span className="text-slate-700">
+            <span className="text-slate-700" style={{ fontFamily: 'Ubuntu, sans-serif' }}>
               <span style={{ color: '#00776E', fontWeight: 'bold' }}>
                 {String.fromCharCode(97 + index)}){' '}
               </span>

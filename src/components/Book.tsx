@@ -333,8 +333,15 @@ function Book() {
                     </p>
                   </div>
                 </CaixaTexto>
-                <p className="text-[10px] text-slate-600 mt-2">KAORU, Thâmara. <em>China inaugura primeira loja que une venda, serviço e peças para robôs humanoides.</em> Disponível em: <a href="https://epocanegocios.globo.com/tecnologia/noticia/2025/08/china-inaugura-primeira-loja-que-une-venda-servico-e-pecas-para-robos-humanoides.ghtml" target="_blank" rel="noopener noreferrer">https://epocanegocios.globo.com/tecnologia/noticia/2025/08/china-inaugura-primeira-loja-que-une-venda-servico-e-pecas-para-robos-humanoides.ghtml</a>. Acesso em: 23 set. 2025.
-                </p>
+                <span
+                  className="text-[10px] mt-2"
+                  style={{
+                    fontFamily: 'Ubuntu, sans-serif',
+                    color: '#000000',
+                  }}
+                >
+                  KAORU, Thâmara. <em>China inaugura primeira loja que une venda, serviço e peças para robôs humanoides.</em> Disponível em: <a href="https://epocanegocios.globo.com/tecnologia/noticia/2025/08/china-inaugura-primeira-loja-que-une-venda-servico-e-pecas-para-robos-humanoides.ghtml" target="_blank" rel="noopener noreferrer">https://epocanegocios.globo.com/tecnologia/noticia/2025/08/china-inaugura-primeira-loja-que-une-venda-servico-e-pecas-para-robos-humanoides.ghtml</a>. Acesso em: 23 set. 2025.
+                </span>
                 <Pagination currentPage={7} />
                 {/* Conteúdo do botão do professor */}
                 <div className="my-6">
@@ -577,8 +584,15 @@ function Book() {
                     O shopping foi inaugurado na mesma semana em que é realizada a Conferência Mundial de Robôs de 2025, precedendo também os primeiros Jogos Mundiais de Robôs Humanoides, marcados para o período entre 14 e 17 de agosto.
                   </p>
                 </CaixaTexto>
-                <p className="text-[10px] text-slate-600 mt-2">BARONE, Bruna. <em>China inaugura o primeiro “shopping de robôs” do mundo.</em> Disponível em: <a href="https://epocanegocios.globo.com/tecnologia/noticia/2025/08/china-inaugura-primeira-loja-que-une-venda-servico-e-pecas-para-robos-humanoides.ghtml" target="_blank" rel="noopener noreferrer">https://epocanegocios.globo.com/tecnologia/noticia/2025/08/china-inaugura-primeira-loja-que-une-venda-servico-e-pecas-para-robos-humanoides.ghtml</a>. Acesso em: 23 set. 2025.
-                </p>
+                <span
+                  className="text-[10px] mt-2"
+                  style={{
+                    fontFamily: 'Ubuntu, sans-serif',
+                    color: '#000000',
+              
+                  }}
+                >BARONE, Bruna. <em>China inaugura o primeiro “shopping de robôs” do mundo.</em> Disponível em: <a href="https://epocanegocios.globo.com/tecnologia/noticia/2025/08/china-inaugura-primeira-loja-que-une-venda-servico-e-pecas-para-robos-humanoides.ghtml" target="_blank" rel="noopener noreferrer">https://epocanegocios.globo.com/tecnologia/noticia/2025/08/china-inaugura-primeira-loja-que-une-venda-servico-e-pecas-para-robos-humanoides.ghtml</a>. Acesso em: 23 set. 2025.
+                </span>
                 {/* Questão intercalada no conteúdo */}
                 <QuestionRenderer
                   question={chapterQuestions.chapter1[4]}
