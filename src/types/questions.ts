@@ -33,6 +33,13 @@ export interface TextInputQuestion {
   question: string;
   placeholder?: string;
   correctAnswer?: string; // Opcional, para validação na visão do professor
+  number?: number; // Número da questão (ex: 1, 2, 3...)
+  subQuestions?: Array<{
+    letter: string; // Letra da subquestão (ex: 'a', 'b', 'c')
+    question: string; // Texto da subquestão
+    placeholder?: string;
+    correctAnswer?: string;
+  }>;
 }
 
 export type Question = MultipleChoiceQuestion | TrueFalseQuestion | AlternativeQuestion | TextInputQuestion;

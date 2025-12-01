@@ -10,6 +10,7 @@ import { loadAnswers, saveAnswers } from '../utils/storage';
 import Pagination from './Pagination';
 import TrilhaTexto from './TrilhaTexto';
 import CaixaTexto from './CaixaTexto';
+import QuestionRenderer from './QuestionRenderer';
 
 function Book() {
   const [userAnswers, setUserAnswers] = useState<UserAnswers>({});
@@ -351,17 +352,38 @@ function Book() {
                     Segundo AP, o objetivo da loja é ajudar empresas de robótica a comercializar o que até agora
                     tem sido, em grande parte, um esforço focado em pesquisa.
                   </p>
+                  {/* Glossário */}
+                  <div className="mb-6 p-4 bg-blue-50 rounded-lg border border-blue-200">
+                    <p className="text-[13px] mb-4 indent-6"><strong>robô humanoide</strong>: robô que tem forma
+                      ou movimentos parecidos com os de
+                      uma pessoa.
+                    </p>
+                    <p className="text-[13px] mb-4 indent-6"><strong>Robot Mall</strong>: nome dado ao centro de
+                      vendas de robôs na China; <em>shopping</em>
+                      de robôs.
+                    </p>
+                    <p className="text-[13px] mb-4 indent-6"><strong>Reuters</strong>: agência que produz notícias
+                      para jornais e TVs do mundo todo.
+                    </p>
+                  </div>
                 </CaixaTexto>
                 <p className="text-[10px] text-slate-600 mt-2">KAORU, Thâmara. <em>China inaugura primeira loja que une venda, serviço e peças para robôs humanoides.</em> Disponível em: <a href="https://epocanegocios.globo.com/tecnologia/noticia/2025/08/china-inaugura-primeira-loja-que-une-venda-servico-e-pecas-para-robos-humanoides.ghtml" target="_blank" rel="noopener noreferrer">https://epocanegocios.globo.com/tecnologia/noticia/2025/08/china-inaugura-primeira-loja-que-une-venda-servico-e-pecas-para-robos-humanoides.ghtml</a>
                 </p>
                 <Pagination currentPage={7} />
-                
+                <p className="mb-4 indent-6">
+                  Depois da leitura, analise como a notícia está organizada e quais foram as escolhas da
+                  autora ao apresentar as informações.
+                </p>
+                {/* Questão intercalada no conteúdo */}
+                <QuestionRenderer
+                  question={chapterQuestions.chapter1[3]}
+                  userAnswers={userAnswers}
+                  onAnswerChange={handleAnswerChange}
+                  showResults={showTeacherView}
+                />
+
               </>
             }
-            questions={chapterQuestions.chapter1}
-            userAnswers={userAnswers}
-            onAnswerChange={handleAnswerChange}
-            showTeacherView={showTeacherView}
           />
           {/* Conteúdo do Capítulo 2 */}
           <Chapter
@@ -388,10 +410,6 @@ function Book() {
                 </p>
               </>
             }
-            questions={chapterQuestions.chapter2}
-            userAnswers={userAnswers}
-            onAnswerChange={handleAnswerChange}
-            showTeacherView={showTeacherView}
           />
         </div>
 

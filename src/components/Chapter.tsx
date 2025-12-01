@@ -1,16 +1,10 @@
 import { ReactNode } from 'react';
-import { Question, UserAnswers } from '../types/questions';
-import QuestionsSection from './QuestionsSection';
 
 interface ChapterProps {
   id: string;
   number: number;
   title: string;
   content: ReactNode;
-  questions?: Question[];
-  userAnswers?: UserAnswers;
-  onAnswerChange?: (questionId: string, answer: any) => void;
-  showTeacherView?: boolean;
 }
 
 function Chapter({
@@ -18,10 +12,6 @@ function Chapter({
   number,
   title,
   content,
-  questions,
-  userAnswers = {},
-  onAnswerChange,
-  showTeacherView = false,
 }: ChapterProps) {
   return (
     <section id={id} className="mb-12 scroll-mt-4">
@@ -32,15 +22,6 @@ function Chapter({
         <h2 className="text-3xl font-serif font-bold text-slate-800">{title}</h2>
       </div>
       <div className="text-slate-700 leading-relaxed text-justify chapter-content">{content}</div>
-
-      {questions && onAnswerChange && (
-        <QuestionsSection
-          questions={questions}
-          userAnswers={userAnswers}
-          onAnswerChange={onAnswerChange}
-          showTeacherView={showTeacherView}
-        />
-      )}
     </section>
   );
 }

@@ -4,14 +4,29 @@ export const chapterQuestions: Record<string, Question[]> = {
   chapter1: [
     {
       id: 'ch1_q1',
-      type: 'multiple-choice',
-      question: 'Qual civilização é considerada berço da escrita?',
-      options: {
-        a: 'Egito antigo',
-        b: 'Mesopotâmia',
-        c: 'Vale do Indo',
-      },
-      correctAnswer: 'b',
+      type: 'text-input',
+      number: 1,
+      question: 'Responda a cada pergunta e indique em que parte da notícia a informação aparece.',
+      subQuestions: [
+        {
+          letter: 'a',
+          question: 'O que aconteceu?',
+          placeholder: 'Digite sua resposta aqui...',
+          correctAnswer: 'A China inaugurou a primeira loja dedicada à venda e à manutenção de robôs humanoides. (Título)',
+        },
+        {
+          letter: 'b',
+          question: 'Onde aconteceu?',
+          placeholder: 'Digite sua resposta aqui...',
+          correctAnswer: 'Em Pequim, na China. (Lide)',
+        },
+        {
+          letter: 'c',
+          question: 'Quando aconteceu?',
+          placeholder: 'Digite sua resposta aqui...',
+          correctAnswer: 'Em 8 de agosto de 2025. (Lide)',
+        },
+      ],
     },
     {
       id: 'ch1_q2',
@@ -34,7 +49,33 @@ export const chapterQuestions: Record<string, Question[]> = {
     {
       id: 'ch1_q4',
       type: 'text-input',
+      number: 1,
       question: 'Responda a cada pergunta e indique em que parte da notícia a informação aparece.',
+      subQuestions: [
+        {
+          letter: 'a',
+          question: 'O que aconteceu?',
+          placeholder: 'Digite sua resposta aqui...',
+          correctAnswer: 'A China inaugurou a primeira loja dedicada à venda e à manutenção de robôs humanoides. (Título)',
+        },
+        {
+          letter: 'b',
+          question: 'Onde aconteceu?',
+          placeholder: 'Digite sua resposta aqui...',
+          correctAnswer: 'Em Pequim, na China. (Lide)',
+        },
+        {
+          letter: 'c',
+          question: 'Quando aconteceu?',
+          placeholder: 'Digite sua resposta aqui...',
+          correctAnswer: 'Em 8 de agosto de 2025. (Lide)',
+        },
+      ],
+    },
+    {
+      id: 'ch1_q5',
+      type: 'text-input',
+      question: '1. Responda a cada pergunt a informação aparece.',
       placeholder: 'Digite sua resposta aqui...',
       correctAnswer: 'Exemplo: O que aconteceu? A China inaugurou a primeira loja dedicada à venda e à manutenção de robôs humanoides. (Título)',
     },
