@@ -2199,6 +2199,48 @@ function Book() {
                   onAnswerChange={handleAnswerChange}
                   showResults={showTeacherView}
                 />
+                <Pagination currentPage={30} />
+                <ProducaoFinal />
+                <p className="mb-4 indent-6">
+                  Chegou o momento de criar sua própria fábula. Desenvolva uma narrativa original, curta e intencional. Os personagens devem ser animais que representem comportamentos humanos, e o enredo deve conduzir o leitor a refletir sobre um ensinamento, apresentado de maneira direta ou indireta.
+                </p>
+                <p className="mb-4 indent-6">
+                  <strong>Preparação</strong>
+                </p>
+                <p className="mb-4 indent-6">
+                  Siga os passos a seguir para organizar o seu texto.
+                </p>
+                <ol className="list-decimal marker:text-[#BF3154] ml-6 mb-4">
+                  <li><strong>Escolha a moral da sua fábula</strong>
+                  </li>
+                  <p className="mb-4 indent-6">
+                    A moral é a mensagem que a sua história vai transmitir. Por isso, ela precisa ser escolhida logo no início do planejamento. Você pode criar a sua própria moral ou escolher uma das
+                    sugestões listadas a seguir.
+                  </p>
+                  <ul className="list-disc marker:text-[#BF3154] ml-6 mb-4">
+                    <li>“Nem todo elogio é sincero.”</li>
+                    <li>“A pressa é inimiga da perfeição.”</li>
+                    <li>“Gentileza gera gentileza.”</li>
+                    <li>“Quem pouco ouve, muito erra.”</li>
+                    <li>“Só se colhe o que se planta.”</li>
+                    <li>“Às vezes, o menor gesto faz a maior diferença.”</li>
+                  </ul>
+                  <li><strong>Defina os personagens simbólicos</strong></li>
+                  <p className="mb-4 indent-6">
+                    Toda fábula tem personagens que simbolizam ideias, atitudes e sentimentos humanos. Esses personagens geralmente são animais, mas também podem ser objetos ou outros seres com papel secundário na história. Portanto, reflita: Qual animal vai representar cada comportamento humano na sua fábula?
+                  </p>
+                  <li><strong>Planeje o enredo da sua fábula</strong></li>
+                  <p className="mb-4 indent-6">
+                    Use o quadro abaixo para organizar o que vai acontecer no início, no meio e no fim da sua fábula. Lembre-se de que a moral precisa estar conectada ao que acontece na história. Ela pode ser escrita de maneira direta no final do texto ou apenas sugerida pelas atitudes dos personagens.
+                  </p>
+                  {/* Questão intercalada no conteúdo */}
+                  <QuestionRenderer
+                    question={chapterQuestions.chapter2[18]}
+                    userAnswers={userAnswers}
+                    onAnswerChange={handleAnswerChange}
+                    showResults={showTeacherView}
+                  />
+                </ol>
 
               </>
             }

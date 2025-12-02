@@ -761,5 +761,29 @@ export const chapterQuestions: Record<string, Question[]> = {
         },
       ],
     },
+    {
+      id: 'ch2_q10',
+      type: 'table-fill',
+      number: 1,
+      question: '',
+      columns: ['Parte da fábula', 'O que vai acontecer?',],
+      rows: [
+        {
+          id: 'row1',
+          paragraph: 'Situação inicial',
+          text1: '',
+        },
+        {
+          id: 'row2',
+          paragraph: 'Conflito',
+          text1: '',
+        },
+        {
+          id: 'row3',
+          paragraph: 'Desfecho',
+          text1: '',
+        },
+      ],
+    },
   ],
 };
