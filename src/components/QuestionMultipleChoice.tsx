@@ -44,7 +44,7 @@ function QuestionMultipleChoice({
               className="w-4 h-4"
               disabled={showResults}
             />
-            <span className="text-slate-700">
+            <span style={{ color: 'black' }}>
               <span style={{ color: '#00776E', fontWeight: 'bold', }}>{option.toUpperCase()}) </span>
               {question.options[option]}
             </span>

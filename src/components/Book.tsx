@@ -6,7 +6,7 @@ import DataTable from './DataTable';
 import TeacherButton from './TeacherButton';
 import Header from './Header';
 import { chapterQuestions } from '../data/questions';
-import { UserAnswers } from '../types/questions';
+import { UserAnswers, Question } from '../types/questions';
 import { loadAnswers, saveAnswers } from '../utils/storage';
 import Pagination from './Pagination';
 import TrilhaTexto from './TrilhaTexto';
@@ -19,6 +19,7 @@ import CaixaTexto from './CaixaTexto';
 import QuestionRenderer from './QuestionRenderer';
 import ContinuaProximaPagina from './ContinuaProximaPagina';
 import CriteriosAvaliacao from './CriteriosAvaliacao';
+import DownloadQuestionsButton from './DownloadQuestionsButton';
 
 function Book() {
   const [userAnswers, setUserAnswers] = useState<UserAnswers>({});
@@ -96,6 +97,7 @@ function Book() {
     setUserAnswers(updatedAnswers);
     saveAnswers(updatedAnswers);
   };
+
 
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -440,6 +442,15 @@ function Book() {
                   onAnswerChange={handleAnswerChange}
                   showResults={showTeacherView}
                 />
+                {/* Botão de download das questões */}
+                <div className="my-6">
+                  <DownloadQuestionsButton
+                    questions={[chapterQuestions.chapter1[0], chapterQuestions.chapter1[1], chapterQuestions.chapter1[2]]}
+                    userAnswers={userAnswers}
+                    title="Questões da Página 7"
+                    fileName="questoes-pagina-7.pdf"
+                  />
+                </div>
                 <Pagination currentPage={8} />
                 {/* Conteúdo do botão do professor */}
                 <div className="my-6">
@@ -485,6 +496,15 @@ function Book() {
                   onAnswerChange={handleAnswerChange}
                   showResults={showTeacherView}
                 />
+                {/* Botão de download das questões */}
+                <div className="my-6">
+                  <DownloadQuestionsButton
+                    questions={[chapterQuestions.chapter1[3]]}
+                    userAnswers={userAnswers}
+                    title="Questões da Página 8"
+                    fileName="questoes-pagina-8.pdf"
+                  />
+                </div>
                 <TrilhaTexto />
                 <p className="mb-4 indent-6">
                   Agora, leia outra notícia que trata da inauguração do Robot Mall. Que aspectos do mesmo fato são destacados? O que muda no vocabulário? E na estrutura?
@@ -630,6 +650,15 @@ function Book() {
                   onAnswerChange={handleAnswerChange}
                   showResults={showTeacherView}
                 />
+                {/* Botão de download das questões */}
+                <div className="my-6">
+                  <DownloadQuestionsButton
+                    questions={[chapterQuestions.chapter1[4], chapterQuestions.chapter1[5]]}
+                    userAnswers={userAnswers}
+                    title="Questões da Página 9"
+                    fileName="questoes-pagina-9.pdf"
+                  />
+                </div>
                 <Pagination currentPage={10} />
                 {/* Conteúdo do botão do professor - Tabela comparativa */}
                 <div className="my-6">
@@ -747,6 +776,15 @@ function Book() {
                   onAnswerChange={handleAnswerChange}
                   showResults={showTeacherView}
                 />
+                {/* Botão de download das questões */}
+                <div className="my-6">
+                  <DownloadQuestionsButton
+                    questions={[chapterQuestions.chapter1[8], chapterQuestions.chapter1[9], chapterQuestions.chapter1[10]]}
+                    userAnswers={userAnswers}
+                    title="Questões da Página 10"
+                    fileName="questoes-pagina-10.pdf"
+                  />
+                </div>
                 <Pagination currentPage={11} />
                 {/* Conteúdo do botão do professor */}
                 <div className="my-6">
@@ -895,6 +933,7 @@ function Book() {
                 >
                   EM ‘OLIMPÍADAS de robôs’, máquinas apostam corrida e jogam futebol. Publicado pelo canal SBT News. Disponível em:  <a href="https://www.youtube.com/watch?v=FJgXK06RHUY" target="_blank" rel="noopener noreferrer">https://www.youtube.com/watch?v=FJgXK06RHUY</a>. Acesso em: 18 ago. 2025.
                 </p>
+                
                 <Pagination currentPage={14} />
                 {/* Conteúdo do botão do professor - Tabela comparativa */}
                 <div className="my-6">
@@ -1008,6 +1047,15 @@ function Book() {
                   onAnswerChange={handleAnswerChange}
                   showResults={showTeacherView}
                 />
+                {/* Botão de download das questões */}
+                <div className="my-6">
+                  <DownloadQuestionsButton
+                    questions={[chapterQuestions.chapter1[8], chapterQuestions.chapter1[9], chapterQuestions.chapter1[10]]}
+                    userAnswers={userAnswers}
+                    title="Questões da Página 14"
+                    fileName="questoes-pagina-14.pdf"
+                  />
+                </div>
                 <Pagination currentPage={15} />
                 {/* Conteúdo do botão do professor */}
                 <div className="my-6">
@@ -1415,6 +1463,15 @@ function Book() {
                   onAnswerChange={handleAnswerChange}
                   showResults={showTeacherView}
                 />
+                {/* Botão de download das questões */}
+                <div className="my-6">
+                  <DownloadQuestionsButton
+                    questions={[chapterQuestions.chapter2[0], chapterQuestions.chapter2[1], chapterQuestions.chapter2[2], chapterQuestions.chapter2[3]]}
+                    userAnswers={userAnswers}
+                    title="Questões da Página 21"
+                    fileName="questoes-pagina-21.pdf"
+                  />
+                </div>
                 <Pagination currentPage={21} />
                 <div className="my-6">
                   <TeacherButton
@@ -1634,6 +1691,16 @@ function Book() {
                   onAnswerChange={handleAnswerChange}
                   showResults={showTeacherView}
                 />
+                {/* Botão de download das questões */}
+                <div className="my-6">
+                  <DownloadQuestionsButton
+                    questions={[chapterQuestions.chapter2[4], chapterQuestions.chapter2[5], chapterQuestions.chapter2[6]]}
+                    userAnswers={userAnswers}
+                    title="Questões da Página 22"
+                    fileName="questoes-pagina-22.pdf"
+                  />
+                </div>
+                
                 <Pagination currentPage={23} />
                 {/* Conteúdo do botão do professor */}
                 <div className="my-6">
@@ -1725,6 +1792,15 @@ function Book() {
                   onAnswerChange={handleAnswerChange}
                   showResults={showTeacherView}
                 />
+                {/* Botão de download das questões */}
+                <div className="my-6">
+                  <DownloadQuestionsButton
+                    questions={[chapterQuestions.chapter2[7], chapterQuestions.chapter2[8]]}
+                    userAnswers={userAnswers}
+                    title="Questões da Página 23"
+                    fileName="questoes-pagina-23.pdf"
+                  />
+                </div>
                 <MinhaVersao />
                 <p className="mb-4 indent-6">Você já leu e analisou duas fábulas clássicas: A lebre e a tartaruga e O leão e o rato. Agora, sua tarefa será fazer uma reescrita criativa de uma dessas histórias, mas você terá dois desafios.</p>
                 <ol className="list-decimal marker:text-[#BF3154] ml-6 mb-4">
@@ -1735,6 +1811,7 @@ function Book() {
                 </ol>
                 <p className="mb-4 indent-6">Sua produção deve manter os personagens da fábula, mas apresentar uma nova versão do enredo que leve o leitor a refletir sobre uma lição diferente daquela da história original.
                 </p>
+                
                 <Pagination currentPage={24} />
                 {/* Conteúdo do botão do professor */}
                 <div className="my-6">
@@ -1765,6 +1842,15 @@ function Book() {
                   onAnswerChange={handleAnswerChange}
                   showResults={showTeacherView}
                 />
+                {/* Botão de download das questões */}
+                <div className="my-6">
+                  <DownloadQuestionsButton
+                    questions={[chapterQuestions.chapter2[9]]}
+                    userAnswers={userAnswers}
+                    title="Questões da Página 24"
+                    fileName="questoes-pagina-24.pdf"
+                  />
+                </div>
                 <Pagination currentPage={25} />
                 <p className="mb-4 indent-6"><strong>Produção</strong></p>
                 <p className="mb-4 indent-6">Agora é hora de escrever sua fábula. Durante a produção, preste atenção aos seguintes pontos:
@@ -2083,6 +2169,16 @@ function Book() {
                   onAnswerChange={handleAnswerChange}
                   showResults={showTeacherView}
                 />
+                {/* Botão de download das questões */}
+                <div className="my-6">
+                  <DownloadQuestionsButton
+                    questions={[chapterQuestions.chapter2[10], chapterQuestions.chapter2[11], chapterQuestions.chapter2[12], chapterQuestions.chapter2[13], chapterQuestions.chapter2[14]]}
+                    userAnswers={userAnswers}
+                    title="Questões da Página 28"
+                    fileName="questoes-pagina-28.pdf"
+                  />
+                </div>
+                
                 <Pagination currentPage={29} />
                 {/* Conteúdo do botão do professor */}
                 <div className="my-6">
@@ -2200,6 +2296,16 @@ function Book() {
                   onAnswerChange={handleAnswerChange}
                   showResults={showTeacherView}
                 />
+                {/* Botão de download das questões */}
+                <div className="my-6">
+                  <DownloadQuestionsButton
+                    questions={[chapterQuestions.chapter2[15], chapterQuestions.chapter2[16], chapterQuestions.chapter2[17]]}
+                    userAnswers={userAnswers}
+                    title="Questões da Página 29"
+                    fileName="questoes-pagina-29.pdf"
+                  />
+                </div>
+                
                 <Pagination currentPage={30} />
                 <ProducaoFinal />
                 <p className="mb-4 indent-6">
@@ -2219,12 +2325,12 @@ function Book() {
                     sugestões listadas a seguir.
                   </p>
                   <ul className="list-disc marker:text-[#BF3154] ml-6 mb-4">
-                    <li>“Nem todo elogio é sincero.”</li>
-                    <li>“A pressa é inimiga da perfeição.”</li>
-                    <li>“Gentileza gera gentileza.”</li>
-                    <li>“Quem pouco ouve, muito erra.”</li>
-                    <li>“Só se colhe o que se planta.”</li>
-                    <li>“Às vezes, o menor gesto faz a maior diferença.”</li>
+                    <li>"Nem todo elogio é sincero."</li>
+                    <li>"A pressa é inimiga da perfeição."</li>
+                    <li>"Gentileza gera gentileza."</li>
+                    <li>"Quem pouco ouve, muito erra."</li>
+                    <li>"Só se colhe o que se planta."</li>
+                    <li>"Às vezes, o menor gesto faz a maior diferença."</li>
                   </ul>
                   <li><strong>Defina os personagens simbólicos</strong></li>
                   <p className="mb-4 indent-6">
@@ -2241,7 +2347,17 @@ function Book() {
                     onAnswerChange={handleAnswerChange}
                     showResults={showTeacherView}
                   />
+
                 </ol>
+                {/* Botão de download das questões */}
+                <div className="my-6">
+                  <DownloadQuestionsButton
+                    questions={[chapterQuestions.chapter2[18]]}
+                    userAnswers={userAnswers}
+                    title="Questões da Página 30"
+                    fileName="questoes-pagina-30.pdf"
+                  />
+                </div>
                 <Pagination currentPage={31} />
                 <p className="mb-4 indent-6">É hora de escrever sua fábula. Produza um texto original que apresente:</p>
                 <ul className="list-disc marker:text-[#BF3154] ml-6 mb-4">
@@ -2329,7 +2445,7 @@ function Book() {
       {currentPage >= 5 && (
         <button
           onClick={scrollToTop}
-          className="fixed bottom-24 right-6 z-40 bg-gradient-to-r text-white p-3 rounded-full hover:scale-110 transition-all"
+          className="fixed bottom-1 right-6 z-40 bg-gradient-to-r text-white p-3 rounded-full hover:scale-110 transition-all"
           title="Voltar ao início do livro"
         >
           <img src="/images/setaTopo.png" alt="Voltar ao início do livro" />
