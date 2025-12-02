@@ -78,7 +78,12 @@ function TeacherButton({
                         onClick={(e) => e.stopPropagation()}
                     >
                         <div className="flex justify-between items-center mb-6">
-                            <h3 className="text-2xl font-bold text-slate-800">PARA O PROFESSOR</h3>
+                            <h3 
+                                className="text-2xl font-bold"
+                                style={{ color: '#BF3154' }}
+                            >
+                                PARA O PROFESSOR
+                            </h3>
                             <button
                                 onClick={() => setIsOpen(false)}
                                 className="text-slate-500 hover:text-slate-700 text-2xl font-bold"
@@ -93,7 +98,7 @@ function TeacherButton({
 
                         {content && (
                             <div className="mb-6">
-                                <div className="text-slate-700 prose max-w-none">
+                                <div className="prose max-w-none" style={{ color: '#000000' }}>
                                     {content}
                                 </div>
                             </div>
@@ -101,8 +106,8 @@ function TeacherButton({
 
                         {answers && (
                             <div>
-                                <h5 className="text-lg font-semibold text-slate-600 mb-3">Respostas:</h5>
-                                <div className="text-slate-700 prose max-w-none">
+                                <h5 className="text-lg font-semibold mb-3" style={{ color: '#000000' }}>Respostas:</h5>
+                                <div className="prose max-w-none" style={{ color: '#000000' }}>
                                     {answers}
                                 </div>
                             </div>

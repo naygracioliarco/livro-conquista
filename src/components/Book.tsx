@@ -42,10 +42,7 @@ function Book() {
               content={
                 <>
                   <p className="mb-3">
-                    EF06LP01, EF06LP02. A proposta de abertura tem o objetivo de mobilizar o repertório dos alunos sobre o gênero textual notícia, conectando o conteúdo a experiências de vida e a temas atuais ligados à tecnologia. Incentive-os a comentar, complementar ou questionar as histórias, sempre com respeito e sob sua mediação.
-                    As perguntas propostas visam provocar uma reflexão sobre o que torna um fato
-                    noticiável, destacando que a definição do que vira notícia é também uma escolha
-                    ética e cultural.
+                    EF06LP01, EF06LP02. A proposta de abertura tem o objetivo de mobilizar o repertório dos alunos sobre o gênero textual notícia, conectando o conteúdo a experiências de vida e a temas atuais ligados à tecnologia. Incentive-os a comentar, complementar ou questionar as histórias, sempre com respeito e sob sua mediação. As perguntas propostas visam provocar uma reflexão sobre o que torna um fato noticiável, destacando que a definição do que vira notícia é também uma escolha ética e cultural.
                   </p>
                 </>
               }
