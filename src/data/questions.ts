@@ -653,5 +653,113 @@ export const chapterQuestions: Record<string, Question[]> = {
       placeholder: 'Digite sua resposta aqui...',
       correctAnswer: 'Pessoal. Espera-se que os alunos apresentem uma reviravolta na narrativa e identifiquem o novo sentido gerado por essa mudança. Exemplos possíveis: o corvo percebe a intenção da raposa e permanece calado (nova moral: “Nem todo elogio deve ser levado a sério”); o corvo percebe a intenção da raposa, desce da árvore e divide o queijo com ela (nova moral: “Compartilhar é melhor do que competir”).',
     },
+    {
+      id: 'ch2_q16',
+      type: 'true-false',
+      number: 6,
+      question: 'Com base nas fábulas lidas ao longo do capítulo, analise as afirmativas a seguir e marque <strong>V</strong> para o que for verdadeiro e <strong>F</strong> para o que for falso.',
+      hasCorrectionBox: false,
+      correctionPlaceholder: 'Corrija as afirmações falsas aqui...',
+      statements: [
+        {
+          letter: 'a',
+          statement: ' Em <em>A lebre e a tartaruga</em> e em <em>O leão e o rato</em>, o personagem menos valorizado surpreende ao vencer com esforço ou dedicação.',
+          correctAnswer: true,
+        },
+        {
+          letter: 'b',
+          statement: 'Em <em>A raposa e o corvo</em>, o personagem mais sensato é quem sai prejudicado no final.',
+          correctAnswer: false,
+        },
+        {
+          letter: 'c',
+          statement: 'Em <em>A raposa e o corvo</em>, a vantagem é conquistada mais pela esperteza do que pelo esforço.',
+          correctAnswer: true,
+        },
+        {
+          letter: 'd',
+          statement: 'Nas três fábulas, os personagens atingem seus objetivos por meio da paciência e da humildade.',
+          correctAnswer: false,
+        },
+        {
+          letter: 'e',
+          statement: 'Em <em>O leão e o rato</em>, o personagem menor salva o maior e muda a expectativa da história.',
+          correctAnswer: true,
+        },
+        {
+          letter: 'f',
+          statement: 'Em <em>A lebre e a tartaruga</em>, o mais rápido perde por confiar demais em si mesmo.',
+          correctAnswer: true,
+        },
+        {
+          letter: 'g',
+          statement: 'Em <em>A raposa e o corvo</em>, quem manipula a situação consegue obter o que deseja.',
+          correctAnswer: true,
+        },
+        {
+          letter: 'h',
+          statement: 'As três fábulas mostram que quem subestima o outro sempre perde.',
+          correctAnswer: false,
+        },
+      ],
+    },
+    {
+      id: 'ch2_q17',
+      type: 'text-input',
+      number: 7,
+      question: 'Compare as três fábulas lidas no capítulo e responda às questões.',
+      subQuestions: [
+        {
+          letter: 'a',
+          question: 'Em qual forma cada fábula foi escrita? Prosa ou verso?',
+          placeholder: 'Digite sua resposta aqui...',
+          correctAnswer: 'O texto I e o texto III foram escritos em prosa; o texto II foi escrito em versos.',
+        },
+        {
+          letter: 'b',
+          question: 'Como os diálogos estão presentes nas fábulas? Quais delas têm falas diretas entre os personagens? ',
+          placeholder: 'Digite sua resposta aqui...',
+          correctAnswer: 'O texto I e o texto III apresentam diálogos diretos; o texto II não apresenta diálogo.',
+        },
+        {
+          letter: 'c',
+          question: 'Como a moral é apresentada em cada um dos textos?',
+          placeholder: 'Digite sua resposta aqui...',
+          correctAnswer: 'No texto I, a moral é implícita, exigindo interpretação com base nas ações dos personagens. No texto II, a moral é explícita e aparece na estrofe final. No texto III, a moral também é explícita, apresentada em uma frase isolada ao final da história.',
+        },
+      ],
+    },
+    {
+      id: 'ch2_q18',
+      type: 'text-input',
+      number: 8,
+      question: 'Imagine que você vai escrever uma nova versão para uma das fábulas lidas e responda às questões a seguir. ',
+      subQuestions: [
+        {
+          letter: 'a',
+          question: 'Qual forma você escolheria: prosa ou versos? Por quê?',
+          placeholder: 'Digite sua resposta aqui...',
+          correctAnswer: 'Pessoal.',
+        },
+        {
+          letter: 'b',
+          question: 'Você usaria diálogos diretos entre os personagens? Justifique. ',
+          placeholder: 'Digite sua resposta aqui...',
+          correctAnswer: 'Pessoal.',
+        },
+        {
+          letter: 'c',
+          question: 'Os personagens teriam comportamentos semelhantes aos das versões originais ou seriam diferentes?',
+          placeholder: 'Digite sua resposta aqui...',
+          correctAnswer: 'Pessoal.',
+        },
+        {
+          letter: 'd',
+          question: 'A moral seria explícita, em uma frase final, ou implícita, para ser interpretada pelo leitor? Por quê?',
+          placeholder: 'Digite sua resposta aqui...',
+          correctAnswer: 'Pessoal.',
+        },
+      ],
+    },
   ],
 };

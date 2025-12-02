@@ -71,7 +71,7 @@ function QuestionTrueFalse({
                   })}
                 </div>
                 <p className="mb-0" style={{ color: 'black' }}>
-                  {stmt.statement}
+                  <span dangerouslySetInnerHTML={{ __html: stmt.statement }} />
                 </p>
               </div>
             );

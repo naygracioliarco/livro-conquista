@@ -2082,6 +2082,123 @@ function Book() {
                   onAnswerChange={handleAnswerChange}
                   showResults={showTeacherView}
                 />
+                <Pagination currentPage={29} />
+                {/* Conteúdo do botão do professor */}
+                <div className="my-6">
+                  <TeacherButton
+                    content={
+                      <>
+                        <p className="mb-3">
+                          Respostas:
+                        </p>
+                        {(() => {
+                          const question = chapterQuestions.chapter2.find(q => q.id === 'ch2_q16');
+                          if (question && question.type === 'true-false' && question.statements) {
+                            return question.statements.map((stmt) => {
+                              // Se tiver correção, mostra V/F primeiro e depois a correção. Se não, mostra apenas V ou F
+                              const correctAnswerText = stmt.correctAnswer ? 'Verdadeiro (V)' : 'Falso (F)';
+                              const answerText = stmt.correction
+                                ? `${correctAnswerText}. ${stmt.correction}`
+                                : correctAnswerText;
+
+                              return (
+                                <p key={stmt.letter} className="mb-3">
+                                  {question.number !== undefined && (
+                                    <span style={{ color: '#00776E', fontWeight: 'bold' }}>{question.number}. </span>
+                                  )}
+                                  <span style={{ color: '#00776E', fontWeight: 'bold' }}>{stmt.letter}) </span>
+                                  <span dangerouslySetInnerHTML={{ __html: answerText }} />
+                                </p>
+                              );
+                            });
+                          }
+                          return null;
+                        })()}
+                        {(() => {
+                          const question = chapterQuestions.chapter2.find(q => q.id === 'ch2_q17');
+                          if (question && question.type === 'text-input') {
+                            // Se tiver subquestões, renderiza cada uma
+                            if (question.subQuestions && question.subQuestions.length > 0) {
+                              return question.subQuestions.map((subQ) => (
+                                <p key={subQ.letter} className="mb-3">
+                                  {question.number !== undefined && (
+                                    <span style={{ color: '#00776E', fontWeight: 'bold' }}>{question.number}. </span>
+                                  )}
+                                  <span style={{ color: '#00776E', fontWeight: 'bold' }}>{subQ.letter}) </span>
+                                  <span dangerouslySetInnerHTML={{ __html: subQ.correctAnswer || '' }} />
+                                </p>
+                              ));
+                            }
+                            // Se não tiver subquestões, renderiza a resposta direta
+                            if (question.correctAnswer) {
+                              return (
+                                <p className="mb-3">
+                                  {question.number !== undefined && (
+                                    <span style={{ color: '#00776E', fontWeight: 'bold' }}>{question.number}. </span>
+                                  )}
+                                  <span dangerouslySetInnerHTML={{ __html: question.correctAnswer }} />
+                                </p>
+                              );
+                            }
+                          }
+                          return null;
+                        })()}
+                        {(() => {
+                          const question = chapterQuestions.chapter2.find(q => q.id === 'ch2_q18');
+                          if (question && question.type === 'text-input') {
+                            // Se tiver subquestões, renderiza cada uma
+                            if (question.subQuestions && question.subQuestions.length > 0) {
+                              return question.subQuestions.map((subQ) => (
+                                <p key={subQ.letter} className="mb-3">
+                                  {question.number !== undefined && (
+                                    <span style={{ color: '#00776E', fontWeight: 'bold' }}>{question.number}. </span>
+                                  )}
+                                  <span style={{ color: '#00776E', fontWeight: 'bold' }}>{subQ.letter}) </span>
+                                  <span dangerouslySetInnerHTML={{ __html: subQ.correctAnswer || '' }} />
+                                </p>
+                              ));
+                            }
+                            // Se não tiver subquestões, renderiza a resposta direta
+                            if (question.correctAnswer) {
+                              return (
+                                <p className="mb-3">
+                                  {question.number !== undefined && (
+                                    <span style={{ color: '#00776E', fontWeight: 'bold' }}>{question.number}. </span>
+                                  )}
+                                  <span dangerouslySetInnerHTML={{ __html: question.correctAnswer }} />
+                                </p>
+                              );
+                            }
+                          }
+                          return null;
+                        })()}
+
+                      </>
+                    }
+
+                  />
+                </div>
+                {/* Questão intercalada no conteúdo */}
+                <QuestionRenderer
+                  question={chapterQuestions.chapter2[15]}
+                  userAnswers={userAnswers}
+                  onAnswerChange={handleAnswerChange}
+                  showResults={showTeacherView}
+                />
+                {/* Questão intercalada no conteúdo */}
+                <QuestionRenderer
+                  question={chapterQuestions.chapter2[16]}
+                  userAnswers={userAnswers}
+                  onAnswerChange={handleAnswerChange}
+                  showResults={showTeacherView}
+                />
+                {/* Questão intercalada no conteúdo */}
+                <QuestionRenderer
+                  question={chapterQuestions.chapter2[17]}
+                  userAnswers={userAnswers}
+                  onAnswerChange={handleAnswerChange}
+                  showResults={showTeacherView}
+                />
 
               </>
             }
