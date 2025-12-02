@@ -2241,7 +2241,76 @@ function Book() {
                     showResults={showTeacherView}
                   />
                 </ol>
-
+                <Pagination currentPage={31} />
+                <p className="mb-4 indent-6">É hora de escrever sua fábula. Produza um texto original que apresente:</p>
+                <ul className="list-disc marker:text-[#BF3154] ml-6 mb-4">
+                  <li>enredo curto com começo, meio e fim;</li>
+                  <li>personagens simbólicos que se comportam como seres humanos;</li>
+                  <li>problema ou desafio que dá origem ao conflito da história;</li>
+                  <li>lição apresentada no final do texto ou sugerida pelas atitudes dos personagens.</li>
+                </ul>
+                <p className="mb-4 indent-6">Para isso, use:</p>
+                <ul className="list-disc marker:text-[#BF3154] ml-6 mb-4">
+                  <li>verbos no passado para contar as ações concluídas;</li>
+                  <li>marcadores temporais que organizem a narrativa, como “um dia”, “então” e “enquanto isso”;</li>
+                  <li>linguagem expressiva e coerente com o gênero.</li>
+                </ul>
+                <p className="mb-4 indent-6">Represente seu texto com imagens. Você pode:</p>
+                <ul className="list-disc marker:text-[#BF3154] ml-6 mb-4">
+                  <li>fazer um desenho dos personagens principais em um momento importante da história;</li>
+                  <li>criar uma cena que destaque o conflito ou a moral da história;</li>
+                  <li>produzir uma colagem com recortes ou buscar imagens <em>on-line</em> que combinem com o que você escreveu.</li>
+                </ul>
+                <p className="mb-4 indent-6"><strong>Avaliação</strong></p>
+                <p className="mb-4 indent-6">Antes de finalizar a sua fábula, confira o <em>checklist</em> a seguir para aprimorá-la.</p>
+                {/* Tabela de Critérios de Avaliação */}
+                <CriteriosAvaliacao
+                  instanceId="producao_final_pag31"
+                  criterios={[
+                    {
+                      id: 'criterio_titulo',
+                      nome: 'Estrutura do gênero',
+                      pergunta: 'O texto tem uma situação inicial, um conflito e um desfecho?',
+                    },
+                    {
+                      id: 'criterio_linha_fina',
+                      nome: 'Personagens simbólicos',
+                      pergunta: 'Os personagens representam atitudes ou sentimentos humanos reconhecíveis?',
+                    },
+                    {
+                      id: 'criterio_lide',
+                      nome: 'Coerência narrativa',
+                      pergunta: 'As ações fazem sentido? A consequência final está conectada com o que veio antes?',
+                    },
+                    {
+                      id: 'criterio_corpo',
+                      nome: 'Expressividade',
+                      pergunta: 'A história provoca reflexão ou emoção? Os pensamentos e as ações dos personagens geram sentido simbólico?',
+                    },
+                    {
+                      id: 'criterio_linguagem',
+                      nome: 'Linguagem e clareza',
+                      pergunta: 'O texto está bem escrito, com vocabulário e pontuação adequados?',
+                    },
+                    {
+                      id: 'criterio_foco',
+                      nome: 'Ilustração como parte da criação',
+                      pergunta: 'A ilustração escolhida representa os personagens ou uma cena importante da fábula?',
+                    },
+                    {
+                      id: 'autoria_criacao',
+                      nome: 'Originalidade',
+                      pergunta: 'A história tem ideias inéditas?',
+                    },
+                    {
+                      id: 'moral',
+                      nome: 'Moral',
+                      pergunta: 'A moral da história está presente, ainda que de maneira implícita',
+                    },
+                  ]}
+                  userAnswers={userAnswers}
+                  onAnswerChange={handleAnswerChange}
+                />
               </>
             }
           />
