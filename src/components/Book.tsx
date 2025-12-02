@@ -107,7 +107,7 @@ function Book() {
 
   return (
     <div className="min-h-screen bg-gray-200 w-full">
-      <div className="mx-auto bg-white shadow-2xl rounded-lg overflow-hidden" style={{ maxWidth: '63%', marginLeft: 'auto', marginRight: 'auto' }}>
+      <div className="mx-auto bg-white shadow-2xl overflow-hidden" style={{ maxWidth: '63%', marginLeft: 'auto', marginRight: 'auto' }}>
         <Header />
 
         <div className="p-8 md:p-12">
@@ -2329,10 +2329,10 @@ function Book() {
       {currentPage >= 5 && (
         <button
           onClick={scrollToTop}
-          className="fixed bottom-24 right-6 z-40 bg-gradient-to-r from-blue-600 to-blue-700 text-white p-3 rounded-full shadow-lg hover:shadow-xl hover:scale-110 transition-all"
+          className="fixed bottom-24 right-6 z-40 bg-gradient-to-r text-white p-3 rounded-full hover:scale-110 transition-all"
           title="Voltar ao início do livro"
         >
-          <ArrowUp size={24} />
+          <img src="/images/setaTopo.png" alt="Voltar ao início do livro" />
         </button>
       )}
     </div>
