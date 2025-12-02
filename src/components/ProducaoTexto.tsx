@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import jsPDF from 'jspdf';
+import DownloadButton from './DownloadButton';
 
 function ProducaoTexto() {
   const [texto, setTexto] = useState('');
@@ -102,62 +103,7 @@ function ProducaoTexto() {
       />
 
       {/* Botão de download */}
-      <div className="flex">
-        <button
-          onClick={handleDownload}
-          style={{
-            position: 'relative',
-            padding: '10px 10px 10px 45px',
-            backgroundColor: '#BF3154',
-            boxShadow: '0px 4px 0px #9C2F4B',
-            borderRadius: '0 30px 30px 0',
-            color: 'white',
-            fontFamily: 'Ubuntu',
-            fontSize: '12px',
-            fontWeight: 700,
-            lineHeight: '1.4em',
-            textTransform: 'uppercase',
-            textDecoration: 'none',
-            margin: '1em 0.4em 1.4em 1.4em',
-            border: 'none',
-            cursor: 'pointer',
-            display: 'flex',
-            alignItems: 'center',
-          }}
-          onMouseEnter={(e) => {
-            if (texto.trim()) {
-              e.currentTarget.style.backgroundColor = '#9C2F4B';
-              e.currentTarget.style.boxShadow = '0px 2px 0px #7A2440';
-            }
-          }}
-          onMouseLeave={(e) => {
-            e.currentTarget.style.backgroundColor = '#BF3154';
-            e.currentTarget.style.boxShadow = '0px 4px 0px #9C2F4B';
-          }}
-          disabled={!texto.trim()}
-        >
-          <div
-            style={{
-              position: 'absolute',
-              left: '-15px',
-              top: '54%',
-              transform: 'translateY(-50%)',
-              width: '45px',
-              height: '45px',
-              borderRadius: '50%',
-              backgroundColor: '#BF3154',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              zIndex: 1,
-              background: 'transparent url("/images/download.png") no-repeat center',
-              backgroundSize: '100%',
-            }}
-          >
-          </div>
-          Download
-        </button>
-      </div>
+      <DownloadButton onClick={handleDownload} disabled={!texto.trim()} />
     </div>
   );
 }
