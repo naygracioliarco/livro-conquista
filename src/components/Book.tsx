@@ -12,6 +12,7 @@ import Pagination from './Pagination';
 import TrilhaTexto from './TrilhaTexto';
 import MinhaVersao from './MinhaVersao';
 import ProducaoTexto from './ProducaoTexto';
+import ProducaoFinal from './ProducaoFinal';
 import CaixaTexto from './CaixaTexto';
 import QuestionRenderer from './QuestionRenderer';
 import ContinuaProximaPagina from './ContinuaProximaPagina';
@@ -657,7 +658,7 @@ function Book() {
                                       // Obtém o primeiro campo da row (primeira coluna)
                                       const firstColumnKey = Object.keys(row).find(key => key !== 'id') || 'paragraph';
                                       const firstColumnValue = row[firstColumnKey] || '';
-                                      
+
                                       // Gera os fieldIds para cada coluna (exceto a primeira)
                                       const columnAnswers = question.columns.slice(1).map((columnName, colIndex) => {
                                         const fieldId = `${question.id}_${row.id}_col${colIndex + 1}`;
@@ -864,7 +865,7 @@ function Book() {
                 <p className="mb-4 indent-6"><strong>Texto III</strong></p>
                 <CaixaTexto title=''>
                   <p className="mb-4 indent-6">
-                  Em Pequim, robôs humanoides disputam um campeonato nada convencional. Futebol, boxe, atletismo… Em vez de atletas de carne e osso, quem brigou foram as máquinas com cara e corpo de gente. Pequim sediou a Olimpíada dos Robôs Humanoides. Na cerimônia de abertura, breakdance, artes marciais e música ao vivo. Mas, na hora da competição, a coisa era séria. Na partida de futebol, teve goleada e comemoração exagerada, com direito a queda dramática que precisou de socorro humano para sair de campo. O evento testa inteligência artificial, coordenação motora e resistência das máquinas, que ainda tropeçam, mas já dão um show. Engenheiros aproveitaram cada segundo para anotar as categorias e preparar os robôs para a próxima edição do campeonato.
+                    Em Pequim, robôs humanoides disputam um campeonato nada convencional. Futebol, boxe, atletismo… Em vez de atletas de carne e osso, quem brigou foram as máquinas com cara e corpo de gente. Pequim sediou a Olimpíada dos Robôs Humanoides. Na cerimônia de abertura, breakdance, artes marciais e música ao vivo. Mas, na hora da competição, a coisa era séria. Na partida de futebol, teve goleada e comemoração exagerada, com direito a queda dramática que precisou de socorro humano para sair de campo. O evento testa inteligência artificial, coordenação motora e resistência das máquinas, que ainda tropeçam, mas já dão um show. Engenheiros aproveitaram cada segundo para anotar as categorias e preparar os robôs para a próxima edição do campeonato.
                   </p>
                 </CaixaTexto>
                 <p
@@ -880,7 +881,7 @@ function Book() {
                 <p className="mb-4 indent-6"><strong>Texto IV</strong></p>
                 <CaixaTexto title=''>
                   <p className="mb-4 indent-6">
-                  Vou trazer uma notícia agora que envolve tecnologia. Foi realizada a primeira edição dos Jogos Mundiais dos Robôs. Pois é, o evento durou 4 dias e atraiu mais de 280 equipes de 16 países diferentes. Os robôs, que têm forma de humanos, como a gente está vendo, correram, alguns jogaram futebol e outros participaram de competições com obstáculos. Olha só os jogadores aí. Todos eles ali disputando a bola. Realmente chama muita atenção. Esse evento foi realizado na China. E tem um detalhe, foi a primeira edição, mas já tem data marcada para a segunda edição, que será em 2026.
+                    Vou trazer uma notícia agora que envolve tecnologia. Foi realizada a primeira edição dos Jogos Mundiais dos Robôs. Pois é, o evento durou 4 dias e atraiu mais de 280 equipes de 16 países diferentes. Os robôs, que têm forma de humanos, como a gente está vendo, correram, alguns jogaram futebol e outros participaram de competições com obstáculos. Olha só os jogadores aí. Todos eles ali disputando a bola. Realmente chama muita atenção. Esse evento foi realizado na China. E tem um detalhe, foi a primeira edição, mas já tem data marcada para a segunda edição, que será em 2026.
                   </p>
                 </CaixaTexto>
                 <p
@@ -951,7 +952,7 @@ function Book() {
                                       // Obtém o primeiro campo da row (primeira coluna)
                                       const firstColumnKey = Object.keys(row).find(key => key !== 'id') || 'paragraph';
                                       const firstColumnValue = row[firstColumnKey] || '';
-                                      
+
                                       // Gera os fieldIds para cada coluna (exceto a primeira)
                                       const columnAnswers = question.columns.slice(1).map((columnName, colIndex) => {
                                         const fieldId = `${question.id}_${row.id}_col${colIndex + 1}`;
@@ -976,13 +977,13 @@ function Book() {
                                     })}
                                   </>
                                 )}
-                                
+
                               </>
                             );
                           }
                           return null;
                         })()}
-                        
+
                       </>
                     }
                   />
@@ -1006,6 +1007,20 @@ function Book() {
                   onAnswerChange={handleAnswerChange}
                   showResults={showTeacherView}
                 />
+                <Pagination currentPage={15} />
+                {/* Conteúdo do botão do professor */}
+                <div className="my-6">
+                  <TeacherButton
+                    content={
+                      <>
+                        <p className="mb-3">
+                          EF69LP06, EF69LP07, EF69LP08, EF67LP09, EF67LP10, EF67LP32, EF67LP33, EF06LP06, EF06LP11, EF06LP12. O objetivo da produção final é consolidar os conhecimentos desenvolvidos ao longo da sequência didática por meio de uma escrita autoral, na qual os alunos devem demonstrar domínio da estrutura, da linguagem e do foco do gênero notícia. A proposta de preparação para a escrita incentiva a busca ativa por informações complementares sobre o evento, favorecendo o protagonismo e a autoria. Adote estratégias de mediação diferenciadas conforme o perfil da turma, como construção coletiva de um texto-modelo na lousa, <em>brainstorming</em> de títulos e enfoques possíveis ou revisão em duplas com apoio do <em>checklist</em> final.
+                        </p>
+                      </>
+                    }
+                  />
+                </div>
+                <ProducaoFinal />
 
               </>
             }
