@@ -14,6 +14,7 @@ import MinhaVersao from './MinhaVersao';
 import ProducaoTexto from './ProducaoTexto';
 import ProducaoFinal from './ProducaoFinal';
 import ProducaoTextoNoticia from './ProducaoTextoNoticia';
+import ProducaoTextoFabula from './ProducaoTextoFabula';
 import CaixaTexto from './CaixaTexto';
 import QuestionRenderer from './QuestionRenderer';
 import ContinuaProximaPagina from './ContinuaProximaPagina';
@@ -2311,16 +2312,18 @@ function Book() {
                   userAnswers={userAnswers}
                   onAnswerChange={handleAnswerChange}
                 />
+                <Pagination currentPage={32} />
+                <ProducaoTextoFabula />
               </>
             }
           />
         </div>
 
-        <footer className="bg-slate-100 py-6 px-8 border-t border-slate-200">
+        {/* <footer className="bg-slate-100 py-6 px-8 border-t border-slate-200">
           <p className="text-sm text-slate-600 text-center">
             © 2025 - Todos os direitos reservados
           </p>
-        </footer>
+        </footer> */}
       </div>
 
       {currentPage >= 5 && (
