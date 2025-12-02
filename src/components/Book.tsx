@@ -1087,6 +1087,20 @@ function Book() {
               </>
             }
           />
+          <Pagination currentPage={17} />
+          {/* Conteúdo do botão do professor */}
+          <div className="my-6">
+            <TeacherButton
+              content={
+                <>
+                  <p className="mb-3">
+                    EF69LP44. Promova uma escuta atenta e engajada, incentivando os alunos a estabelecer relações entre os comportamentos humanos e as situações representadas nas fábulas. O texto de abertura oferece subsídios para que reconheçam, problematizem e discutam valores sociais, culturais e humanos presentes nesse gênero textual. Inicie com uma conversa que recupere experiências anteriores de leitura de fábulas e convide os alunos a compartilhar situações cotidianas que remetam aos provérbios mencionados como “devagar se vai ao longe”. As perguntas sugeridas buscam estimular a troca de pontos de vista e o amadurecimento da escuta argumentativa. Utilize a imagem do lobo em pele de cordeiro como ponto de partida visual para construir hipóteses com a turma sobre aparências, intenções e disfarces.
+                  </p>
+                </>
+              }
+
+            />
+          </div>
           {/* Conteúdo do Capítulo 2 */}
           <Chapter
             id="chapter2"
@@ -1094,15 +1108,79 @@ function Book() {
             title="Fábulas"
             content={
               <>
-                <p className="mb-4">
-                  No mundo contemporâneo, vivemos na era da informação. A capacidade de
-                  coletar, organizar e analisar dados tornou-se uma habilidade essencial em
-                  praticamente todas as áreas do conhecimento.
+                <p className="mb-4 indent-6">
+                  Desde os tempos antigos, as pessoas criam histórias em que animais se comportam como seres humanos, capazes de pensar, falar e tomar decisões. Essas histórias divertem, fazem pensar e ensinam sobre como viver em sociedade.
                 </p>
-                <p className="mb-6">
-                  Abaixo, apresentamos uma tabela com alguns marcos importantes na história
-                  da organização do conhecimento:
+                <p className="mb-4 indent-6">
+                  Além de entreter, as fábulas convidam à reflexão sobre a convivência com os outros e sobre valores importantes para todos. Isso acontece por meio de situações simbólicas vividas por personagens como raposas astutas, tartarugas persistentes, lobos em pele de cordeiro ou leões orgulhosos.
                 </p>
+                <p className="mb-4 indent-6">
+                  São histórias curiosas, breves e que quase sempre terminam com uma moral, como “devagar se vai ao longe” ou “mais vale prevenir do que remediar”. Esses dizeres nos ajudam a pensar sobre comportamentos e dilemas comuns do dia a dia.
+                </p>
+                <p className="mb-4 indent-6">
+                  Porém, a moral não precisa ser aceita como verdade absoluta. É possível refletir sobre ela de diferentes maneiras. Dessa forma, as fábulas deixam de ser apenas histórias com lições prontas e passam a ser um convite à crítica, à reflexão e ao diálogo.
+                </p>
+                {/* Conteúdo de lista */}
+                <ul className="list-disc marker:text-[#BF3154] ml-6">
+                  <li>Todas as histórias precisam terminar com uma lição explícita?</li>
+                  <li>O que torna uma atitude boa ou ruim? Isso depende da intenção?</li>
+                  <li>Todos os comportamentos têm consequências? Por quê?</li>
+                </ul>
+                {/* Imagem */}
+                <div className="flex flex-col items-center my-6">
+                  <img src="/images/lobo.png" style={{ width: '75%', marginLeft: '314px' }} />
+                  <p className="text-[10px] text-slate-600 mt-2" style={{ marginLeft: '375px' }} >Hennadii H/Shutterstock
+                  </p>
+                </div>
+                <Pagination currentPage={18} />
+                <div className="my-6">
+                  <TeacherButton
+                    content={
+                      <>
+                        <p className="mb-3">
+                          EEF69LP44, EF69LP47, EF69LP49, EF69LP54. Esta seção tem como objetivo ampliar a compreensão dos alunos sobre o gênero <strong>fábula</strong>, articulando repertório histórico, dimensão simbólica e leitura crítica. Essa leitura inicial não visa à memorização de conceitos, mas ao desenvolvimento de repertório analítico que será usado na leitura dos textos e na produção autoral. Ao final da seção, retome com os alunos a estrutura da fábula como narrativa curta e intencionalmente construída, preparando-os para identificar esses elementos nos textos da sequência
+
+                        </p>
+                      </>
+                    }
+
+                  />
+                </div>
+                <h3>O que é fábula?</h3>
+                <p className="mb-4 indent-6">
+                  As fábulas são histórias curtas, simbólicas e protagonizadas por animais que agem como humanos. Essas narrativas existem há milhares de anos e surgiram da tradição oral de povos antigos, mas ainda hoje fazem sentido porque abordam valores humanos importantes em qualquer época, como honestidade, esperteza e respeito.
+                </p>
+                <p className="mb-4 indent-6">
+                  Esses textos comunicam ideias sobre o mundo e sobre o comportamento das pessoas de maneira indireta. O autor de uma fábula escolhe personagens, situações e desfechos para representar maneiras humanas de agir, pensar e se relacionar.
+                </p>
+                <p className="mb-4 indent-6">
+                  Mais do que ensinar uma lição, a fábula apresenta uma maneira de interpretar a vida por meio de metáforas. Isso significa que o autor não precisa escrever “acho que vaidade é um defeito” ou “as aparências enganam”. Em vez disso, ele cria uma situação simbólica em que essas ideias aparecem nas ações dos personagens.
+                </p>
+                <p className="mb-4 indent-6">
+                  Em muitas fábulas, a moral é apresentada de maneira direta, ao final do texto, por meio de uma frase curta que resume o ensinamento da história. No entanto, nem todas seguem esse formato. Em algumas versões, o ensinamento está apenas sugerido, aparecendo nas escolhas dos personagens, nas ações que eles realizam e nas consequências que enfrentam. Ou seja, nesses casos, o ensinamento fica subentendido.
+                </p>
+                <p className="mb-4 indent-6">
+                  Ao longo do tempo, uma mesma fábula pode ser contada de diferentes maneiras, com finais alternativos e mensagens transformadas. Em uma versão, um personagem é criticado. Em outra, pode ser valorizado. E isso muda completamente a interpretação da história.
+                </p>
+                <h4>Uma história curta com construção precisa</h4>
+                <p className="mb-4 indent-6">
+                  Como são textos curtos, as fábulas exigem uma construção narrativa intencional. O tempo é marcado sem descrições longas, a linguagem é direta e carregada de intenção e os desfechos são rápidos e, muitas vezes, surpreendentes. O autor precisa selecionar com cuidado cada elemento da narrativa para transmitir uma mensagem em poucos parágrafos. Normalmente, as fábulas se organizam em três partes principais.
+                </p>
+                <ul className="list-disc marker:text-[#BF3154] ml-6">
+                  <li><strong>Situação inicial</strong>:  apresenta o cenário e os personagens, sugerindo o comportamento de cada um. </li>
+                  <li><strong>Conflito</strong>: contém um desafio, uma escolha ou uma situação crítica que leva os personagens a agir. </li>
+                  <li><strong>Desfecho</strong>: mostra a consequência direta das ações dos personagens, geralmente com uma surpresa ou inversão de expectativa. </li>
+
+                </ul>
+                <p className="mb-4 indent-6">
+                  Os verbos são usados no passado, indicando ações concluídas, e os marcadores temporais, como <strong>certo dia, naquela manhã</strong> e <strong>enquanto isso</strong>, ajudam o leitor a acompanhar o avanço da narrativa com agilidade.
+                </p>
+
+
+
+
+
+
                 <DataTable />
                 <p className="mt-6">
                   Cada um desses marcos representou um salto significativo em nossa capacidade
