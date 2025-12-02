@@ -49,7 +49,14 @@ export interface TextInputQuestion {
     question: string; // Texto da subquestão
     placeholder?: string;
     correctAnswer?: string;
+    subItems?: Array<{
+      label: string; // Rótulo da subquestão aninhada (ex: 'Situação inicial', 'Conflito', 'Desfecho')
+      placeholder?: string;
+      correctAnswer?: string;
+    }>;
   }>;
+  embeddedContent?: string; // Conteúdo a ser exibido em uma caixa (ex: versos do poema)
+  followUpQuestion?: string; // Pergunta adicional com bullet vermelho
 }
 
 export interface TableFillQuestion {

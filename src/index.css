@@ -43,3 +43,8 @@
   font-weight: 400;
   line-height: 150%;
 }
+
+/* Estilo para bullets coloridos nas subquestões */
+ul.question-subitems li::marker {
+  color: #BF3154;
+}

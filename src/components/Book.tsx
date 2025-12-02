@@ -328,9 +328,7 @@ function Book() {
                       ou movimentos parecidos com os de
                       uma pessoa.
                     </p>
-                    <p className="text-[13px] mb-4 indent-6"><strong>Robot Mall</strong>: nome dado ao centro de
-                      vendas de robôs na China; <em>shopping</em>
-                      de robôs.
+                    <p className="text-[13px] mb-4 indent-6"><strong>Robot Mall</strong>: nome dado ao centro de vendas de robôs na China; <em>shopping</em> de robôs.
                     </p>
                     <p className="text-[13px] mb-4 indent-6"><strong>Reuters</strong>: agência que produz notícias
                       para jornais e TVs do mundo todo.
@@ -1501,11 +1499,265 @@ function Book() {
                 >
                   LA FONTAINE. O leão e o rato. Domínio público. Texto adaptado para fins didáticos. (Tradução nossa).
                 </p>
+                <Pagination currentPage={22} />
+                {/* Conteúdo do botão do professor */}
+                <div className="my-6">
+                  <TeacherButton
+                    content={
+                      <>
+                        <p className="mb-3">
+                          Respostas:
+                        </p>
+                        {(() => {
+                          const question = chapterQuestions.chapter2.find(q => q.id === 'ch2_q5');
+                          if (question && question.type === 'text-input') {
+                            // Se tiver subquestões, renderiza cada uma
+                            if (question.subQuestions && question.subQuestions.length > 0) {
+                              return question.subQuestions.map((subQ) => {
+                                // Se tiver subItems, renderiza com bullets
+                                if (subQ.subItems && subQ.subItems.length > 0) {
+                                  return (
+                                    <div key={subQ.letter} className="mb-4">
+                                      <p className="mb-2">
+                                        {question.number !== undefined && (
+                                          <span style={{ color: '#00776E', fontWeight: 'bold' }}>{question.number}. </span>
+                                        )}
+                                        <span style={{ color: '#00776E', fontWeight: 'bold' }}>{subQ.letter}) </span>
+                                        <span style={{ color: 'black' }}>{subQ.question}</span>
+                                      </p>
+                                      <ul className="question-subitems" style={{ paddingLeft: '1.5rem', listStyleType: 'disc' }}>
+                                        {subQ.subItems.map((subItem, index) => (
+                                          <li key={index} className="mb-2">
+                                            <p className="mb-1">
+                                              <span style={{ color: 'black' }}>{subItem.label}: </span>
+                                              <span dangerouslySetInnerHTML={{ __html: subItem.correctAnswer || '' }} />
+                                            </p>
+                                          </li>
+                                        ))}
+                                      </ul>
+                                    </div>
+                                  );
+                                }
+                                // Se não tiver subItems, renderiza normalmente
+                                return (
+                                  <p key={subQ.letter} className="mb-3">
+                                    {question.number !== undefined && (
+                                      <span style={{ color: '#00776E', fontWeight: 'bold' }}>{question.number}. </span>
+                                    )}
+                                    <span style={{ color: '#00776E', fontWeight: 'bold' }}>{subQ.letter}) </span>
+                                    <span dangerouslySetInnerHTML={{ __html: subQ.correctAnswer || '' }} />
+                                  </p>
+                                );
+                              });
+                            }
+                            // Se não tiver subquestões, renderiza a resposta direta
+                            if (question.correctAnswer) {
+                              return (
+                                <p className="mb-3">
+                                  {question.number !== undefined && (
+                                    <span style={{ color: '#00776E', fontWeight: 'bold' }}>{question.number}. </span>
+                                  )}
+                                  <span dangerouslySetInnerHTML={{ __html: question.correctAnswer }} />
+                                </p>
+                              );
+                            }
+                          }
+                          return null;
+                        })()}
+                        {(() => {
+                          const question = chapterQuestions.chapter2.find(q => q.id === 'ch2_q6');
+                          if (question && question.type === 'alternative' && question.options) {
+                            const correctOption = question.options[question.correctAnswer];
+                            const correctLetter = String.fromCharCode(97 + question.correctAnswer); // a, b, c, d...
+                            return (
+                              <p className="mb-3">
+                                {question.number !== undefined && (
+                                  <span style={{ color: '#00776E', fontWeight: 'bold' }}>{question.number}. </span>
+                                )}
+                                <span style={{ color: '#00776E', fontWeight: 'bold' }}>{correctLetter}) </span>
+                                <span dangerouslySetInnerHTML={{ __html: correctOption || '' }} />
+                              </p>
+                            );
+                          }
+                          return null;
+                        })()}
+                        {(() => {
+                          const question = chapterQuestions.chapter2.find(q => q.id === 'ch2_q7');
+                          if (question && question.type === 'text-input') {
+                            // Se tiver subquestões, renderiza cada uma
+                            if (question.subQuestions && question.subQuestions.length > 0) {
+                              return question.subQuestions.map((subQ) => (
+                                <p key={subQ.letter} className="mb-3">
+                                  {question.number !== undefined && (
+                                    <span style={{ color: '#00776E', fontWeight: 'bold' }}>{question.number}. </span>
+                                  )}
+                                  <span style={{ color: '#00776E', fontWeight: 'bold' }}>{subQ.letter}) </span>
+                                  <span dangerouslySetInnerHTML={{ __html: subQ.correctAnswer || '' }} />
+                                </p>
+                              ));
+                            }
+                            // Se não tiver subquestões, renderiza a resposta direta
+                            if (question.correctAnswer) {
+                              return (
+                                <p className="mb-3">
+                                  {question.number !== undefined && (
+                                    <span style={{ color: '#00776E', fontWeight: 'bold' }}>{question.number}. </span>
+                                  )}
+                                  <span dangerouslySetInnerHTML={{ __html: question.correctAnswer }} />
+                                </p>
+                              );
+                            }
+                          }
+                          return null;
+                        })()}
+                      </>
+                    }
+                  />
+                </div>
+                {/* Questão intercalada no conteúdo - Tabela comparativa */}
+                <QuestionRenderer
+                  question={chapterQuestions.chapter2[4]}
+                  userAnswers={userAnswers}
+                  onAnswerChange={handleAnswerChange}
+                  showResults={showTeacherView}
+                />
+                <QuestionRenderer
+                  question={chapterQuestions.chapter2[5]}
+                  userAnswers={userAnswers}
+                  onAnswerChange={handleAnswerChange}
+                  showResults={showTeacherView}
+                />
+                <QuestionRenderer
+                  question={chapterQuestions.chapter2[6]}
+                  userAnswers={userAnswers}
+                  onAnswerChange={handleAnswerChange}
+                  showResults={showTeacherView}
+                />
+                <Pagination currentPage={23} />
+                {/* Conteúdo do botão do professor */}
+                <div className="my-6">
+                  <TeacherButton
+                    content={
+                      <>
+                        <p className="mb-3">
+                          Respostas:
+                        </p>
+                        {(() => {
+                          const question = chapterQuestions.chapter2.find(q => q.id === 'ch2_q8');
+                          if (question && question.type === 'text-input') {
+                            // Se tiver subquestões, renderiza cada uma
+                            if (question.subQuestions && question.subQuestions.length > 0) {
+                              return question.subQuestions.map((subQ) => (
+                                <p key={subQ.letter} className="mb-3">
+                                  {question.number !== undefined && (
+                                    <span style={{ color: '#00776E', fontWeight: 'bold' }}>{question.number}. </span>
+                                  )}
+                                  <span style={{ color: '#00776E', fontWeight: 'bold' }}>{subQ.letter}) </span>
+                                  <span dangerouslySetInnerHTML={{ __html: subQ.correctAnswer || '' }} />
+                                </p>
+                              ));
+                            }
+                            // Se não tiver subquestões, renderiza a resposta direta
+                            if (question.correctAnswer) {
+                              return (
+                                <p className="mb-3">
+                                  {question.number !== undefined && (
+                                    <span style={{ color: '#00776E', fontWeight: 'bold' }}>{question.number}. </span>
+                                  )}
+                                  <span dangerouslySetInnerHTML={{ __html: question.correctAnswer }} />
+                                </p>
+                              );
+                            }
+                          }
+                          return null;
+                        })()}
+                        {(() => {
+                          const question = chapterQuestions.chapter2.find(q => q.id === 'ch2_q9');
+                          if (question && question.type === 'text-input') {
+                            // Se tiver subquestões, renderiza cada uma
+                            if (question.subQuestions && question.subQuestions.length > 0) {
+                              return question.subQuestions.map((subQ) => (
+                                <p key={subQ.letter} className="mb-3">
+                                  {question.number !== undefined && (
+                                    <span style={{ color: '#00776E', fontWeight: 'bold' }}>{question.number}. </span>
+                                  )}
+                                  <span style={{ color: '#00776E', fontWeight: 'bold' }}>{subQ.letter}) </span>
+                                  <span dangerouslySetInnerHTML={{ __html: subQ.correctAnswer || '' }} />
+                                </p>
+                              ));
+                            }
+                            // Se não tiver subquestões, renderiza a resposta direta
+                            if (question.correctAnswer) {
+                              return (
+                                <p className="mb-3">
+                                  {question.number !== undefined && (
+                                    <span style={{ color: '#00776E', fontWeight: 'bold' }}>{question.number}. </span>
+                                  )}
+                                  <span dangerouslySetInnerHTML={{ __html: question.correctAnswer }} />
+                                </p>
+                              );
+                            }
+                          }
+                          return null;
+                        })()}
+                        <p className="mb-4 indent-6">
+                          Esta atividade tem como objetivo consolidar o conhecimento sobre o gênero <strong>fábula</strong> e avançar na autonomia autoral dos alunos. Ao propor a mudança de forma (de prosa para verso ou de verso para prosa) e a modificação de pelo menos um dos elementos estruturais do enredo (situação inicial, conflito ou desfecho), a atividade convida os alunos a refletir criticamente sobre as escolhas narrativas e a relação entre estrutura e mensagem. O foco não está apenas em recontar, mas em recriar com intenção, construindo uma nova moral baseada nos personagens e em novos caminhos de ação.
+                        </p>
+                        <p className="mb-4 indent-6">
+                          Minha versão: É importante orientar os alunos a manter os elementos essenciais do gênero, como personagens simbólicos e sequência narrativa, mesmo ao optar por mudanças criativas. A etapa de preparação pode ser realizada individualmente ou em dupla. Atue como mediador, oferecendo exemplos, esclarecendo dúvidas sobre o uso de versos ou a organização de parágrafos e estimulando discussões sobre diferentes valores possíveis. A atividade proporciona um espaço de autoria seguro, permitindo que alunos com diferentes níveis de proficiência se envolvam no processo criativo.
 
-
-
-
-
+                        </p>
+                      </>
+                    }
+                  />
+                </div>
+                {/* Questão intercalada no conteúdo - Tabela comparativa */}
+                <QuestionRenderer
+                  question={chapterQuestions.chapter2[7]}
+                  userAnswers={userAnswers}
+                  onAnswerChange={handleAnswerChange}
+                  showResults={showTeacherView}
+                />
+                <QuestionRenderer
+                  question={chapterQuestions.chapter2[8]}
+                  userAnswers={userAnswers}
+                  onAnswerChange={handleAnswerChange}
+                  showResults={showTeacherView}
+                />
+                <MinhaVersao />
+                <p className="mb-4 indent-6">Você já leu e analisou duas fábulas clássicas: A lebre e a tartaruga e O leão e o rato. Agora, sua tarefa será fazer uma reescrita criativa de uma dessas histórias, mas você terá dois desafios.</p>
+                <ol className="list-decimal marker:text-[#BF3154] ml-6 mb-4">
+                  <li><strong>Mude a forma do texto</strong>: se a fábula escolhida era em prosa, será reescrita em versos; se era em versos, será reescrita em prosa.
+                  </li>
+                  <li><strong>Modifique algum elemento da narrativa</strong> (a situação inicial, o conflito ou o desfecho): com o objetivo de alterar a moral da história.
+                  </li>
+                </ol>
+                <p className="mb-4 indent-6">Sua produção deve manter os personagens da fábula, mas apresentar uma nova versão do enredo que leve o leitor a refletir sobre uma lição diferente daquela da história original.
+                </p>
+                <Pagination currentPage={24} />
+                {/* Conteúdo do botão do professor */}
+                <div className="my-6">
+                  <TeacherButton
+                    content={
+                      <>
+                        <p className="mb-3">
+                          Respostas:
+                        </p>
+                        <p className="mb-4 indent-6">
+                          Pessoal.
+                        </p>
+                      </>
+                    }
+                  />
+                </div>
+                <p className="mb-4 indent-6"><strong>Preparação</strong></p>
+                <p className="mb-4 indent-6">Antes de escrever, siga os passos abaixo para planejar sua nova versão da fábula.</p>
+                <ol className="list-decimal marker:text-[#BF3154] ml-6 mb-4">
+                  <li><strong>Mude a forma do texto</strong>: se a fábula escolhida era em prosa, será reescrita em versos; se era em versos, será reescrita em prosa.
+                  </li>
+                  <li><strong>Modifique algum elemento da narrativa</strong> (a situação inicial, o conflito ou o desfecho): com o objetivo de alterar a moral da história.
+                  </li>
+                </ol>
 
               </>
             }
