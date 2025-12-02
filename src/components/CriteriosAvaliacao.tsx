@@ -8,6 +8,7 @@ interface Criterio {
 
 interface CriteriosAvaliacaoProps {
   title?: string;
+  instanceId: string; // ID único para esta instância da tabela
   criterios: Criterio[];
   userAnswers?: UserAnswers;
   onAnswerChange?: (criterioId: string, answer: boolean) => void;
@@ -15,13 +16,16 @@ interface CriteriosAvaliacaoProps {
 
 function CriteriosAvaliacao({
   title = 'CRITÉRIOS DE AVALIAÇÃO',
+  instanceId,
   criterios,
   userAnswers = {},
   onAnswerChange,
 }: CriteriosAvaliacaoProps) {
   const handleAnswerChange = (criterioId: string, answer: boolean) => {
     if (onAnswerChange) {
-      onAnswerChange(criterioId, answer);
+      // Usa instanceId como prefixo para tornar o ID único
+      const uniqueId = `${instanceId}_${criterioId}`;
+      onAnswerChange(uniqueId, answer);
     }
   };
 
@@ -75,7 +79,9 @@ function CriteriosAvaliacao({
         </thead>
         <tbody>
           {criterios.map((criterio) => {
-            const answer = userAnswers[criterio.id] as boolean | undefined;
+            // Usa instanceId como prefixo para tornar o ID único
+            const uniqueId = `${instanceId}_${criterio.id}`;
+            const answer = userAnswers[uniqueId] as boolean | undefined;
             const isYes = answer === true;
             const isNo = answer === false;
 
@@ -113,12 +119,12 @@ function CriteriosAvaliacao({
                 >
                   <input
                     type="radio"
-                    name={criterio.id}
+                    name={uniqueId}
                     checked={isYes}
                     onChange={() => handleAnswerChange(criterio.id, true)}
                     className="w-4 h-4"
                     style={{
-                      accentColor: '#0E3B5D',
+                      accentColor: '#BF3154',
                     }}
                   />
                 </td>
@@ -131,7 +137,7 @@ function CriteriosAvaliacao({
                 >
                   <input
                     type="radio"
-                    name={criterio.id}
+                    name={uniqueId}
                     checked={isNo}
                     onChange={() => handleAnswerChange(criterio.id, false)}
                     className="w-4 h-4"

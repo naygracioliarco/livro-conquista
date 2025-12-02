@@ -790,6 +790,7 @@ function Book() {
                 </p>
                 {/* Tabela de Critérios de Avaliação */}
                 <CriteriosAvaliacao
+                  instanceId="producao_texto"
                   criterios={[
                     {
                       id: 'criterio_titulo',
@@ -1021,6 +1022,65 @@ function Book() {
                   />
                 </div>
                 <ProducaoFinal />
+                <p className="mb-4 indent-6">
+                Agora, é hora de mostrar tudo o que você aprendeu! Você vai escrever uma notícia completa com base nos textos III e IV, que foram veiculados como notícias oralizadas em telejornais. Sua tarefa será transformar essas versões em uma notícia escrita, pensada para ser publicada em um jornal impresso ou em um <em>site</em> de notícias.
+                </p>
+                <p className="mb-4 indent-6"><strong>Preparação</strong></p>
+                <ol className="list-disc marker:text-[#BF3154] ml-6">
+                  <li>Antes de começar a escrever sua notícia, aprofunde-se mais no tema. Faça uma pesquisa na internet sobre as Olimpíadas de Robôs e descubra as informações principais sobre o evento: Como e quando surgiu? Onde foi realizado? Quem participou? Quais modalidades foram disputadas? </li>
+                  <li>Em seguida, pense nas decisões que você vai tomar como autor. Qual será o foco da sua notícia: o impacto do evento, os melhores resultados nas competições, os incentivos financeiros do governo ou outro aspecto? Qual será o tom do seu texto: mais técnico e informativo ou mais leve e descritivo?   </li>
+                </ol>
+                <p className="mb-4 indent-6"><strong>Produção</strong></p>
+                <p className="mb-4 indent-6">Produza um texto completo seguindo a estrutura do gênero <strong>notícia</strong>. Organize suas ideias em parágrafos e pense nas suas escolhas como autor. O que incluir? O que não incluir? Como apresentar o conteúdo ao leitor?
+                </p>
+                <p className="mb-4 indent-6">Sua notícia deve conter título, linha-fina, lide e corpo. Lembre-se das características próprias do gênero e atente à linguagem, aos tempos verbais e à organização dos parágrafos.
+                </p>
+                <p className="mb-4 indent-6"><strong>Avaliação</strong></p>
+                <p className="mb-4 indent-6">Antes de finalizar a sua versão, confira o <em>checklist</em> a seguir para aprimorá-la.
+                </p>
+                {/* Tabela de Critérios de Avaliação */}
+                <CriteriosAvaliacao
+                  instanceId="producao_final"
+                  criterios={[
+                    {
+                      id: 'criterio_titulo',
+                      nome: 'TÍTULO',
+                      pergunta: 'Apresenta o assunto principal de forma atrativa?',
+                    },
+                    {
+                      id: 'criterio_linha_fina',
+                      nome: 'LINHA-FINA',
+                      pergunta: 'Complementa o título com uma informação importante ou que aprofunda o assunto?',
+                    },
+                    {
+                      id: 'criterio_lide',
+                      nome: 'LIDE',
+                      pergunta: 'Responde às perguntas essenciais sobre o fato?',
+                    },
+                    {
+                      id: 'criterio_corpo',
+                      nome: 'CORPO DA NOTÍCIA',
+                      pergunta: 'Desenvolve os detalhes em uma sequência lógica?',
+                    },
+                    {
+                      id: 'criterio_linguagem',
+                      nome: 'LINGUAGEM',
+                      pergunta: 'O texto está na terceira pessoa, com verbos no passado e sem expressar opinião pessoal?',
+                    },
+                    {
+                      id: 'criterio_foco',
+                      nome: 'FOCO INFORMATIVO',
+                      pergunta: 'Você escolheu o que queria destacar na notícia e manteve esse foco até o fim?',
+                    },
+                    {
+                      id: 'autoria_criacao',
+                      nome: 'AUTORIA E CRIAÇÃO PESSOAL',
+                      pergunta: 'Você fez escolhas próprias sobre como escrever a notícia, com base no que leu e no que decidiu destacar?',
+                    },
+                  ]}
+                  userAnswers={userAnswers}
+                  onAnswerChange={handleAnswerChange}
+                />
 
               </>
             }
