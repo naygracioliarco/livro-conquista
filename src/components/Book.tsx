@@ -1175,6 +1175,72 @@ function Book() {
                 <p className="mb-4 indent-6">
                   Os verbos são usados no passado, indicando ações concluídas, e os marcadores temporais, como <strong>certo dia, naquela manhã</strong> e <strong>enquanto isso</strong>, ajudam o leitor a acompanhar o avanço da narrativa com agilidade.
                 </p>
+                <Pagination currentPage={19} />
+                <div className="my-6">
+                  <TeacherButton
+                    content={
+                      <>
+                        <p className="mb-3">
+                          EF69LP44, EF69LP46, EF69LP47, EF69LP49, EF67LP28, EF06LP05, EF67LP37, EF67LP38. Conduza a leitura e análise da fábula <em>A lebre e a tartaruga</em>, um texto clássico com grande potencial para interpretações que vão além da moral tradicionalmente conhecida. Ao longo da leitura guiada e das propostas interpretativas, incentive os alunos a observar como as escolhas narrativas revelam comportamentos simbólicos e constroem possíveis morais implícitas. Esse é um momento oportuno para trabalhar com rodas de conversa, trocas em duplas e valorização de diferentes pontos de vista durante as leituras e as interpretações. Após a realização das atividades, proponha uma conversa com a turma sobre como os comportamentos da lebre (confiança exagerada, falta de constância e descuido) também aparecem em situações do dia a dia. Peça aos alunos que compartilhem exemplos reais e reflitam, de maneira coletiva, sobre as consequências dessas atitudes e como evitá-las.
+                        </p>
+                      </>
+                    }
+                  />
+                </div>
+                <TrilhaTexto />
+                <p className="mb-4 indent-6">
+                  Leia uma fábula clássica e observe como a estrutura, a linguagem e os personagens contribuem para transmitir uma mensagem.
+                </p>
+                <p className="mb-4 indent-6">
+                  <strong>Texto I</strong>
+                </p>
+                <CaixaTexto title='A Lebre e a Tartaruga'>
+                  <p className="mb-4 indent-6">
+                    A Lebre vivia a rir da Tartaruga por
+                    causa de sua lentidão.
+                  </p>
+                  <p className="mb-4 indent-6">
+                    — Como consegues ir a algum lugar arrastando-te assim? — zombava
+                    ela, entre risos.
+                  </p>
+                  <p className="mb-4 indent-6">
+                    — Posso não correr, mas sei perseverar. Se quiseres, podemos apostar uma corrida. Veremos quem chega primeiro.
+                  </p>
+                  <p className="mb-4 indent-6">
+                    A Lebre, achando a ideia engraçadíssima, aceitou o desafio só para se divertir. A Raposa, respeitada por sua imparcialidade, foi chamada para ser a juíza. Ela marcou o percurso, alinhou os competidores e deu o sinal de partida.
+                  </p>
+                  <p className="mb-4 indent-6">
+                    Num piscar de olhos, a Lebre disparou pelo caminho e logo ficou fora de vista. Já a Tartaruga seguiu em seu ritmo, passo a passo, sem desanimar. Convencida de que venceria com facilidade, a Lebre decidiu descansar um pouco à sombra de uma árvore.
+                  </p>
+                  <p className="mb-4 indent-6">
+                    — Tenho tempo de sobra — pensou — a Tartaruga mal deve ter saído
+                    do lugar.
+                  </p>
+                  <p className="mb-4 indent-6">
+                    Mas, enquanto dormia tranquila, a Tartaruga, firme e constante, passou por ela e seguiu em frente, determinada a chegar ao fim.
+                  </p>
+                  <p className="mb-4 indent-6">
+                    Quando despertou, a Lebre levou um susto ao ver a Tartaruga quase cruzando a linha de chegada. Correu com todas as forças, mas já era tarde demais. A lenta Tartaruga venceu a corrida,
+                    para surpresa de todos.
+                  </p>
+
+                  {/* Imagem */}
+                  <div className="flex flex-col items-center my-6">
+                    <img src="/images/lebreTartaruga.png" className="max-w-[50%]" />
+                    <p className="text-[10px] text-slate-600 mt-2">WINTER, Milo. A lebre e a tartaruga. <em>In: AESOP. The Aesop for children. [S.l.]</em>: Project Gutenberg, 2006. Disponível em: <a href="http://www.gutenberg.org/etext/19994" target="_blank" rel="noopener noreferrer">http://www.gutenberg.org/etext/19994</a>. Acesso em: 24 set. 2025.
+                    </p>
+                  </div>
+                </CaixaTexto>
+                <p
+                  className="mt-2 mb-6"
+                  style={{
+                    fontFamily: 'Ubuntu, sans-serif',
+                    color: '#000000',
+                    fontSize: '10px',
+                  }}
+                >
+                  ESOPO. <em>A lebre e a tartaruga</em>. Domínio público. Texto adaptado para fins didáticos. (Tradução nossa).
+                </p>
 
 
 
