@@ -1826,6 +1826,262 @@ function Book() {
                 />
                 <Pagination currentPage={26} />
                 <ProducaoTexto instanceId="producaoTexto2" />
+                <Pagination currentPage={27} />
+                <div className="my-6">
+                  <TeacherButton
+                    content={
+                      <>
+                        <p className="mb-3">
+                          EF69LP44, EF69LP46, EF69LP47, EF69LP49, EF67LP28, EF67LP37, EF67LP38. Nesta etapa, o objetivo é consolidar a compreensão da estrutura do gênero <strong>fábula</strong> e aprofundar a percepção dos alunos sobre as diferentes formas de construção da moral. A fábula <em>A raposa e o corvo</em> retoma os elementos principais trabalhados ao longo do capítulo, mas introduz um enunciado de moral explicitamente separado do corpo do texto. Esse recurso permite aos alunos que comparem essa estratégia com as anteriores e reflitam sobre seus efeitos. As atividades propostas favorecem múltiplos níveis de leitura: da compreensão literal à análise crítica dos comportamentos simbólicos dos personagens. Incentive a análise da figura da raposa como manipuladora e do corvo como símbolo da vaidade, relacionando esses papéis a situações contemporâneas e a possíveis excessos de confiança ao julgar a opinião dos outros. Essa etapa conclui a sequência interpretativa e prepara os alunos para a produção autoral, que será orientada pela escolha de uma moral e pela construção de uma narrativa original com estrutura e intenção definidas.
+                        </p>
+                      </>
+                    }
+                  />
+                </div>
+                <TrilhaTexto />
+                <p className="mb-4 indent-6">
+                  Leia mais uma fábula. Agora, há moral explícita ao final do texto.
+                </p>
+                <p className="mb-4 indent-6">
+                  <strong>Texto III</strong>
+                </p>
+                <CaixaTexto title='A raposa e o corvo'>
+                  <p className="mb-4 indent-6">
+                    Em certa manhã ensolarada, um corvo pousou num alto galho com um belo pedaço de queijo no bico. Estava satisfeito com seu achado e já se preparava para apreciar seu lanche, quando apareceu uma raposa astuta caminhando logo abaixo.
+                  </p>
+                  <p className="mb-4 indent-6">
+                    Ao ver o corvo com o queijo, a raposa parou e pensou consigo: “Não é justo deixá-lo com essa iguaria! Preciso encontrar maneira de fazê-lo largar o queijo, mas sem assustá-lo.” Então, com os olhos brilhando de esperteza, parou sob a árvore, ergueu o focinho em direção ao galho e exclamou:
+                  </p>
+                  <p className="mb-4 indent-6">
+                    — Que criatura esplêndida és tu! Nunca vi penas tão brilhantes!
+                    Que elegância, que porte majestoso! Aposto que tens uma voz encantadora, digna de um verdadeiro rei das aves. Se cantasses agora, certeza teríamos de coroar-te soberano do céu!
+                  </p>
+                  <p className="mb-4 indent-6">
+                    Lisonjeado, o corvo sentiu-se honrado com tantos elogios. Envaidecido, pensou: “Ora, por que não mostrar à senhorita minha
+                    bela voz?” E, sem pensar nas consequências, abriu o bico para cantar.
+                  </p>
+                  <p className="mb-4 indent-6">
+                    — Cróóó!
+                  </p>
+                  <p className="mb-4 indent-6">
+                    No mesmo instante, o queijo caiu direto no chão. A raposa, sem
+                    perder tempo, agarrou-o com os dentes e se afastou tranquilamente. Antes de sumir entre os arbustos, ainda se virou e disse:
+                  </p>
+                  <p className="mb-4 indent-6">
+                    — Cante o quanto quiser, meu caro. De beleza e voz você pode
+                    até entender. Mas de inteligência… Ah, ainda lhe falta muito!
+                  </p>
+                  <p className="mb-4 indent-6">
+                    <strong>Moral da história</strong>: Cuidado com os que elogiam demais.
+                  </p>
+
+
+                  {/* Imagem */}
+                  <div className="flex flex-col items-center my-6">
+                    <img src="/images/raposa.png" className="max-w-[50%]" />
+                    <p className="text-[10px] text-slate-600 mt-2">Saenkova Iuliia/stock.adobe.com
+                    </p>
+                  </div>
+                </CaixaTexto>
+                <p
+                  className="mt-2 mb-6"
+                  style={{
+                    fontFamily: 'Ubuntu, sans-serif',
+                    color: '#000000',
+                    fontSize: '10px',
+                  }}
+                >
+                  ESOPO. <em>A raposa e o corvo</em>. Domínio público. Texto adaptado para fins didáticos. (Tradução nossa).
+                </p>
+                <Pagination currentPage={28} />
+                {/* Conteúdo do botão do professor */}
+                <div className="my-6">
+                  <TeacherButton
+                    content={
+                      <>
+                        <p className="mb-3">
+                          Respostas:
+                        </p>
+                        {(() => {
+                          const question = chapterQuestions.chapter2.find(q => q.id === 'ch2_q11');
+                          if (question && question.type === 'true-false' && question.statements) {
+                            return question.statements.map((stmt) => {
+                              // Se tiver correção, mostra V/F primeiro e depois a correção. Se não, mostra apenas V ou F
+                              const correctAnswerText = stmt.correctAnswer ? 'Verdadeiro (V)' : 'Falso (F)';
+                              const answerText = stmt.correction
+                                ? `${correctAnswerText}. ${stmt.correction}`
+                                : correctAnswerText;
+
+                              return (
+                                <p key={stmt.letter} className="mb-3">
+                                  {question.number !== undefined && (
+                                    <span style={{ color: '#00776E', fontWeight: 'bold' }}>{question.number}. </span>
+                                  )}
+                                  <span style={{ color: '#00776E', fontWeight: 'bold' }}>{stmt.letter}) </span>
+                                  <span dangerouslySetInnerHTML={{ __html: answerText }} />
+                                </p>
+                              );
+                            });
+                          }
+                          return null;
+                        })()}
+                        {(() => {
+                          const question = chapterQuestions.chapter2.find(q => q.id === 'ch2_q12');
+                          if (question && question.type === 'text-input') {
+                            // Se tiver subquestões, renderiza cada uma
+                            if (question.subQuestions && question.subQuestions.length > 0) {
+                              return question.subQuestions.map((subQ) => (
+                                <p key={subQ.letter} className="mb-3">
+                                  {question.number !== undefined && (
+                                    <span style={{ color: '#00776E', fontWeight: 'bold' }}>{question.number}. </span>
+                                  )}
+                                  <span style={{ color: '#00776E', fontWeight: 'bold' }}>{subQ.letter}) </span>
+                                  <span dangerouslySetInnerHTML={{ __html: subQ.correctAnswer || '' }} />
+                                </p>
+                              ));
+                            }
+                            // Se não tiver subquestões, renderiza a resposta direta
+                            if (question.correctAnswer) {
+                              return (
+                                <p className="mb-3">
+                                  {question.number !== undefined && (
+                                    <span style={{ color: '#00776E', fontWeight: 'bold' }}>{question.number}. </span>
+                                  )}
+                                  <span dangerouslySetInnerHTML={{ __html: question.correctAnswer }} />
+                                </p>
+                              );
+                            }
+                          }
+                          return null;
+                        })()}
+                        {(() => {
+                          const question = chapterQuestions.chapter2.find(q => q.id === 'ch2_q13');
+                          if (question && question.type === 'text-input') {
+                            // Se tiver subquestões, renderiza cada uma
+                            if (question.subQuestions && question.subQuestions.length > 0) {
+                              return question.subQuestions.map((subQ) => (
+                                <p key={subQ.letter} className="mb-3">
+                                  {question.number !== undefined && (
+                                    <span style={{ color: '#00776E', fontWeight: 'bold' }}>{question.number}. </span>
+                                  )}
+                                  <span style={{ color: '#00776E', fontWeight: 'bold' }}>{subQ.letter}) </span>
+                                  <span dangerouslySetInnerHTML={{ __html: subQ.correctAnswer || '' }} />
+                                </p>
+                              ));
+                            }
+                            // Se não tiver subquestões, renderiza a resposta direta
+                            if (question.correctAnswer) {
+                              return (
+                                <p className="mb-3">
+                                  {question.number !== undefined && (
+                                    <span style={{ color: '#00776E', fontWeight: 'bold' }}>{question.number}. </span>
+                                  )}
+                                  <span dangerouslySetInnerHTML={{ __html: question.correctAnswer }} />
+                                </p>
+                              );
+                            }
+                          }
+                          return null;
+                        })()}
+                        {(() => {
+                          const question = chapterQuestions.chapter2.find(q => q.id === 'ch2_q14');
+                          if (question && question.type === 'text-input') {
+                            // Se tiver subquestões, renderiza cada uma
+                            if (question.subQuestions && question.subQuestions.length > 0) {
+                              return question.subQuestions.map((subQ) => (
+                                <p key={subQ.letter} className="mb-3">
+                                  {question.number !== undefined && (
+                                    <span style={{ color: '#00776E', fontWeight: 'bold' }}>{question.number}. </span>
+                                  )}
+                                  <span style={{ color: '#00776E', fontWeight: 'bold' }}>{subQ.letter}) </span>
+                                  <span dangerouslySetInnerHTML={{ __html: subQ.correctAnswer || '' }} />
+                                </p>
+                              ));
+                            }
+                            // Se não tiver subquestões, renderiza a resposta direta
+                            if (question.correctAnswer) {
+                              return (
+                                <p className="mb-3">
+                                  {question.number !== undefined && (
+                                    <span style={{ color: '#00776E', fontWeight: 'bold' }}>{question.number}. </span>
+                                  )}
+                                  <span dangerouslySetInnerHTML={{ __html: question.correctAnswer }} />
+                                </p>
+                              );
+                            }
+                          }
+                          return null;
+                        })()}
+                        {(() => {
+                          const question = chapterQuestions.chapter2.find(q => q.id === 'ch2_q15');
+                          if (question && question.type === 'text-input') {
+                            // Se tiver subquestões, renderiza cada uma
+                            if (question.subQuestions && question.subQuestions.length > 0) {
+                              return question.subQuestions.map((subQ) => (
+                                <p key={subQ.letter} className="mb-3">
+                                  {question.number !== undefined && (
+                                    <span style={{ color: '#00776E', fontWeight: 'bold' }}>{question.number}. </span>
+                                  )}
+                                  <span style={{ color: '#00776E', fontWeight: 'bold' }}>{subQ.letter}) </span>
+                                  <span dangerouslySetInnerHTML={{ __html: subQ.correctAnswer || '' }} />
+                                </p>
+                              ));
+                            }
+                            // Se não tiver subquestões, renderiza a resposta direta
+                            if (question.correctAnswer) {
+                              return (
+                                <p className="mb-3">
+                                  {question.number !== undefined && (
+                                    <span style={{ color: '#00776E', fontWeight: 'bold' }}>{question.number}. </span>
+                                  )}
+                                  <span dangerouslySetInnerHTML={{ __html: question.correctAnswer }} />
+                                </p>
+                              );
+                            }
+                          }
+                          return null;
+                        })()}
+
+                      </>
+                    }
+
+                  />
+                </div>
+                {/* Questão intercalada no conteúdo */}
+                <QuestionRenderer
+                  question={chapterQuestions.chapter2[10]}
+                  userAnswers={userAnswers}
+                  onAnswerChange={handleAnswerChange}
+                  showResults={showTeacherView}
+                />
+                {/* Questão intercalada no conteúdo */}
+                <QuestionRenderer
+                  question={chapterQuestions.chapter2[11]}
+                  userAnswers={userAnswers}
+                  onAnswerChange={handleAnswerChange}
+                  showResults={showTeacherView}
+                />
+                {/* Questão intercalada no conteúdo */}
+                <QuestionRenderer
+                  question={chapterQuestions.chapter2[12]}
+                  userAnswers={userAnswers}
+                  onAnswerChange={handleAnswerChange}
+                  showResults={showTeacherView}
+                />
+                {/* Questão intercalada no conteúdo */}
+                <QuestionRenderer
+                  question={chapterQuestions.chapter2[13]}
+                  userAnswers={userAnswers}
+                  onAnswerChange={handleAnswerChange}
+                  showResults={showTeacherView}
+                />
+                {/* Questão intercalada no conteúdo */}
+                <QuestionRenderer
+                  question={chapterQuestions.chapter2[14]}
+                  userAnswers={userAnswers}
+                  onAnswerChange={handleAnswerChange}
+                  showResults={showTeacherView}
+                />
 
               </>
             }
