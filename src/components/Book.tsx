@@ -826,7 +826,7 @@ function Book() {
                   onAnswerChange={handleAnswerChange}
                 />
                 <Pagination currentPage={12} />
-                <ProducaoTexto />
+                <ProducaoTexto instanceId="producaoTexto1" />
                 <Pagination currentPage={13} />
                 {/* Conteúdo do botão do professor */}
                 <div className="my-6">
@@ -1764,6 +1764,68 @@ function Book() {
                   onAnswerChange={handleAnswerChange}
                   showResults={showTeacherView}
                 />
+                <Pagination currentPage={25} />
+                <p className="mb-4 indent-6"><strong>Produção</strong></p>
+                <p className="mb-4 indent-6">Agora é hora de escrever sua fábula. Durante a produção, preste atenção aos seguintes pontos:
+                </p>
+                <ol className="list-decimal marker:text-[#BF3154] ml-6 mb-4">
+                  <li>Mesmo com as mudanças, sua história deve manter os três elementos principais da estrutura da fábula: situação inicial, conflito e desfecho. </li>
+                  <li>Use os mesmos personagens da história original, mas mude o que acontece com eles para construir uma nova lição de moral. </li>
+                  <li>Se estiver escrevendo em versos, lembre-se das rimas, do ritmo e da sonoridade do texto. </li>
+                  <li>Se estiver escrevendo em prosa, organize o texto em parágrafos bem estruturados. </li>
+                  <li>Use uma linguagem objetiva, expressiva e coerente com o gênero. </li>
+                  <li>Seja criativo: pense em valores importantes para você, para sua turma ou para o mundo atual. Como sua fábula pode provocar uma nova reflexão? </li>
+
+                </ol>
+
+                <p className="mb-4 indent-6"><strong>Avaliação</strong></p>
+                <p className="mb-4 indent-6">AAntes de finalizar a sua versão da fábula, confira o <em>checklist</em> a seguir para aprimorá-la.
+                </p>
+                {/* Tabela de Critérios de Avaliação */}
+                <CriteriosAvaliacao
+                  instanceId="minha_versao_fabulas"
+                  criterios={[
+                    {
+                      id: 'criterio_titulo',
+                      nome: 'Forma do texto',
+                      pergunta: 'Você transformou sua fábula de prosa para verso ou de verso para prosa?',
+                    },
+                    {
+                      id: 'criterio_linha_fina',
+                      nome: 'Estrutura completa',
+                      pergunta: 'Sua fábula tem situação inicial, conflito e desfecho bem definidos?',
+                    },
+                    {
+                      id: 'criterio_lide',
+                      nome: 'Mudança no enredo',
+                      pergunta: 'Você alterou pelo menos um dos elementos do enredo de maneira coerente com a nova moral?',
+                    },
+                    {
+                      id: 'criterio_corpo',
+                      nome: 'Nova moral ',
+                      pergunta: 'Sua fábula tem uma moral diferente da moral original?',
+                    },
+                    {
+                      id: 'criterio_linguagem',
+                      nome: 'Coerência e coesão',
+                      pergunta: 'O texto apresenta uma sequência lógica de acontecimentos?',
+                    },
+                    {
+                      id: 'criterio_foco',
+                      nome: 'Expressividade',
+                      pergunta: 'As ações e os comportamentos dos personagens representam atitudes humanas e ajudam a transmitir a nova mensagem da fábula?',
+                    },
+                    {
+                      id: 'autoria_criacao',
+                      nome: 'Autoria e criatividade',
+                      pergunta: 'Você fez escolhas inéditas e criativas, usando sua própria forma de contar a história?',
+                    },
+                  ]}
+                  userAnswers={userAnswers}
+                  onAnswerChange={handleAnswerChange}
+                />
+                <Pagination currentPage={26} />
+                <ProducaoTexto instanceId="producaoTexto2" />
 
               </>
             }

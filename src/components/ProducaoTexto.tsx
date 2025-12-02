@@ -2,21 +2,33 @@ import { useState, useEffect } from 'react';
 import jsPDF from 'jspdf';
 import DownloadButton from './DownloadButton';
 
-function ProducaoTexto() {
+interface ProducaoTextoProps {
+  instanceId?: string; // ID único para esta instância
+  title?: string; // Título customizado (opcional)
+  pdfTitle?: string; // Título do PDF (opcional)
+  pdfFileName?: string; // Nome do arquivo PDF (opcional)
+}
+
+function ProducaoTexto({ 
+  instanceId = 'producaoTexto',
+  title = 'Produção de texto – Minha versão',
+  pdfTitle = 'Produção de texto – Minha versão',
+  pdfFileName = 'minha-versao-producao-texto.pdf'
+}: ProducaoTextoProps) {
   const [texto, setTexto] = useState('');
 
   // Carrega o texto salvo do localStorage ao montar o componente
   useEffect(() => {
-    const textoSalvo = localStorage.getItem('producaoTexto');
+    const textoSalvo = localStorage.getItem(instanceId);
     if (textoSalvo) {
       setTexto(textoSalvo);
     }
-  }, []);
+  }, [instanceId]);
 
   // Salva o texto no localStorage sempre que ele mudar
   useEffect(() => {
-    localStorage.setItem('producaoTexto', texto);
-  }, [texto]);
+    localStorage.setItem(instanceId, texto);
+  }, [texto, instanceId]);
 
   const handleDownload = () => {
     if (!texto.trim()) {
@@ -42,7 +54,7 @@ function ProducaoTexto() {
     // Adiciona título
     doc.setFontSize(18);
     doc.setFont('helvetica', 'bold');
-    doc.text('Produção de texto – Minha versão', margin, yPosition);
+    doc.text(pdfTitle, margin, yPosition);
     yPosition += 15;
 
     // Adiciona o texto com quebra de linha automática
@@ -64,7 +76,7 @@ function ProducaoTexto() {
     });
 
     // Salva o PDF
-    doc.save('minha-versao-producao-texto.pdf');
+    doc.save(pdfFileName);
   };
 
   return (
@@ -85,7 +97,7 @@ function ProducaoTexto() {
             lineHeight: 'normal',
           }}
         >
-          Produção de texto – Minha versão
+          {title}
         </h2>
       </div>
 
