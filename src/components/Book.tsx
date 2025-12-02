@@ -13,6 +13,7 @@ import TrilhaTexto from './TrilhaTexto';
 import MinhaVersao from './MinhaVersao';
 import ProducaoTexto from './ProducaoTexto';
 import ProducaoFinal from './ProducaoFinal';
+import ProducaoTextoNoticia from './ProducaoTextoNoticia';
 import CaixaTexto from './CaixaTexto';
 import QuestionRenderer from './QuestionRenderer';
 import ContinuaProximaPagina from './ContinuaProximaPagina';
@@ -1023,10 +1024,10 @@ function Book() {
                 </div>
                 <ProducaoFinal />
                 <p className="mb-4 indent-6">
-                Agora, é hora de mostrar tudo o que você aprendeu! Você vai escrever uma notícia completa com base nos textos III e IV, que foram veiculados como notícias oralizadas em telejornais. Sua tarefa será transformar essas versões em uma notícia escrita, pensada para ser publicada em um jornal impresso ou em um <em>site</em> de notícias.
+                  Agora, é hora de mostrar tudo o que você aprendeu! Você vai escrever uma notícia completa com base nos textos III e IV, que foram veiculados como notícias oralizadas em telejornais. Sua tarefa será transformar essas versões em uma notícia escrita, pensada para ser publicada em um jornal impresso ou em um <em>site</em> de notícias.
                 </p>
                 <p className="mb-4 indent-6"><strong>Preparação</strong></p>
-                <ol className="list-disc marker:text-[#BF3154] ml-6">
+                <ol className="list-decimal marker:text-[#BF3154] ml-6 mb-4">
                   <li>Antes de começar a escrever sua notícia, aprofunde-se mais no tema. Faça uma pesquisa na internet sobre as Olimpíadas de Robôs e descubra as informações principais sobre o evento: Como e quando surgiu? Onde foi realizado? Quem participou? Quais modalidades foram disputadas? </li>
                   <li>Em seguida, pense nas decisões que você vai tomar como autor. Qual será o foco da sua notícia: o impacto do evento, os melhores resultados nas competições, os incentivos financeiros do governo ou outro aspecto? Qual será o tom do seu texto: mais técnico e informativo ou mais leve e descritivo?   </li>
                 </ol>
@@ -1081,7 +1082,8 @@ function Book() {
                   userAnswers={userAnswers}
                   onAnswerChange={handleAnswerChange}
                 />
-
+                <Pagination currentPage={16} />
+                <ProducaoTextoNoticia />
               </>
             }
           />
