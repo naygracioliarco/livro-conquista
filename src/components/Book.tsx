@@ -1417,97 +1417,90 @@ function Book() {
                   showResults={showTeacherView}
                 />
                 <Pagination currentPage={21} />
-                <div
-                  className="relative"
+                <div className="my-6">
+                  <TeacherButton
+                    content={
+                      <>
+                        <p className="mb-3">
+                          EF69LP44, EF69LP46, EF69LP47, EF69LP49, EF69LP54, EF67LP27, EF67LP28, EF06LP05, EF67LP37, EF67LP38. Neste segundo momento da sequência didática, o objetivo é ampliar a compreensão do gênero fábula por meio da leitura de um novo texto, agora em versos. A fábula O leão e o rato mantém as características do gênero, como personagens simbólicos, estrutura narrativa concisa e mensagem final,mas adota uma linguagem poética e rítmica que convida os alunos a observar com mais atenção as intenções do autor. Ao conduzir a leitura, oriente os alunos a interpretar as ações e os comportamentos dos personagens com base nos valores humanos que representam, como gratidão, humildade e reconhecimento. As atividades propostas favorecem a análise da estrutura do gênero, o uso do tempo verbal no passado, a identificação de marcadores temporais e a construção da moral – agora explícita. Faça comparações com a fábula anterior para que os alunos reconheçam o que se mantém e o que muda entre os textos.
+                        </p>
+                      </>
+                    }
+                  />
+                </div>
+                <TrilhaTexto />
+                <p className="mb-4 indent-6">
+                  Agora, leia uma fábula que está organizada em versos. Apesar dessa diferença no modo de contar a história, os elementos principais do gênero continuam presentes.
+                </p>
+                <p className="mb-4 indent-6">
+                  <strong>Texto II</strong>
+                </p>
+                <CaixaTexto title='O leão e o rato' backgroundColor="white" columns={2}>
+                  <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '2rem' }}>
+                    <div>
+                      <p className="mb-4 indent-6">
+                        Saiu o rato correndo, <br />
+                        assustado e distraído, <br />
+                        e foi logo recebido <br />
+                        por um leão, sem entender. <br />
+                      </p>
+                      <p className="mb-4 indent-6">
+                        Entre as garras tremeu, <br />
+                        mas foi surpreendido então. <br />
+                        O leão o protegeu <br />
+                        e poupou-lhe a punição. <br />
+                      </p>
+                      <p className="mb-4 indent-6">
+                        Dias passaram ligeiros, <br />
+                        e o leão, rei altaneiro, <br />
+                        por entre folhas entrou, <br />
+                        mas a selva o enganou. <br />
+                        Preso em rede traiçoeira, <br />
+                        gritou com força certeira, <br />
+                        mas sua luta foi em vão. <br />
+                        Ficou preso, o valentão. <br />
+                      </p>
+                    </div>
+                    <div>
+                      <p className="mb-4 indent-6">
+                        O ratinho, sem demora, <br />
+                        chega e começa a agir. <br />
+                        Rói as cordas, uma hora, <br />
+                        e outra, sem desistir. <br />
+                        Fino dente, ação constante, <br />
+                        vai abrindo a prisão; <br />
+                        com esforço perseverante, <br />
+                        liberta, enfim, o leão. <br />
+                      </p>
+                      <p className="mb-4 indent-6">
+                        Pagou o bem que recebera, <br />
+                        com coragem e humildade, <br />
+                        e ensinou que a vida inteira <br />
+                        vale a boa gratidão. <br />
+                        Ser gentil não custa nada, <br />
+                        e a lição dessa jornada, <br />
+                        é que até o mais singelo <br />
+                        pode ser forte e belo. <br />
+                      </p>
+                    </div>
+                  </div>
+                  {/* Imagem */}
+                  <div className="flex flex-col items-center my-6">
+                    <img src="/images/leao.png" className="max-w-[60%]" />
+                    <p className="text-[10px] text-slate-600 mt-2">tada/stock.adobe.com
+                    </p>
+                  </div>
+                </CaixaTexto>
+                <p
+                  className="mt-2 mb-6"
                   style={{
-                    backgroundImage: 'url(/images/leao.png)',
-                    backgroundSize: 'cover',
-                    backgroundPosition: 'center',
-                    backgroundRepeat: 'no-repeat',
-                    backgroundAttachment: 'local',
-                    padding: '2rem',
-                    borderRadius: '8px',
+                    fontFamily: 'Ubuntu, sans-serif',
+                    color: '#000000',
+                    fontSize: '10px',
                   }}
                 >
-                  <div className="my-6">
-                    <TeacherButton
-                      content={
-                        <>
-                          <p className="mb-3">
-                            EF69LP44, EF69LP46, EF69LP47, EF69LP49, EF69LP54, EF67LP27, EF67LP28, EF06LP05, EF67LP37, EF67LP38. Neste segundo momento da sequência didática, o objetivo é ampliar a compreensão do gênero fábula por meio da leitura de um novo texto, agora em versos. A fábula O leão e o rato mantém as características do gênero, como personagens simbólicos, estrutura narrativa concisa e mensagem final,mas adota uma linguagem poética e rítmica que convida os alunos a observar com mais atenção as intenções do autor. Ao conduzir a leitura, oriente os alunos a interpretar as ações e os comportamentos dos personagens com base nos valores humanos que representam, como gratidão, humildade e reconhecimento. As atividades propostas favorecem a análise da estrutura do gênero, o uso do tempo verbal no passado, a identificação de marcadores temporais e a construção da moral – agora explícita. Faça comparações com a fábula anterior para que os alunos reconheçam o que se mantém e o que muda entre os textos.
-                          </p>
-                        </>
-                      }
-                    />
-                  </div>
-                  <TrilhaTexto />
-                  <p className="mb-4 indent-6">
-                    Agora, leia uma fábula que está organizada em versos. Apesar dessa diferença no modo de contar a história, os elementos principais do gênero continuam presentes.
-                  </p>
-                  <p className="mb-4 indent-6">
-                    <strong>Texto II</strong>
-                  </p>
-                  <CaixaTexto title='O leão e o rato' backgroundColor="white" columns={2}>
-                    <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '2rem' }}>
-                      <div>
-                        <p className="mb-4 indent-6">
-                          Saiu o rato correndo, <br />
-                          assustado e distraído, <br />
-                          e foi logo recebido <br />
-                          por um leão, sem entender. <br />
-                        </p>
-                        <p className="mb-4 indent-6">
-                          Entre as garras tremeu, <br />
-                          mas foi surpreendido então. <br />
-                          O leão o protegeu <br />
-                          e poupou-lhe a punição. <br />
-                        </p>
-                        <p className="mb-4 indent-6">
-                          Dias passaram ligeiros, <br />
-                          e o leão, rei altaneiro, <br />
-                          por entre folhas entrou, <br />
-                          mas a selva o enganou. <br />
-                          Preso em rede traiçoeira, <br />
-                          gritou com força certeira, <br />
-                          mas sua luta foi em vão. <br />
-                          Ficou preso, o valentão. <br />
-                        </p>
-                      </div>
-                      <div>
-                        <p className="mb-4 indent-6">
-                          O ratinho, sem demora, <br />
-                          chega e começa a agir. <br />
-                          Rói as cordas, uma hora, <br />
-                          e outra, sem desistir. <br />
-                          Fino dente, ação constante, <br />
-                          vai abrindo a prisão; <br />
-                          com esforço perseverante, <br />
-                          liberta, enfim, o leão. <br />
-                        </p>
-                        <p className="mb-4 indent-6">
-                          Pagou o bem que recebera, <br />
-                          com coragem e humildade, <br />
-                          e ensinou que a vida inteira <br />
-                          vale a boa gratidão. <br />
-                          Ser gentil não custa nada, <br />
-                          e a lição dessa jornada, <br />
-                          é que até o mais singelo <br />
-                          pode ser forte e belo. <br />
-                        </p>
-                      </div>
-                    </div>
-                  </CaixaTexto>
-                  <p
-                    className="mt-2 mb-6"
-                    style={{
-                      fontFamily: 'Ubuntu, sans-serif',
-                      color: '#FFFFFF',
-                      fontSize: '10px',
-                    }}
-                  >
-                    LA FONTAINE. O leão e o rato. Domínio público. Texto adaptado para fins didáticos. (Tradução nossa).
-                  </p>
-                </div>
+                  LA FONTAINE. O leão e o rato. Domínio público. Texto adaptado para fins didáticos. (Tradução nossa).
+                </p>
 
 
 
