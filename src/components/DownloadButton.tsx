@@ -10,7 +10,7 @@ function DownloadButton({ onClick, disabled = false }: DownloadButtonProps) {
         onClick={onClick}
         style={{
           position: 'relative',
-          padding: '10px 10px 10px 45px',
+          padding: '10px 30px 10px 45px',
           backgroundColor: '#BF3154',
           boxShadow: '0px 4px 0px #9C2F4B',
           borderRadius: '0 30px 30px 0',
@@ -26,6 +26,7 @@ function DownloadButton({ onClick, disabled = false }: DownloadButtonProps) {
           cursor: disabled ? 'not-allowed' : 'pointer',
           display: 'flex',
           alignItems: 'center',
+          justifyContent: 'center',
           opacity: disabled ? 0.6 : 1,
         }}
         onMouseEnter={(e) => {

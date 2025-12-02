@@ -20,7 +20,7 @@ function TeacherButton({
                 className="professor-button"
                 style={{
                     position: 'relative',
-                    padding: '10px 10px 10px 45px',
+                    padding: '10px 30px 10px 45px',
                     backgroundColor: '#BF3154',
                     boxShadow: '0px 4px 0px #9C2F4B',
                     borderRadius: '0 30px 30px 0',
@@ -36,14 +36,15 @@ function TeacherButton({
                     cursor: 'pointer',
                     display: 'flex',
                     alignItems: 'center',
+                    justifyContent: 'center',
                 }}
-                // onMouseEnter={(e) => {
-                //     e.currentTarget.style.backgroundColor = '#E04F16';
-                //     e.currentTarget.style.boxShadow = '4px 4px 0px #9E3D17';
-                // }}
+                onMouseEnter={(e) => {
+                    e.currentTarget.style.backgroundColor = '#9C2F4B';
+                    e.currentTarget.style.boxShadow = '0px 2px 0px #7A2440';
+                }}
                 onMouseLeave={(e) => {
                     e.currentTarget.style.backgroundColor = '#BF3154';
-                    e.currentTarget.style.boxShadow = '4px 4px 0px #9C2F4B';
+                    e.currentTarget.style.boxShadow = '0px 4px 0px #9C2F4B';
                 }}
             >
                 <div
