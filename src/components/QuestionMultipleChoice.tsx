@@ -1,4 +1,5 @@
 import { MultipleChoiceQuestion, UserAnswers } from '../types/questions';
+import { COLORS, FONTS } from '../constants/colors';
 
 interface QuestionMultipleChoiceProps {
   question: MultipleChoiceQuestion;
@@ -18,7 +19,7 @@ function QuestionMultipleChoice({
 
   return (
     <div className="mb-6 p-4 bg-blue-50 rounded-lg border border-blue-200">
-      <p className="font-semibold text-slate-800 mb-4 font-hwtArtz">{question.question}</p>
+      <p className="font-semibold text-slate-800 mb-4" style={{ fontFamily: FONTS.heading }}>{question.question}</p>
       <div className="space-y-3">
         {(['a', 'b', 'c'] as const).map((option) => (
           <label
@@ -44,8 +45,8 @@ function QuestionMultipleChoice({
               className="w-4 h-4"
               disabled={showResults}
             />
-            <span style={{ color: 'black' }}>
-              <span style={{ color: '#00776E', fontWeight: 'bold', }}>{option.toUpperCase()}) </span>
+            <span style={{ color: COLORS.text.primary }}>
+              <span style={{ color: COLORS.primary, fontWeight: 'bold' }}>{option.toUpperCase()}) </span>
               {question.options[option]}
             </span>
             {showResults && selectedAnswer === option && (

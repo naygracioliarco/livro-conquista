@@ -1,9 +1,6 @@
 import { Eye } from 'lucide-react';
 import { Question, UserAnswers } from '../types/questions';
-import QuestionMultipleChoice from './QuestionMultipleChoice';
-import QuestionTrueFalse from './QuestionTrueFalse';
-import QuestionAlternative from './QuestionAlternative';
-import QuestionTextInput from './QuestionTextInput';
+import QuestionRenderer from './QuestionRenderer';
 
 interface QuestionsSectionProps {
   questions: Question[];
@@ -12,59 +9,16 @@ interface QuestionsSectionProps {
   showTeacherView?: boolean;
 }
 
+/**
+ * Componente consolidado que usa QuestionRenderer para renderizar questões
+ * Elimina duplicação de lógica com QuestionRenderer
+ */
 function QuestionsSection({
   questions,
   userAnswers,
   onAnswerChange,
   showTeacherView = false,
 }: QuestionsSectionProps) {
-  const renderQuestion = (question: Question) => {
-    switch (question.type) {
-      case 'multiple-choice':
-        return (
-          <QuestionMultipleChoice
-            key={question.id}
-            question={question}
-            userAnswers={userAnswers}
-            onAnswerChange={onAnswerChange}
-            showResults={showTeacherView}
-          />
-        );
-      case 'true-false':
-        return (
-          <QuestionTrueFalse
-            key={question.id}
-            question={question}
-            userAnswers={userAnswers}
-            onAnswerChange={onAnswerChange}
-            showResults={showTeacherView}
-          />
-        );
-      case 'alternative':
-        return (
-          <QuestionAlternative
-            key={question.id}
-            question={question}
-            userAnswers={userAnswers}
-            onAnswerChange={onAnswerChange}
-            showResults={showTeacherView}
-          />
-        );
-      case 'text-input':
-        return (
-          <QuestionTextInput
-            key={question.id}
-            question={question}
-            userAnswers={userAnswers}
-            onAnswerChange={onAnswerChange}
-            showResults={showTeacherView}
-          />
-        );
-      default:
-        return null;
-    }
-  };
-
   return (
     <div className="mt-8 mb-8">
       <div className="flex items-center gap-2 mb-4">
@@ -75,7 +29,15 @@ function QuestionsSection({
       </div>
 
       <div className="space-y-4">
-        {questions.map((question) => renderQuestion(question))}
+        {questions.map((question) => (
+          <QuestionRenderer
+            key={question.id}
+            question={question}
+            userAnswers={userAnswers}
+            onAnswerChange={onAnswerChange}
+            showResults={showTeacherView}
+          />
+        ))}
       </div>
     </div>
   );

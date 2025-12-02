@@ -1,13 +1,10 @@
-import { useState, useEffect } from 'react';
-import { ArrowUp } from 'lucide-react';
+import { useState } from 'react';
 import TableOfContents from './TableOfContents';
 import Chapter from './Chapter';
 import DataTable from './DataTable';
 import TeacherButton from './TeacherButton';
 import Header from './Header';
 import { chapterQuestions } from '../data/questions';
-import { UserAnswers, Question } from '../types/questions';
-import { loadAnswers, saveAnswers } from '../utils/storage';
 import Pagination from './Pagination';
 import TrilhaTexto from './TrilhaTexto';
 import MinhaVersao from './MinhaVersao';
@@ -20,92 +17,14 @@ import QuestionRenderer from './QuestionRenderer';
 import ContinuaProximaPagina from './ContinuaProximaPagina';
 import CriteriosAvaliacao from './CriteriosAvaliacao';
 import DownloadQuestionsButton from './DownloadQuestionsButton';
+import { useUserAnswers } from '../hooks/useUserAnswers';
+import { usePagination } from '../hooks/usePagination';
+import { TeacherAnswers } from './TeacherAnswers';
 
 function Book() {
-  const [userAnswers, setUserAnswers] = useState<UserAnswers>({});
+  const { userAnswers, handleAnswerChange } = useUserAnswers();
+  const { currentPage, scrollToTop } = usePagination();
   const [showTeacherView, setShowTeacherView] = useState(false);
-  const [currentPage, setCurrentPage] = useState(4);
-
-  useEffect(() => {
-    setUserAnswers(loadAnswers());
-  }, []);
-
-  useEffect(() => {
-    // Detecta qual página está visível na viewport
-    const updateCurrentPage = () => {
-      const paginationElements = document.querySelectorAll('[data-page]');
-      let visiblePage = 4; // padrão
-      let closestToTop = Infinity;
-
-      paginationElements.forEach((el) => {
-        const rect = el.getBoundingClientRect();
-        const page = parseInt(el.getAttribute('data-page') || '4');
-
-        // Verifica se o elemento está visível na viewport
-        if (rect.top >= 0 && rect.top < window.innerHeight && rect.bottom > 0) {
-          // Se está visível, escolhe a página mais próxima do topo
-          if (rect.top < closestToTop) {
-            closestToTop = rect.top;
-            visiblePage = page;
-          }
-        }
-      });
-
-      // Se nenhuma página está visível no topo, verifica qual está mais próxima do topo
-      if (closestToTop === Infinity) {
-        paginationElements.forEach((el) => {
-          const rect = el.getBoundingClientRect();
-          const page = parseInt(el.getAttribute('data-page') || '4');
-          const distanceFromTop = Math.abs(rect.top);
-
-          if (distanceFromTop < closestToTop) {
-            closestToTop = distanceFromTop;
-            visiblePage = page;
-          }
-        });
-      }
-
-      setCurrentPage(visiblePage);
-    };
-
-    // Verifica imediatamente
-    updateCurrentPage();
-
-    // Atualiza quando o usuário faz scroll
-    window.addEventListener('scroll', updateCurrentPage);
-    window.addEventListener('resize', updateCurrentPage);
-
-    // Observa mudanças no DOM
-    const observer = new MutationObserver(updateCurrentPage);
-    observer.observe(document.body, {
-      childList: true,
-      subtree: true,
-    });
-
-    return () => {
-      window.removeEventListener('scroll', updateCurrentPage);
-      window.removeEventListener('resize', updateCurrentPage);
-      observer.disconnect();
-    };
-  }, []);
-
-  const handleAnswerChange = (questionId: string, answer: any) => {
-    const updatedAnswers = {
-      ...userAnswers,
-      [questionId]: answer,
-    };
-    setUserAnswers(updatedAnswers);
-    saveAnswers(updatedAnswers);
-  };
-
-
-  const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-    // Atualiza a página após o scroll terminar
-    setTimeout(() => {
-      setCurrentPage(4);
-    }, 500);
-  };
 
   return (
     <div className="min-h-screen bg-gray-200 w-full">
@@ -353,68 +272,14 @@ function Book() {
                 <div className="my-6">
                   <TeacherButton
                     content={
-                      <>
-                        <p className="mb-3">
-                          Respostas:
-                        </p>
-                        {(() => {
-                          const question = chapterQuestions.chapter1.find(q => q.id === 'ch1_q1');
-                          if (question && question.type === 'text-input' && question.subQuestions) {
-                            return question.subQuestions.map((subQ) => (
-                              <p key={subQ.letter} className="mb-3">
-                                {question.number !== undefined && (
-                                  <span style={{ color: '#00776E', fontWeight: 'bold' }}>{question.number}. </span>
-                                )}
-                                <span style={{ color: '#00776E', fontWeight: 'bold' }}>{subQ.letter}) </span>
-                                <span dangerouslySetInnerHTML={{ __html: subQ.correctAnswer || '' }} />
-                              </p>
-                            ));
-                          }
-                          return null;
-                        })()}
-                        {(() => {
-                          const question = chapterQuestions.chapter1.find(q => q.id === 'ch1_q2');
-                          if (question && question.type === 'true-false' && question.statements) {
-                            return question.statements.map((stmt) => {
-                              // Se tiver correção, mostra V/F primeiro e depois a correção. Se não, mostra apenas V ou F
-                              const correctAnswerText = stmt.correctAnswer ? 'Verdadeiro (V)' : 'Falso (F)';
-                              const answerText = stmt.correction
-                                ? `${correctAnswerText}. ${stmt.correction}`
-                                : correctAnswerText;
-
-                              return (
-                                <p key={stmt.letter} className="mb-3">
-                                  {question.number !== undefined && (
-                                    <span style={{ color: '#00776E', fontWeight: 'bold' }}>{question.number}. </span>
-                                  )}
-                                  <span style={{ color: '#00776E', fontWeight: 'bold' }}>{stmt.letter}) </span>
-                                  <span dangerouslySetInnerHTML={{ __html: answerText }} />
-                                </p>
-                              );
-                            });
-                          }
-                          return null;
-                        })()}
-                        {(() => {
-                          const question = chapterQuestions.chapter1.find(q => q.id === 'ch1_q3');
-                          if (question && question.type === 'alternative' && question.options) {
-                            const correctOption = question.options[question.correctAnswer];
-                            const correctLetter = String.fromCharCode(97 + question.correctAnswer); // a, b, c, d...
-                            return (
-                              <p className="mb-3">
-                                {question.number !== undefined && (
-                                  <span style={{ color: '#00776E', fontWeight: 'bold' }}>{question.number}. </span>
-                                )}
-                                <span style={{ color: '#00776E', fontWeight: 'bold' }}>{correctLetter}) </span>
-                                <span dangerouslySetInnerHTML={{ __html: correctOption || '' }} />
-                              </p>
-                            );
-                          }
-                          return null;
-                        })()}
-                      </>
+                      <TeacherAnswers
+                        questions={[
+                          chapterQuestions.chapter1.find(q => q.id === 'ch1_q1')!,
+                          chapterQuestions.chapter1.find(q => q.id === 'ch1_q2')!,
+                          chapterQuestions.chapter1.find(q => q.id === 'ch1_q3')!,
+                        ]}
+                      />
                     }
-
                   />
                 </div>
                 <p className="mb-4 indent-6">
@@ -457,24 +322,9 @@ function Book() {
                   <TeacherButton
                     content={
                       <>
-                        <p className="mb-3">
-                          Respostas:
-                        </p>
-                        {(() => {
-                          const question = chapterQuestions.chapter1.find(q => q.id === 'ch1_q4');
-                          if (question && question.type === 'text-input' && question.subQuestions) {
-                            return question.subQuestions.map((subQ) => (
-                              <p key={subQ.letter} className="mb-3">
-                                {question.number !== undefined && (
-                                  <span style={{ color: '#00776E', fontWeight: 'bold' }}>{question.number}. </span>
-                                )}
-                                <span style={{ color: '#00776E', fontWeight: 'bold' }}>{subQ.letter}) </span>
-                                <span dangerouslySetInnerHTML={{ __html: subQ.correctAnswer || '' }} />
-                              </p>
-                            ));
-                          }
-                          return null;
-                        })()}
+                        <TeacherAnswers
+                          questions={chapterQuestions.chapter1.find(q => q.id === 'ch1_q4')!}
+                        />
                         <p>Na trilha do texto: EF69LP03, EF69LP16, EF69LP17, EF06LP01, EF67LP03, EF67LP06, EF67LP37. Estimule uma leitura comparativa desde
                           o início do trabalho com o Texto II, mesmo que as atividades de contraste direto apareçam mais adiante no capítulo.
                           A sequência de atividades propostas após a leitura do segundo texto conduz os alunos à observação da estrutura, das
@@ -485,7 +335,6 @@ function Book() {
                           de leitores mais críticos e conscientes da influência dos meios de comunicação na construção de notícias.
                         </p>
                       </>
-
                     }
                   />
                 </div>

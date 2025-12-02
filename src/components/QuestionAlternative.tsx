@@ -1,4 +1,6 @@
 import { AlternativeQuestion, UserAnswers } from '../types/questions';
+import { QuestionWrapper } from './shared/QuestionWrapper';
+import { COLORS, FONTS } from '../constants/colors';
 
 interface QuestionAlternativeProps {
   question: AlternativeQuestion;
@@ -17,13 +19,11 @@ function QuestionAlternative({
   const isCorrect = selectedAnswer === question.correctAnswer;
 
   return (
-    <div className="mb-6 p-4 rounded-lg">
-      <p className="mb-4">
-        {question.number !== undefined && (
-          <span style={{ color: '#00776E', fontWeight: 'bold' }}>{question.number}. </span>
-        )}
-        <span style={{ color: 'black' }}>{question.question}</span>
-      </p>
+    <QuestionWrapper
+      number={question.number}
+      question={question.question}
+      className="p-4 rounded-lg"
+    >
       <div className="space-y-3">
         {question.options.map((option, index) => (
           <label
@@ -49,8 +49,8 @@ function QuestionAlternative({
               className="w-4 h-4"
               disabled={showResults}
             />
-            <span style={{ fontFamily: 'Ubuntu, sans-serif', color: 'black' }}>
-              <span style={{ color: '#00776E', fontWeight: 'bold' }}>
+            <span style={{ fontFamily: FONTS.primary, color: COLORS.text.primary }}>
+              <span style={{ color: COLORS.primary, fontWeight: 'bold' }}>
                 {String.fromCharCode(97 + index)}){' '}
               </span>
               {option}
@@ -70,7 +70,7 @@ function QuestionAlternative({
           Resposta correta: <strong>{question.options[question.correctAnswer]}</strong>
         </p>
       )}
-    </div>
+    </QuestionWrapper>
   );
 }
 
