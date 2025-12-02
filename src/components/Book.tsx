@@ -1758,6 +1758,12 @@ function Book() {
                   <li><strong>Modifique algum elemento da narrativa</strong> (a situação inicial, o conflito ou o desfecho): com o objetivo de alterar a moral da história.
                   </li>
                 </ol>
+                <QuestionRenderer
+                  question={chapterQuestions.chapter2[9]}
+                  userAnswers={userAnswers}
+                  onAnswerChange={handleAnswerChange}
+                  showResults={showTeacherView}
+                />
 
               </>
             }

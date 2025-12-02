@@ -542,5 +542,44 @@ export const chapterQuestions: Record<string, Question[]> = {
       placeholder: 'Digite sua resposta aqui...',
       correctAnswer: 'Não. Nesse texto, a moral não aparece de forma direta. Ela deve ser inferida com base no que acontece na história e no comportamento dos personagens.',
     },
+    {
+      id: 'ch2_q10',
+      type: 'table-fill',
+      number: 1,
+      question: 'Complete o quadro a seguir identificando o que acontece em cada parte da fábula.',
+      columns: ['Elemento', 'Fábula original', 'Minha nova versão'],
+      rows: [
+        {
+          id: 'row1',
+          paragraph: 'Forma',
+          text1: '',
+          text2: '',
+        },
+        {
+          id: 'row2',
+          paragraph: 'Situação inicial',
+          text1: '',
+          text2: '',
+        },
+        {
+          id: 'row3',
+          paragraph: 'Conflito',
+          text1: '',
+          text2: '',
+        },
+        {
+          id: 'row4',
+          paragraph: 'Desfecho',
+          text1: '',
+          text2: '',
+        },
+        {
+          id: 'row5',
+          paragraph: 'Moral',
+          text1: '',
+          text2: '',
+        },
+      ],
+    },
   ],
 };
