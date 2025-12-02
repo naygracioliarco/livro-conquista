@@ -37,7 +37,7 @@ function QuestionTrueFalse({
 
             return (
               <div key={stmt.letter} className="flex items-start gap-2">
-                <span style={{ color: '#00776E', fontWeight: 'bold' }}>{stmt.letter} </span>
+                <span style={{ color: '#00776E', fontWeight: 'bold' }}>{stmt.letter}) </span>
                 <div className="flex gap-2 flex-shrink-0">
                   {[true, false].map((value) => {
                     const label = value ? 'V' : 'F';

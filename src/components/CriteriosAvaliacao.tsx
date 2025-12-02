@@ -42,6 +42,7 @@ function CriteriosAvaliacao({
               style={{
                 border: '3px solid #0E3B5D',
                 backgroundColor: 'white',
+                textAlign: 'center',
               }}
             ><h3
             className="mb-4 font-bold"

@@ -60,9 +60,7 @@ export interface TableFillQuestion {
   columns: string[];
   rows: Array<{
     id: string;
-    paragraph: string;
-    text1?: string;
-    text2?: string;
+    [key: string]: string | undefined; // Permite campos dinâmicos: o primeiro campo corresponde à primeira coluna, os demais às outras colunas
   }>;
   correctAnswer?: {
     [fieldId: string]: string; // Mapeia fieldId (questionId_rowId_colN) para a resposta correta

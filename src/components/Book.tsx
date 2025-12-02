@@ -654,22 +654,29 @@ function Book() {
                                     </p>
                                     {question.rows.map((row) => {
                                       const correctAnswers = question.correctAnswer!;
-                                      const col1FieldId = `${question.id}_${row.id}_col1`;
-                                      const col2FieldId = `${question.id}_${row.id}_col2`;
-                                      const answer1 = correctAnswers[col1FieldId] || '';
-                                      const answer2 = correctAnswers[col2FieldId] || '';
+                                      // Obtém o primeiro campo da row (primeira coluna)
+                                      const firstColumnKey = Object.keys(row).find(key => key !== 'id') || 'paragraph';
+                                      const firstColumnValue = row[firstColumnKey] || '';
+                                      
+                                      // Gera os fieldIds para cada coluna (exceto a primeira)
+                                      const columnAnswers = question.columns.slice(1).map((columnName, colIndex) => {
+                                        const fieldId = `${question.id}_${row.id}_col${colIndex + 1}`;
+                                        return {
+                                          columnName,
+                                          answer: correctAnswers[fieldId] || ''
+                                        };
+                                      });
 
                                       return (
                                         <div key={row.id} className="mb-4">
                                           <p className="mb-2 font-semibold" style={{ color: '#0E3B5D' }}>
-                                            Parágrafo {row.paragraph}:
+                                            {question.columns[0]} {firstColumnValue}:
                                           </p>
-                                          <p className="mb-1">
-                                            <strong>Texto I:</strong> {answer1}
-                                          </p>
-                                          <p className="mb-1">
-                                            <strong>Texto II:</strong> {answer2}
-                                          </p>
+                                          {columnAnswers.map((colAnswer, idx) => (
+                                            <p key={idx} className="mb-1">
+                                              <strong>{colAnswer.columnName}:</strong> {colAnswer.answer}
+                                            </p>
+                                          ))}
                                         </div>
                                       );
                                     })}
@@ -887,6 +894,118 @@ function Book() {
                   EM ‘OLIMPÍADAS de robôs’, máquinas apostam corrida e jogam futebol. Publicado pelo canal SBT News. Disponível em:  <a href="https://www.youtube.com/watch?v=FJgXK06RHUY" target="_blank" rel="noopener noreferrer">https://www.youtube.com/watch?v=FJgXK06RHUY</a>. Acesso em: 18 ago. 2025.
                 </p>
                 <Pagination currentPage={14} />
+                {/* Conteúdo do botão do professor - Tabela comparativa */}
+                <div className="my-6">
+                  <TeacherButton
+                    content={
+                      <>
+                        <p className="mb-3">
+                          Respostas:
+                        </p>
+                        {(() => {
+                          const question = chapterQuestions.chapter1.find(q => q.id === 'ch1_q9');
+                          if (question && question.type === 'text-input' && question.subQuestions) {
+                            return question.subQuestions.map((subQ) => (
+                              <p key={subQ.letter} className="mb-3">
+                                {question.number !== undefined && (
+                                  <span style={{ color: '#00776E', fontWeight: 'bold' }}>{question.number}. </span>
+                                )}
+                                <span style={{ color: '#00776E', fontWeight: 'bold' }}>{subQ.letter}) </span>
+                                <span dangerouslySetInnerHTML={{ __html: subQ.correctAnswer || '' }} />
+                              </p>
+                            ));
+                          }
+                          return null;
+                        })()}
+                        {(() => {
+                          const question = chapterQuestions.chapter1.find(q => q.id === 'ch1_q10');
+                          if (question && question.type === 'text-input' && question.subQuestions) {
+                            return question.subQuestions.map((subQ) => (
+                              <p key={subQ.letter} className="mb-3">
+                                {question.number !== undefined && (
+                                  <span style={{ color: '#00776E', fontWeight: 'bold' }}>{question.number}. </span>
+                                )}
+                                <span style={{ color: '#00776E', fontWeight: 'bold' }}>{subQ.letter}) </span>
+                                <span dangerouslySetInnerHTML={{ __html: subQ.correctAnswer || '' }} />
+                              </p>
+                            ));
+                          }
+                          return null;
+                        })()}
+                        {(() => {
+                          const question = chapterQuestions.chapter1.find(q => q.id === 'ch1_q11');
+                          if (question && question.type === 'table-fill') {
+                            return (
+                              <>
+                                {/* Respostas da tabela */}
+                                {question.correctAnswer && (
+                                  <>
+                                    <p className="mb-2 font-semibold">
+                                      {question.number !== undefined && (
+                                        <span style={{ color: '#00776E', fontWeight: 'bold' }}>{question.number}. </span>
+                                      )}
+                                      Tabela:
+                                    </p>
+                                    {question.rows.map((row) => {
+                                      const correctAnswers = question.correctAnswer!;
+                                      // Obtém o primeiro campo da row (primeira coluna)
+                                      const firstColumnKey = Object.keys(row).find(key => key !== 'id') || 'paragraph';
+                                      const firstColumnValue = row[firstColumnKey] || '';
+                                      
+                                      // Gera os fieldIds para cada coluna (exceto a primeira)
+                                      const columnAnswers = question.columns.slice(1).map((columnName, colIndex) => {
+                                        const fieldId = `${question.id}_${row.id}_col${colIndex + 1}`;
+                                        return {
+                                          columnName,
+                                          answer: correctAnswers[fieldId] || ''
+                                        };
+                                      });
+
+                                      return (
+                                        <div key={row.id} className="mb-4">
+                                          <p className="mb-2 font-semibold" style={{ color: '#0E3B5D' }}>
+                                            {question.columns[0]} {firstColumnValue}:
+                                          </p>
+                                          {columnAnswers.map((colAnswer, idx) => (
+                                            <p key={idx} className="mb-1">
+                                              <strong>{colAnswer.columnName}:</strong> {colAnswer.answer}
+                                            </p>
+                                          ))}
+                                        </div>
+                                      );
+                                    })}
+                                  </>
+                                )}
+                                
+                              </>
+                            );
+                          }
+                          return null;
+                        })()}
+                        
+                      </>
+                    }
+                  />
+                </div>
+                {/* Questão intercalada no conteúdo - Tabela comparativa */}
+                <QuestionRenderer
+                  question={chapterQuestions.chapter1[8]}
+                  userAnswers={userAnswers}
+                  onAnswerChange={handleAnswerChange}
+                  showResults={showTeacherView}
+                />
+                <QuestionRenderer
+                  question={chapterQuestions.chapter1[9]}
+                  userAnswers={userAnswers}
+                  onAnswerChange={handleAnswerChange}
+                  showResults={showTeacherView}
+                />
+                <QuestionRenderer
+                  question={chapterQuestions.chapter1[10]}
+                  userAnswers={userAnswers}
+                  onAnswerChange={handleAnswerChange}
+                  showResults={showTeacherView}
+                />
 
               </>
             }
