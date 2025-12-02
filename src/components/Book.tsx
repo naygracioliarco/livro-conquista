@@ -1241,7 +1241,247 @@ function Book() {
                 >
                   ESOPO. <em>A lebre e a tartaruga</em>. Domínio público. Texto adaptado para fins didáticos. (Tradução nossa).
                 </p>
+                <Pagination currentPage={20} />
+                {/* Conteúdo do botão do professor - Tabela comparativa */}
+                <div className="my-6">
+                  <TeacherButton
+                    content={
+                      <>
+                        <p className="mb-3">
+                          Respostas:
+                        </p>
+                        {(() => {
+                          const question = chapterQuestions.chapter2.find(q => q.id === 'ch2_q1');
+                          if (question && question.type === 'table-fill') {
+                            return (
+                              <>
+                                {/* Respostas da tabela */}
+                                {question.correctAnswer && (
+                                  <>
+                                    <p className="mb-2 font-semibold">
+                                      {question.number !== undefined && (
+                                        <span style={{ color: '#00776E', fontWeight: 'bold' }}>{question.number}. </span>
+                                      )}
+                                      Tabela:
+                                    </p>
+                                    {question.rows.map((row) => {
+                                      const correctAnswers = question.correctAnswer!;
+                                      // Obtém o primeiro campo da row (primeira coluna)
+                                      const firstColumnKey = Object.keys(row).find(key => key !== 'id') || 'paragraph';
+                                      const firstColumnValue = row[firstColumnKey] || '';
 
+                                      // Gera os fieldIds para cada coluna (exceto a primeira)
+                                      const columnAnswers = question.columns.slice(1).map((columnName, colIndex) => {
+                                        const fieldId = `${question.id}_${row.id}_col${colIndex + 1}`;
+                                        return {
+                                          columnName,
+                                          answer: correctAnswers[fieldId] || ''
+                                        };
+                                      });
+
+                                      return (
+                                        <div key={row.id} className="mb-4">
+                                          <p className="mb-2 font-semibold" style={{ color: '#0E3B5D' }}>
+                                            {question.columns[0]} {firstColumnValue}:
+                                          </p>
+                                          {columnAnswers.map((colAnswer, idx) => (
+                                            <p key={idx} className="mb-1">
+                                              <strong>{colAnswer.columnName}:</strong> {colAnswer.answer}
+                                            </p>
+                                          ))}
+                                        </div>
+                                      );
+                                    })}
+                                  </>
+                                )}
+
+                              </>
+                            );
+                          }
+                          return null;
+                        })()}
+                        {(() => {
+                          const question = chapterQuestions.chapter2.find(q => q.id === 'ch2_q2');
+                          if (question && question.type === 'text-input') {
+                            // Se tiver subquestões, renderiza cada uma
+                            if (question.subQuestions && question.subQuestions.length > 0) {
+                              return question.subQuestions.map((subQ) => (
+                                <p key={subQ.letter} className="mb-3">
+                                  {question.number !== undefined && (
+                                    <span style={{ color: '#00776E', fontWeight: 'bold' }}>{question.number}. </span>
+                                  )}
+                                  <span style={{ color: '#00776E', fontWeight: 'bold' }}>{subQ.letter}) </span>
+                                  <span dangerouslySetInnerHTML={{ __html: subQ.correctAnswer || '' }} />
+                                </p>
+                              ));
+                            }
+                            // Se não tiver subquestões, renderiza a resposta direta
+                            if (question.correctAnswer) {
+                              return (
+                                <p className="mb-3">
+                                  {question.number !== undefined && (
+                                    <span style={{ color: '#00776E', fontWeight: 'bold' }}>{question.number}. </span>
+                                  )}
+                                  <span dangerouslySetInnerHTML={{ __html: question.correctAnswer }} />
+                                </p>
+                              );
+                            }
+                          }
+                          return null;
+                        })()}
+                        {(() => {
+                          const question = chapterQuestions.chapter2.find(q => q.id === 'ch2_q3');
+                          if (question && question.type === 'text-input') {
+                            // Se tiver subquestões, renderiza cada uma
+                            if (question.subQuestions && question.subQuestions.length > 0) {
+                              return question.subQuestions.map((subQ) => (
+                                <p key={subQ.letter} className="mb-3">
+                                  {question.number !== undefined && (
+                                    <span style={{ color: '#00776E', fontWeight: 'bold' }}>{question.number}. </span>
+                                  )}
+                                  <span style={{ color: '#00776E', fontWeight: 'bold' }}>{subQ.letter}) </span>
+                                  <span dangerouslySetInnerHTML={{ __html: subQ.correctAnswer || '' }} />
+                                </p>
+                              ));
+                            }
+                            // Se não tiver subquestões, renderiza a resposta direta
+                            if (question.correctAnswer) {
+                              return (
+                                <p className="mb-3">
+                                  {question.number !== undefined && (
+                                    <span style={{ color: '#00776E', fontWeight: 'bold' }}>{question.number}. </span>
+                                  )}
+                                  <span dangerouslySetInnerHTML={{ __html: question.correctAnswer }} />
+                                </p>
+                              );
+                            }
+                          }
+                          return null;
+                        })()}
+                        {(() => {
+                          const question = chapterQuestions.chapter2.find(q => q.id === 'ch2_q4');
+                          if (question && question.type === 'text-input') {
+                            // Se tiver subquestões, renderiza cada uma
+                            if (question.subQuestions && question.subQuestions.length > 0) {
+                              return question.subQuestions.map((subQ) => (
+                                <p key={subQ.letter} className="mb-3">
+                                  {question.number !== undefined && (
+                                    <span style={{ color: '#00776E', fontWeight: 'bold' }}>{question.number}. </span>
+                                  )}
+                                  <span style={{ color: '#00776E', fontWeight: 'bold' }}>{subQ.letter}) </span>
+                                  <span dangerouslySetInnerHTML={{ __html: subQ.correctAnswer || '' }} />
+                                </p>
+                              ));
+                            }
+                            // Se não tiver subquestões, renderiza a resposta direta
+                            if (question.correctAnswer) {
+                              return (
+                                <p className="mb-3">
+                                  {question.number !== undefined && (
+                                    <span style={{ color: '#00776E', fontWeight: 'bold' }}>{question.number}. </span>
+                                  )}
+                                  <span dangerouslySetInnerHTML={{ __html: question.correctAnswer }} />
+                                </p>
+                              );
+                            }
+                          }
+                          return null;
+                        })()}
+                      </>
+                    }
+                  />
+                </div>
+                {/* Questão intercalada no conteúdo - Tabela comparativa */}
+                <QuestionRenderer
+                  question={chapterQuestions.chapter2[0]}
+                  userAnswers={userAnswers}
+                  onAnswerChange={handleAnswerChange}
+                  showResults={showTeacherView}
+                />
+                <QuestionRenderer
+                  question={chapterQuestions.chapter2[1]}
+                  userAnswers={userAnswers}
+                  onAnswerChange={handleAnswerChange}
+                  showResults={showTeacherView}
+                />
+                <QuestionRenderer
+                  question={chapterQuestions.chapter2[2]}
+                  userAnswers={userAnswers}
+                  onAnswerChange={handleAnswerChange}
+                  showResults={showTeacherView}
+                />
+                <QuestionRenderer
+                  question={chapterQuestions.chapter2[3]}
+                  userAnswers={userAnswers}
+                  onAnswerChange={handleAnswerChange}
+                  showResults={showTeacherView}
+                />
+                <Pagination currentPage={21} />
+                <div className="my-6">
+                  <TeacherButton
+                    content={
+                      <>
+                        <p className="mb-3">
+                          EF69LP44, EF69LP46, EF69LP47, EF69LP49, EF69LP54, EF67LP27, EF67LP28, EF06LP05, EF67LP37, EF67LP38. Neste segundo momento da sequência didática, o objetivo é ampliar a compreensão do gênero fábula por meio da leitura de um novo texto, agora em versos. A fábula O leão e o rato mantém as características do gênero, como personagens simbólicos, estrutura narrativa concisa e mensagem final,mas adota uma linguagem poética e rítmica que convida os alunos a observar com mais atenção as intenções do autor. Ao conduzir a leitura, oriente os alunos a interpretar as ações e os comportamentos dos personagens com base nos valores humanos que representam, como gratidão, humildade e reconhecimento. As atividades propostas favorecem a análise da estrutura do gênero, o uso do tempo verbal no passado, a identificação de marcadores temporais e a construção da moral – agora explícita. Faça comparações com a fábula anterior para que os alunos reconheçam o que se mantém e o que muda entre os textos.
+                        </p>
+                      </>
+                    }
+                  />
+                </div>
+                <TrilhaTexto />
+                <p className="mb-4 indent-6">
+                  Agora, leia uma fábula que está organizada em versos. Apesar dessa diferença no modo de contar a história, os elementos principais do gênero continuam presentes.
+                </p>
+                <p className="mb-4 indent-6">
+                  <strong>Texto II</strong>
+                </p>
+                <CaixaTexto title='A Lebre e a Tartaruga'>
+                  <p className="mb-4 indent-6">
+                    A Lebre vivia a rir da Tartaruga por
+                    causa de sua lentidão.
+                  </p>
+                  <p className="mb-4 indent-6">
+                    — Como consegues ir a algum lugar arrastando-te assim? — zombava
+                    ela, entre risos.
+                  </p>
+                  <p className="mb-4 indent-6">
+                    — Posso não correr, mas sei perseverar. Se quiseres, podemos apostar uma corrida. Veremos quem chega primeiro.
+                  </p>
+                  <p className="mb-4 indent-6">
+                    A Lebre, achando a ideia engraçadíssima, aceitou o desafio só para se divertir. A Raposa, respeitada por sua imparcialidade, foi chamada para ser a juíza. Ela marcou o percurso, alinhou os competidores e deu o sinal de partida.
+                  </p>
+                  <p className="mb-4 indent-6">
+                    Num piscar de olhos, a Lebre disparou pelo caminho e logo ficou fora de vista. Já a Tartaruga seguiu em seu ritmo, passo a passo, sem desanimar. Convencida de que venceria com facilidade, a Lebre decidiu descansar um pouco à sombra de uma árvore.
+                  </p>
+                  <p className="mb-4 indent-6">
+                    — Tenho tempo de sobra — pensou — a Tartaruga mal deve ter saído
+                    do lugar.
+                  </p>
+                  <p className="mb-4 indent-6">
+                    Mas, enquanto dormia tranquila, a Tartaruga, firme e constante, passou por ela e seguiu em frente, determinada a chegar ao fim.
+                  </p>
+                  <p className="mb-4 indent-6">
+                    Quando despertou, a Lebre levou um susto ao ver a Tartaruga quase cruzando a linha de chegada. Correu com todas as forças, mas já era tarde demais. A lenta Tartaruga venceu a corrida,
+                    para surpresa de todos.
+                  </p>
+
+                  {/* Imagem */}
+                  <div className="flex flex-col items-center my-6">
+                    <img src="/images/lebreTartaruga.png" className="max-w-[50%]" />
+                    <p className="text-[10px] text-slate-600 mt-2">WINTER, Milo. A lebre e a tartaruga. <em>In: AESOP. The Aesop for children. [S.l.]</em>: Project Gutenberg, 2006. Disponível em: <a href="http://www.gutenberg.org/etext/19994" target="_blank" rel="noopener noreferrer">http://www.gutenberg.org/etext/19994</a>. Acesso em: 24 set. 2025.
+                    </p>
+                  </div>
+                </CaixaTexto>
+                <p
+                  className="mt-2 mb-6"
+                  style={{
+                    fontFamily: 'Ubuntu, sans-serif',
+                    color: '#000000',
+                    fontSize: '10px',
+                  }}
+                >
+                  ESOPO. <em>A lebre e a tartaruga</em>. Domínio público. Texto adaptado para fins didáticos. (Tradução nossa).
+                </p>
 
 
 

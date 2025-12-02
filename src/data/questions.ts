@@ -376,32 +376,75 @@ export const chapterQuestions: Record<string, Question[]> = {
   chapter2: [
     {
       id: 'ch2_q1',
-      type: 'multiple-choice',
-      question: 'Em qual ano foi criada a World Wide Web?',
-      options: {
-        a: '1971',
-        b: '1989',
-        c: '2001',
+      type: 'table-fill',
+      number: 1,
+      question: 'Complete o quadro a seguir identificando o que acontece em cada parte da fábula.',
+      columns: ['Parte da fábula', 'O que acontece'],
+      rows: [
+        {
+          id: 'row1',
+          paragraph: 'Situação inicial',
+          text1: '',
+        },
+        {
+          id: 'row2',
+          paragraph: 'Conflito',
+          text1: '',
+        },
+        {
+          id: 'row3',
+          paragraph: 'Desfecho',
+          text1: '',
+        },
+      ],
+      correctAnswer: {
+        'ch2_q1_row1_col1': 'A lebre zombava da tartaruga por ela ser lenta.',
+        'ch2_q1_row2_col1': 'A tartaruga propõe uma corrida e a lebre aceita. Durante a prova, a lebre dispara na frente, mas, convencida de que venceria facilmente, decide cochilar no meio do caminho.',
+        'ch2_q1_row3_col1': 'A tartaruga continua seu percurso sem parar. Quando acorda, a lebre corre, mas não consegue alcançar a tartaruga, que vence a corrida.',
       },
-      correctAnswer: 'b',
     },
     {
       id: 'ch2_q2',
-      type: 'true-false',
-      question: 'O primeiro e-mail foi enviado em 1989.',
-      correctAnswer: false,
+      type: 'text-input',
+      number: 2,
+      question: 'A fábula é construída com base em ações concluídas no passado e na progressão dos fatos ao longo do tempo. Sobre essa organização, leia novamente o texto e resolva os itens.',
+      subQuestions: [
+        {
+          letter: 'a',
+          question: 'Cite dois marcadores de tempo usados na fábula.',
+          placeholder: 'Digite sua resposta aqui...',
+          correctAnswer: '“Num piscar de olhos” e “Quando despertou”.',
+        },
+        {
+          letter: 'b',
+          question: 'Identifique três verbos usados no texto que indicam ações realizadas no passado',
+          placeholder: 'Digite sua resposta aqui...',
+          correctAnswer: '“Zombava”, “aceitou”, “marcou”, “alinhou”, “disparou”, “seguiu”, “dormia”.',
+        },
+        {
+          letter: 'c',
+          question: 'Em que momento da história a vantagem da lebre começa a desaparecer? Identifique o trechoque mostra essa mudança e explique por que isso acontece.',
+          placeholder: 'Digite sua resposta aqui...',
+          correctAnswer: '“Mas, enquanto dormia tranquila, a Tartaruga, firme e constante, passou por ela e seguiu em frente, determinada a chegar ao fim.” A lebre perdeu sua vantagem quando decidiu descansar por excesso de confiança. Isso permitiu que a tartaruga a ultrapassasse e vencesse a corrida. ',
+        },
+      ],
     },
     {
       id: 'ch2_q3',
-      type: 'alternative',
-      question: 'Qual tecnologia revolucionou mais o acesso à informação no século XX?',
-      options: [
-        'A televisão',
-        'O rádio',
-        'A internet',
-        'O telefone',
-      ],
-      correctAnswer: 2,
+      type: 'text-input',
+      number: 3,
+      question: 'A fábula lida não apresenta uma moral explícita no fim do texto, diferentemente do que acontece em muitas histórias desse gênero. Isso significa que o leitor precisa observar as atitudes dos personagens e o que acontece com eles para identificar a mensagem que o texto transmite. Qual pode ser a moral dessa fábula?',
+      placeholder: 'Digite sua resposta aqui...',
+      correctAnswer: 'Pessoal. Os alunos devem formular a mensagem central da fábula com base nas atitudes e nas consequências vividas pelos personagens. São exemplos de respostas possíveis: a arrogância pode levar à derrota; constância e compromisso superam a pressa sem foco; quem subestima o outro pode se surpreender; vencer não é questão de velocidade, e sim de persistência. ',
+    },
+    {
+      id: 'ch2_q4',
+      type: 'text-input',
+      number: 4,
+      question: 'Embora a fábula seja mais conhecida pela vitória da tartaruga, também é possível analisá-la pela perspectiva da derrota da lebre. De que maneira o comportamento da lebre contribuiu para a própria derrota?',
+      placeholder: 'Digite sua resposta aqui...',
+      correctAnswer: 'O comportamento da lebre contribuiu diretamente para sua derrota porque ela subestimou a tartaruga e agiu com arrogância e excesso de autoconfiança. Suas escolhas deram à tartaruga tempo para ultrapassá-la, mesmo sendo mais lenta.',
+
     },
   ],
 };
