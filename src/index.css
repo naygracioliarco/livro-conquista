@@ -48,3 +48,8 @@
 ul.question-subitems li::marker {
   color: #BF3154;
 }
+
+/* Remove text-justify de todas as células de tabela */
+td {
+  text-align: left;
+}
