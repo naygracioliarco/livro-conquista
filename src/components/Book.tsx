@@ -17,6 +17,7 @@ import QuestionRenderer from './QuestionRenderer';
 import ContinuaProximaPagina from './ContinuaProximaPagina';
 import CriteriosAvaliacao from './CriteriosAvaliacao';
 import DownloadQuestionsButton from './DownloadQuestionsButton';
+import Footer from './Footer';
 import { useUserAnswers } from '../hooks/useUserAnswers';
 import { usePagination } from '../hooks/usePagination';
 import { useScrollPosition } from '../hooks/useScrollPosition';
@@ -2285,17 +2286,13 @@ function Book() {
           />
         </div>
 
-        {/* <footer className="bg-slate-100 py-6 px-8 border-t border-slate-200">
-          <p className="text-sm text-slate-600 text-center">
-            © 2025 - Todos os direitos reservados
-          </p>
-        </footer> */}
+        <Footer />
       </div>
 
       {currentPage >= 5 && (
         <button
           onClick={scrollToTop}
-          className="fixed bottom-1 right-6 z-40 bg-gradient-to-r text-white p-3 rounded-full hover:scale-110 transition-all"
+          className="fixed bottom-16 right-4 z-40 p-3 hover:scale-110 transition-all"
           title="Voltar ao início do livro"
         >
           <img src="images/setaTopo.png" alt="Voltar ao início do livro" />
