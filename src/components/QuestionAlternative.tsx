@@ -30,8 +30,8 @@ function QuestionAlternative({
             key={index}
             className={`flex items-center gap-3 p-3 rounded cursor-pointer transition-colors ${
               selectedAnswer === index
-                ? 'bg-emerald-100 border-l-4 border-emerald-600'
-                : 'bg-white hover:bg-emerald-50'
+                ? 'bg-blue-100 border-l-4 border-blue-600'
+                : 'bg-white hover:bg-blue-50'
             } ${
               showResults && selectedAnswer === index
                 ? isCorrect

@@ -7,12 +7,11 @@ function Pagination({ currentPage }: PaginationProps) {
   return (
     <div
       data-page={currentPage}
-      className="flex items-center justify-center -mx-8 md:-mx-12"
+      className="flex items-center justify-center -mx-8 md:-mx-12 px-4 md:px-[360px] py-1"
       style={{
         display: 'flex',
         width: '100vw',
         maxWidth: '100vw',
-        padding: '4px 360px',
         justifyContent: 'center',
         alignItems: 'center',
         gap: '10px',
