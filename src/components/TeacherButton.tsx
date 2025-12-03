@@ -25,7 +25,7 @@ function TeacherButton({
                     boxShadow: '0px 4px 0px #9C2F4B',
                     borderRadius: '0 30px 30px 0',
                     color: 'white',
-                    fontFamily: 'Ubuntu',
+                    fontFamily: "'Ubuntu', sans-serif",
                     fontSize: '12px',
                     fontWeight: 700,
                     lineHeight: '1.4em',
@@ -80,7 +80,12 @@ function TeacherButton({
                         <div className="flex justify-between items-center mb-6">
                             <h3 
                                 className="text-2xl font-bold"
-                                style={{ color: '#BF3154' }}
+                                style={{ 
+                                    color: '#BF3154',
+                                    fontFamily: "'hwt-artz', sans-serif",
+                                    fontSize: '26px',
+                                    lineHeight: 'normal'
+                                }}
                             >
                                 PARA O PROFESSOR
                             </h3>
