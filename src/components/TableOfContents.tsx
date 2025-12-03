@@ -13,7 +13,7 @@ function TableOfContents() {
         backgroundColor: '#EEE6D4',
       }}
     >
-      <div className="flex gap-6">
+      <div className="flex flex-col md:flex-row gap-6">
         {/* Seção Sumário */}
         <div className="flex-1">
           <div className="flex items-center gap-2 mb-4">
@@ -86,6 +86,7 @@ function TableOfContents() {
 
         {/* Divisor vertical */}
         <div
+          className="hidden md:block"
           style={{
             backgroundColor: '#0E3B5D',
             width: '3px',
@@ -93,12 +94,11 @@ function TableOfContents() {
         />
 
         {/* Seção Tutorial */}
-        <div className="flex-1 flex items-center justify-between gap-4">
+        <div className="flex-1 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
           <p
-            className="font-hwtArtz"
+            className="font-hwtArtz text-sm md:text-xl"
             style={{
               color: '#0E3B5D',
-              fontSize: '20px',
               fontWeight: 700,
             }}
           >
@@ -108,12 +108,12 @@ function TableOfContents() {
             href="https://example.com/tutorial"
             target="_blank"
             rel="noopener noreferrer"
-            className="cursor-pointer"
+            className="cursor-pointer self-center md:self-auto"
           >
             <img
               src="images/qrCode.svg"
               alt="QR Code Tutorial"
-              className="w-28 h-28 object-contain"
+              className="w-20 h-20 md:w-28 md:h-28 object-contain"
             />
           </a>
         </div>
