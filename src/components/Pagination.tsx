@@ -29,7 +29,7 @@ function Pagination({ currentPage }: PaginationProps) {
     >
       <span>Página - {currentPage}</span>
       <img
-                  src="/images/seta.svg"
+                  src="images/seta.svg"
                   alt="Union"
                   className="w-3 h-3 object-contain"
                 />

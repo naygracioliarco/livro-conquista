@@ -44,7 +44,7 @@ function TableOfContents() {
                 }}
               >
                 <img
-                  src="/images/Union.svg"
+                  src="images/Union.svg"
                   alt="Union"
                   className="w-4 h-4 object-contain"
                 />
@@ -69,7 +69,7 @@ function TableOfContents() {
                 }}
               >
                 <img
-                  src="/images/Union.svg"
+                  src="images/Union.svg"
                   alt="Union"
                   className="w-4 h-4 object-contain"
                 />
@@ -111,7 +111,7 @@ function TableOfContents() {
             className="cursor-pointer"
           >
             <img
-              src="/images/qrCode.svg"
+              src="images/qrCode.svg"
               alt="QR Code Tutorial"
               className="w-28 h-28 object-contain"
             />

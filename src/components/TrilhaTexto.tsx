@@ -2,7 +2,7 @@ function TrilhaTexto() {
   return (
     <div className="flex items-center gap-3 my-6">
       <img
-        src="/images/trilhaTexto.png"
+        src="images/trilhaTexto.png"
         alt="Trilha do texto"
         className="object-contain"
       />

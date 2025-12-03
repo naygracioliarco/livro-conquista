@@ -61,7 +61,7 @@ function TeacherButton({
                         alignItems: 'center',
                         justifyContent: 'center',
                         zIndex: 1,
-                        background: 'transparent url("/images/iconTeacher.svg") no-repeat center',
+                        background: 'transparent url("images/iconTeacher.svg") no-repeat center',
                         backgroundSize: '100%',
                     }}
                 />

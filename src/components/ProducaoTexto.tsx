@@ -83,7 +83,7 @@ function ProducaoTexto({
     <div className="my-6">
       <div className="flex items-center gap-3 mb-6">
         <img
-          src="/images/producaoTexto.png"
+          src="images/producaoTexto.png"
           alt="Trilha do texto"
           className="object-contain"
         />

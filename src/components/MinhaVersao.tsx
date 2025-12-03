@@ -2,7 +2,7 @@ function MinhaVersao() {
     return (
       <div className="flex items-center gap-3 my-6">
         <img
-          src="/images/minhaVersao.png"
+          src="images/minhaVersao.png"
           alt="Trilha do texto"
           className="object-contain"
         />

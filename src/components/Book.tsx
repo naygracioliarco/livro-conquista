@@ -80,7 +80,7 @@ function Book() {
                 </ul>
                 {/* Imagem */}
                 <div className="flex flex-col items-center my-6">
-                  <img src="/images/noticias.png" className="max-w-full" />
+                  <img src="images/noticias.png" className="max-w-full" />
                   <p className="text-[10px] text-slate-600 mt-2">SachiDesigns, Mykola Syvak/stock.adobe.com
                   </p>
                 </div>
@@ -221,7 +221,7 @@ function Book() {
                   </p>
                   {/* Imagem */}
                   <div className="flex flex-col items-center my-6">
-                    <img src="/images/roboHumanoide.png" className="max-w-[50%]" />
+                    <img src="images/roboHumanoide.png" className="max-w-[50%]" />
                     <p className="text-[10px] text-slate-600 mt-2">ADEK BERRY/AFP
                     </p>
                     <div className="border-l-[2px] border-[#00B99D] pl-2 mb-1">
@@ -1021,7 +1021,7 @@ function Book() {
                 </ul>
                 {/* Imagem */}
                 <div className="flex flex-col items-center my-6">
-                  <img src="/images/lobo.png" style={{ width: '75%', marginLeft: '314px' }} />
+                  <img src="images/lobo.png" style={{ width: '75%', marginLeft: '314px' }} />
                   <p className="text-[10px] text-slate-600 mt-2" style={{ marginLeft: '375px' }} >Hennadii H/Shutterstock
                   </p>
                 </div>
@@ -1119,7 +1119,7 @@ function Book() {
 
                   {/* Imagem */}
                   <div className="flex flex-col items-center my-6">
-                    <img src="/images/lebreTartaruga.png" className="max-w-[50%]" />
+                    <img src="images/lebreTartaruga.png" className="max-w-[50%]" />
                     <p className="text-[10px] text-slate-600 mt-2">WINTER, Milo. A lebre e a tartaruga. <em>In: AESOP. The Aesop for children. [S.l.]</em>: Project Gutenberg, 2006. Disponível em: <a href="http://www.gutenberg.org/etext/19994" target="_blank" rel="noopener noreferrer">http://www.gutenberg.org/etext/19994</a>. Acesso em: 24 set. 2025.
                     </p>
                   </div>
@@ -1388,7 +1388,7 @@ function Book() {
                   </div>
                   {/* Imagem */}
                   <div className="flex flex-col items-center my-6">
-                    <img src="/images/leao.png" className="max-w-[60%]" />
+                    <img src="images/leao.png" className="max-w-[60%]" />
                     <p className="text-[10px] text-slate-600 mt-2">tada/stock.adobe.com
                     </p>
                   </div>
@@ -1811,7 +1811,7 @@ function Book() {
 
                   {/* Imagem */}
                   <div className="flex flex-col items-center my-6">
-                    <img src="/images/raposa.png" className="max-w-[50%]" />
+                    <img src="images/raposa.png" className="max-w-[50%]" />
                     <p className="text-[10px] text-slate-600 mt-2">Saenkova Iuliia/stock.adobe.com
                     </p>
                   </div>
@@ -2294,7 +2294,7 @@ function Book() {
           className="fixed bottom-1 right-6 z-40 bg-gradient-to-r text-white p-3 rounded-full hover:scale-110 transition-all"
           title="Voltar ao início do livro"
         >
-          <img src="/images/setaTopo.png" alt="Voltar ao início do livro" />
+          <img src="images/setaTopo.png" alt="Voltar ao início do livro" />
         </button>
       )}
     </div>

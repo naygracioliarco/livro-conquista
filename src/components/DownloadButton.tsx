@@ -57,7 +57,7 @@ function DownloadButton({ onClick, disabled = false }: DownloadButtonProps) {
             alignItems: 'center',
             justifyContent: 'center',
             zIndex: 1,
-            background: 'transparent url("/images/download.png") no-repeat center',
+            background: 'transparent url("images/download.png") no-repeat center',
             backgroundSize: '100%',
           }}
         >

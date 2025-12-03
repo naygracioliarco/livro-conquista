@@ -64,7 +64,7 @@ function CriteriosAvaliacao({
                 backgroundColor: 'white',
               }}
             >
-              <span style={{ fontSize: '24px' }}><img src="/images/iconeFeliz.png" alt="Sim" /></span>
+              <span style={{ fontSize: '24px' }}><img src="images/iconeFeliz.png" alt="Sim" /></span>
             </th>
             <th
               className="p-3 text-center"
@@ -73,7 +73,7 @@ function CriteriosAvaliacao({
                 backgroundColor: 'white',
               }}
             >
-              <span style={{ fontSize: '24px' }}><img src="/images/iconeTriste.png" alt="Não" /></span>
+              <span style={{ fontSize: '24px' }}><img src="images/iconeTriste.png" alt="Não" /></span>
             </th>
           </tr>
         </thead>
