@@ -1712,7 +1712,7 @@ function Book() {
                 </ol>
 
                 <p className="mb-4 indent-6"><strong>Avaliação</strong></p>
-                <p className="mb-4 indent-6">AAntes de finalizar a sua versão da fábula, confira o <em>checklist</em> a seguir para aprimorá-la.
+                <p className="mb-4 indent-6">Antes de finalizar a sua versão da fábula, confira o <em>checklist</em> a seguir para aprimorá-la.
                 </p>
                 {/* Tabela de Critérios de Avaliação */}
                 <CriteriosAvaliacao
