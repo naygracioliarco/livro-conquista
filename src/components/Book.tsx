@@ -1021,8 +1021,8 @@ function Book() {
                 </ul>
                 {/* Imagem */}
                 <div className="flex flex-col items-center my-6">
-                  <img src="images/lobo.png" style={{ width: '75%', marginLeft: '314px' }} />
-                  <p className="text-[10px] text-slate-600 mt-2" style={{ marginLeft: '375px' }} >Hennadii H/Shutterstock
+                  <img src="images/lobo.png" className='max-w-[50%]' />
+                  <p className="text-[10px] text-slate-600 mt-2" >Hennadii H/Shutterstock
                   </p>
                 </div>
                 <Pagination currentPage={18} />
