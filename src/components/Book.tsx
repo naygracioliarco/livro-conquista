@@ -28,7 +28,7 @@ function Book() {
 
   return (
     <div className="min-h-screen bg-gray-200 w-full">
-      <div className="mx-auto bg-white shadow-2xl overflow-hidden" style={{ maxWidth: '63%', marginLeft: 'auto', marginRight: 'auto' }}>
+      <div className="mx-auto bg-white shadow-2xl overflow-hidden w-full md:max-w-[63%]" style={{ marginLeft: 'auto', marginRight: 'auto' }}>
         <Header />
 
         <div className="p-8 md:p-12">
