@@ -1338,21 +1338,21 @@ function Book() {
                   <strong>Texto II</strong>
                 </p>
                 <CaixaTexto title='O leão e o rato' backgroundColor="white" columns={2}>
-                  <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '2rem' }}>
+                  <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 justify-items-center" style={{ textAlign: 'center' }}>
                     <div>
-                      <p className="mb-4 indent-6">
+                      <p className="mb-4">
                         Saiu o rato correndo, <br />
                         assustado e distraído, <br />
                         e foi logo recebido <br />
                         por um leão, sem entender. <br />
                       </p>
-                      <p className="mb-4 indent-6">
+                      <p className="mb-4">
                         Entre as garras tremeu, <br />
                         mas foi surpreendido então. <br />
                         O leão o protegeu <br />
                         e poupou-lhe a punição. <br />
                       </p>
-                      <p className="mb-4 indent-6">
+                      <p className="mb-4">
                         Dias passaram ligeiros, <br />
                         e o leão, rei altaneiro, <br />
                         por entre folhas entrou, <br />
@@ -1364,7 +1364,7 @@ function Book() {
                       </p>
                     </div>
                     <div>
-                      <p className="mb-4 indent-6">
+                      <p className="mb-4">
                         O ratinho, sem demora, <br />
                         chega e começa a agir. <br />
                         Rói as cordas, uma hora, <br />
@@ -1374,7 +1374,7 @@ function Book() {
                         com esforço perseverante, <br />
                         liberta, enfim, o leão. <br />
                       </p>
-                      <p className="mb-4 indent-6">
+                      <p className="mb-4">
                         Pagou o bem que recebera, <br />
                         com coragem e humildade, <br />
                         e ensinou que a vida inteira <br />
@@ -1614,10 +1614,10 @@ function Book() {
                           }
                           return null;
                         })()}
-                        <p className="mb-4 indent-6">
+                        <p className="mb-4 indent-6" style={{ textAlign: 'left' }}>
                           Esta atividade tem como objetivo consolidar o conhecimento sobre o gênero <strong>fábula</strong> e avançar na autonomia autoral dos alunos. Ao propor a mudança de forma (de prosa para verso ou de verso para prosa) e a modificação de pelo menos um dos elementos estruturais do enredo (situação inicial, conflito ou desfecho), a atividade convida os alunos a refletir criticamente sobre as escolhas narrativas e a relação entre estrutura e mensagem. O foco não está apenas em recontar, mas em recriar com intenção, construindo uma nova moral baseada nos personagens e em novos caminhos de ação.
                         </p>
-                        <p className="mb-4 indent-6">
+                        <p className="mb-4 indent-6" style={{ textAlign: 'left' }}>
                           Minha versão: É importante orientar os alunos a manter os elementos essenciais do gênero, como personagens simbólicos e sequência narrativa, mesmo ao optar por mudanças criativas. A etapa de preparação pode ser realizada individualmente ou em dupla. Atue como mediador, oferecendo exemplos, esclarecendo dúvidas sobre o uso de versos ou a organização de parágrafos e estimulando discussões sobre diferentes valores possíveis. A atividade proporciona um espaço de autoria seguro, permitindo que alunos com diferentes níveis de proficiência se envolvam no processo criativo.
 
                         </p>
@@ -1667,7 +1667,7 @@ function Book() {
                         <p className="mb-3">
                           Respostas:
                         </p>
-                        <p className="mb-4 indent-6">
+                        <p className="mb-4 indent-6" style={{ textAlign: 'left' }}>
                           Pessoal.
                         </p>
                       </>
