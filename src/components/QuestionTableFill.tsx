@@ -45,87 +45,94 @@ function QuestionTableFill({
           <span style={{ color: 'black' }}>{title}</span>
         </p>
       )}
-      <div className="overflow-x-auto mb-6">
-        <table
-          className="w-full border-collapse"
-          style={{
-            border: '3px solid #0E3B5D',
-          }}
-        >
-          <thead>
-            <tr>
-              {columns.map((column, index) => (
-                <th
-                  key={index}
-                  className="p-3 text-center font-semibold"
-                  style={{
-                    border: '1px solid #0E3B5D',
-                    backgroundColor: 'white',
-                    color: '#0E3B5D',
-                    fontFamily: 'Ubuntu, sans-serif',
-                  }}
-                >
-                  {column}
-                </th>
-              ))}
-            </tr>
-          </thead>
-          <tbody>
-            {rows.map((row) => {
-              // Obtém o primeiro campo da row (primeira coluna) - pode ser 'paragraph' ou qualquer outro nome
-              const firstColumnKey = Object.keys(row).find(key => key !== 'id') || 'paragraph';
-              const firstColumnValue = row[firstColumnKey] || '';
-              
-              return (
-                <tr key={row.id}>
-                  <td
-                    className="p-3 font-semibold"
+      <div className="overflow-x-auto mb-6 -mx-4 md:mx-0">
+        <div className="min-w-full inline-block">
+          <table
+            className="w-full border-collapse"
+            style={{
+              border: '3px solid #0E3B5D',
+              minWidth: '100%',
+            }}
+          >
+            <thead>
+              <tr>
+                {columns.map((column, index) => (
+                  <th
+                    key={index}
+                    className="p-2 md:p-3 text-center font-semibold text-xs md:text-base"
                     style={{
                       border: '1px solid #0E3B5D',
                       backgroundColor: 'white',
                       color: '#0E3B5D',
                       fontFamily: 'Ubuntu, sans-serif',
+                      whiteSpace: 'normal',
+                      wordBreak: 'break-word',
                     }}
                   >
-                    {firstColumnValue}
-                  </td>
-                  {columns.slice(1).map((_, colIndex) => {
-                    const fieldId = `${questionId}_${row.id}_col${colIndex + 1}`;
-                    // Acessa os campos dinamicamente: text1, text2, etc. ou qualquer outro nome
-                    const fieldKeys = Object.keys(row).filter(key => key !== 'id' && key !== firstColumnKey);
-                    const fieldValue = fieldKeys[colIndex] ? row[fieldKeys[colIndex]] : '';
-                    const userAnswer = (userAnswers[fieldId] as string) || fieldValue || '';
-                    
-                    return (
-                      <td
-                        key={colIndex}
-                        className="p-3"
-                        style={{
-                          border: '1px solid #0E3B5D',
-                          backgroundColor: 'white',
-                        }}
-                      >
-                        <textarea
-                          value={userAnswer}
-                          onChange={(e) => onAnswerChange(questionId, fieldId, e.target.value)}
-                          placeholder="Digite aqui..."
-                          disabled={showResults}
-                          className="w-full p-2 border-0 rounded focus:outline-none resize-y min-h-[60px]"
+                    {column}
+                  </th>
+                ))}
+              </tr>
+            </thead>
+            <tbody>
+              {rows.map((row) => {
+                // Obtém o primeiro campo da row (primeira coluna) - pode ser 'paragraph' ou qualquer outro nome
+                const firstColumnKey = Object.keys(row).find(key => key !== 'id') || 'paragraph';
+                const firstColumnValue = row[firstColumnKey] || '';
+                
+                return (
+                  <tr key={row.id}>
+                    <td
+                      className="p-2 md:p-3 font-semibold text-xs md:text-base"
+                      style={{
+                        border: '1px solid #0E3B5D',
+                        backgroundColor: 'white',
+                        color: '#0E3B5D',
+                        fontFamily: 'Ubuntu, sans-serif',
+                        whiteSpace: 'normal',
+                        wordBreak: 'break-word',
+                      }}
+                    >
+                      {firstColumnValue}
+                    </td>
+                    {columns.slice(1).map((_, colIndex) => {
+                      const fieldId = `${questionId}_${row.id}_col${colIndex + 1}`;
+                      // Acessa os campos dinamicamente: text1, text2, etc. ou qualquer outro nome
+                      const fieldKeys = Object.keys(row).filter(key => key !== 'id' && key !== firstColumnKey);
+                      const fieldValue = fieldKeys[colIndex] ? row[fieldKeys[colIndex]] : '';
+                      const userAnswer = (userAnswers[fieldId] as string) || fieldValue || '';
+                      
+                      return (
+                        <td
+                          key={colIndex}
+                          className="p-2 md:p-3"
                           style={{
-                            fontFamily: 'Ubuntu, sans-serif',
-                            color: '#0E3B5D',
-                            backgroundColor: 'transparent',
-                            border: 'none',
+                            border: '1px solid #0E3B5D',
+                            backgroundColor: 'white',
                           }}
-                        />
-                      </td>
-                    );
-                  })}
-                </tr>
-              );
-            })}
-          </tbody>
-        </table>
+                        >
+                          <textarea
+                            value={userAnswer}
+                            onChange={(e) => onAnswerChange(questionId, fieldId, e.target.value)}
+                            placeholder="Digite aqui..."
+                            disabled={showResults}
+                            className="w-full p-1 md:p-2 border-0 rounded focus:outline-none resize-y min-h-[50px] md:min-h-[60px] text-xs md:text-base"
+                            style={{
+                              fontFamily: 'Ubuntu, sans-serif',
+                              color: '#0E3B5D',
+                              backgroundColor: 'transparent',
+                              border: 'none',
+                            }}
+                          />
+                        </td>
+                      );
+                    })}
+                  </tr>
+                );
+              })}
+            </tbody>
+          </table>
+        </div>
       </div>
       {/* Subquestões */}
       {subQuestions && subQuestions.length > 0 && (
