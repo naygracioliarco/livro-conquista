@@ -19,12 +19,16 @@ import CriteriosAvaliacao from './CriteriosAvaliacao';
 import DownloadQuestionsButton from './DownloadQuestionsButton';
 import { useUserAnswers } from '../hooks/useUserAnswers';
 import { usePagination } from '../hooks/usePagination';
+import { useScrollPosition } from '../hooks/useScrollPosition';
 import { TeacherAnswers } from './TeacherAnswers';
 
 function Book() {
   const { userAnswers, handleAnswerChange } = useUserAnswers();
   const { currentPage, scrollToTop } = usePagination();
   const [showTeacherView, setShowTeacherView] = useState(false);
+  
+  // Restaura a posição de scroll salva
+  useScrollPosition();
 
   return (
     <div className="min-h-screen bg-gray-200 w-full">
