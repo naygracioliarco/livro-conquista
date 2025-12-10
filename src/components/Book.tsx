@@ -89,7 +89,7 @@ function Book() {
                     src="images/noticias.png"
                     className="w-full max-w-[320px] sm:max-w-[380px] md:max-w-[480px] lg:max-w-[520px] h-auto"
                   />
-                  <p className="text-[10px] text-slate-600 mt-2">SachiDesigns, Mykola Syvak/stock.adobe.com
+                  <p className="text-[10px] text-slate-600 mt-2" style={{fontSize: '10px'}}>SachiDesigns, Mykola Syvak/stock.adobe.com
                   </p>
                 </div>
                 <Pagination currentPage={5} />
@@ -230,10 +230,10 @@ function Book() {
                   {/* Imagem */}
                   <div className="flex flex-col items-center my-6">
                     <img src="images/roboHumanoide.png" className="max-w-[50%]" />
-                    <p className="text-[10px] text-slate-600 mt-2">ADEK BERRY/AFP
+                    <p className="text-[10px] text-slate-600 mt-2" style={{fontSize: '10px'}}>ADEK BERRY/AFP
                     </p>
                     <div className="border-l-[2px] border-[#00B99D] pl-2 mb-1">
-                      <p className="text-[10px]">Robô humanoide parecido com
+                      <p className="text-[10px]" style={{fontSize: '10px'}}>Robô humanoide parecido com
                         Albert Einstein no Robot Mall.
                       </p>
                     </div>
@@ -1030,7 +1030,7 @@ function Book() {
                 {/* Imagem */}
                 <div className="flex flex-col items-center my-6">
                   <img src="images/lobo.png" className='max-w-[50%]' />
-                  <p className="text-[10px] text-slate-600 mt-2" >Hennadii H/Shutterstock
+                  <p className="text-[10px] text-slate-600 mt-2" style={{fontSize: '10px'}}>Hennadii H/Shutterstock
                   </p>
                 </div>
                 <Pagination currentPage={18} />
@@ -1128,7 +1128,7 @@ function Book() {
                   {/* Imagem */}
                   <div className="flex flex-col items-center my-6">
                     <img src="images/lebreTartaruga.png" className="max-w-[50%]" />
-                    <p className="text-[10px] text-slate-600 mt-2">WINTER, Milo. A lebre e a tartaruga. <em>In: AESOP. The Aesop for children. [S.l.]</em>: Project Gutenberg, 2006. Disponível em: <a href="http://www.gutenberg.org/etext/19994" target="_blank" rel="noopener noreferrer">http://www.gutenberg.org/etext/19994</a>. Acesso em: 24 set. 2025.
+                    <p className="text-[10px] text-slate-600 mt-2" style={{fontSize: '10px'}}>WINTER, Milo. A lebre e a tartaruga. <em>In: AESOP. The Aesop for children. [S.l.]</em>: Project Gutenberg, 2006. Disponível em: <a href="http://www.gutenberg.org/etext/19994" target="_blank" rel="noopener noreferrer">http://www.gutenberg.org/etext/19994</a>. Acesso em: 24 set. 2025.
                     </p>
                   </div>
                 </CaixaTexto>
@@ -1397,7 +1397,7 @@ function Book() {
                   {/* Imagem */}
                   <div className="flex flex-col items-center my-6">
                     <img src="images/leao.png" className="max-w-[60%]" />
-                    <p className="text-[10px] text-slate-600 mt-2">tada/stock.adobe.com
+                    <p className="text-[10px] text-slate-600 mt-2" style={{fontSize: '10px'}}>tada/stock.adobe.com
                     </p>
                   </div>
                 </CaixaTexto>
@@ -1820,7 +1820,7 @@ function Book() {
                   {/* Imagem */}
                   <div className="flex flex-col items-center my-6">
                     <img src="images/raposa.png" className="max-w-[50%]" />
-                    <p className="text-[10px] text-slate-600 mt-2">Saenkova Iuliia/stock.adobe.com
+                    <p className="text-[10px] text-slate-600 mt-2" style={{fontSize: '10px'}}>Saenkova Iuliia/stock.adobe.com
                     </p>
                   </div>
                 </CaixaTexto>

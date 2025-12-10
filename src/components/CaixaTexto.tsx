@@ -1,7 +1,7 @@
 import { ReactNode } from 'react';
 
 interface CaixaTextoProps {
-  title: string;
+  title?: string;
   children: ReactNode;
   backgroundColor?: string;
   columns?: number;
@@ -25,19 +25,21 @@ function CaixaTexto({ title, children, backgroundColor, columns }: CaixaTextoPro
       }}
       className="p-4 my-4"
     >
-      <h4
-        style={{
-          color: '#BF3154',
-          fontFamily: 'hwt-artz',
-          fontSize: '20px',
-          fontStyle: 'normal',
-          fontWeight: 700,
-          lineHeight: 'normal',
-        }}
-        className="mb-4"
-      >
-        {title}
-      </h4>
+      {title && (
+        <h4
+          style={{
+            color: '#BF3154',
+            fontFamily: 'hwt-artz',
+            fontSize: '20px',
+            fontStyle: 'normal',
+            fontWeight: 700,
+            lineHeight: 'normal',
+          }}
+          className="mb-4"
+        >
+          {title}
+        </h4>
+      )}
       <div className="texto-corrido" style={contentStyle}>
         {children}
       </div>

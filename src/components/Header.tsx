@@ -12,7 +12,7 @@ function Header() {
           <img
             src="images/icon.png"
             alt="Ícone"
-            className="w-23 h-29 object-contain"
+            className="w-24 h-29 object-contain -mt-7"
           />
           <div className="flex flex-col">
             <h1
