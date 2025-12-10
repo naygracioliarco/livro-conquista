@@ -35,6 +35,10 @@ function QuestionTextInputWithEmbedded({
             fontFamily: 'Ubuntu, sans-serif',
             color: 'black',
             whiteSpace: 'pre-line',
+            ...(question.embeddedContentMaxWidth && {
+              maxWidth: question.embeddedContentMaxWidth,
+              width: question.embeddedContentMaxWidth === 'fit-content' ? 'fit-content' : 'auto',
+            }),
           }}
         >
           {question.embeddedContent}

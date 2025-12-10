@@ -19,7 +19,7 @@ function Chapter({
         <p className="text-sm font-semibold text-slate-500 text-[#0E3B5D] tracking-wide mb-1">
           Capítulo {number}
         </p>
-        <h2 className="text-4xl font-hwtArtz font-bold uppercase text-slate-800">{title}</h2>
+        <h2 className="text-4xl font-hwtArtz font-bold uppercase text-slate-800" style={{lineHeight: '3.0rem'}}>{title}</h2>
       </div>
       <div className="text-slate-700 leading-relaxed chapter-content">{content}</div>
     </section>

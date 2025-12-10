@@ -528,6 +528,7 @@ export const chapterQuestions: Record<string, Question[]> = {
       number: 4,
       question: 'Releia os versos finais da fábula <em>O leão e o rato</em>.',
       embeddedContent: 'Pagou o bem que recebera,\ncom coragem e humildade,\ne ensinou que a vida inteira\nvale a boa gratidão.\nSer gentil não custa nada,\ne a lição dessa jornada,\né que até o mais singelo\npode ser forte e belo.',
+      embeddedContentMaxWidth: 'fit-content',
       followUpQuestion: 'Os versos podem ser considerados a moral explícita do texto? Justifique sua resposta.',
       placeholder: 'Digite sua resposta aqui...',
       correctAnswer: 'Sim, os versos podem ser considerados a moral explícita da fábula, pois resumem de forma objetiva a lição que a história quer transmitir: a importância da gentileza, da gratidão e do respeito, mesmo aos menores.',

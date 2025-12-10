@@ -110,7 +110,7 @@ function Book() {
 
                   />
                 </div>
-                <h3>O que é notícia?</h3>
+                <h3 style={{marginBottom: '2.0rem', marginTop: '2.0rem'}}>O que é notícia?</h3>
                 <p className="mb-4 indent-6">
                   A notícia é um gênero textual do campo jornalístico e tem como principal objetivo
                   informar o público sobre um fato que já aconteceu ou que está acontecendo. Esse fato
@@ -1047,7 +1047,7 @@ function Book() {
 
                   />
                 </div>
-                <h3>O que é fábula?</h3>
+                <h3 style={{marginBottom: '2.0rem', marginTop: '2.0rem'}}>O que é fábula?</h3>
                 <p className="mb-4 indent-6">
                   As fábulas são histórias curtas, simbólicas e protagonizadas por animais que agem como humanos. Essas narrativas existem há milhares de anos e surgiram da tradição oral de povos antigos, mas ainda hoje fazem sentido porque abordam valores humanos importantes em qualquer época, como honestidade, esperteza e respeito.
                 </p>
@@ -1346,7 +1346,7 @@ function Book() {
                   <strong>Texto II</strong>
                 </p>
                 <CaixaTexto title='O leão e o rato' backgroundColor="white" columns={2}>
-                  <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 justify-items-center" style={{ textAlign: 'center' }}>
+                  <div className="grid grid-cols-1 lg:grid-cols-2" style={{ marginLeft: '10.0rem'}}>
                     <div>
                       <p className="mb-4">
                         Saiu o rato correndo, <br />
@@ -2292,7 +2292,7 @@ function Book() {
         <Footer />
       </div>
 
-      {currentPage >= 5 && (
+      {currentPage > 4 && (
         <button
           onClick={scrollToTop}
           className="fixed bottom-16 right-4 z-40 p-3 hover:scale-110 transition-all"

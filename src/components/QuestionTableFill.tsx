@@ -59,7 +59,7 @@ function QuestionTableFill({
                 {columns.map((column, index) => (
                   <th
                     key={index}
-                    className="p-2 md:p-3 text-center font-semibold text-xs md:text-base"
+                    className={`p-2 md:p-3 font-semibold text-xs md:text-base ${index === 0 ? 'text-center' : 'text-center'}`}
                     style={{
                       border: '1px solid #0E3B5D',
                       backgroundColor: 'white',
@@ -67,6 +67,7 @@ function QuestionTableFill({
                       fontFamily: 'Ubuntu, sans-serif',
                       whiteSpace: 'normal',
                       wordBreak: 'break-word',
+                      textAlign: 'center',
                     }}
                   >
                     {column}
@@ -83,7 +84,7 @@ function QuestionTableFill({
                 return (
                   <tr key={row.id}>
                     <td
-                      className="p-2 md:p-3 font-semibold text-xs md:text-base"
+                      className="p-2 md:p-3 font-semibold text-xs md:text-base text-center"
                       style={{
                         border: '1px solid #0E3B5D',
                         backgroundColor: 'white',
@@ -91,6 +92,7 @@ function QuestionTableFill({
                         fontFamily: 'Ubuntu, sans-serif',
                         whiteSpace: 'normal',
                         wordBreak: 'break-word',
+                        textAlign: 'center',
                       }}
                     >
                       {firstColumnValue}

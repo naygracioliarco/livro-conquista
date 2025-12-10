@@ -102,7 +102,7 @@ function TableOfContents() {
               fontWeight: 700,
             }}
           >
-            ACESSE O TUTORIAL E APRENDA A MEXER NO LIVRO DIGITAL
+            ACESSE O TUTORIAL E APRENDA A USAR O LIVRO DIGITAL.
           </p>
           <a
             href="https://go.plataformaconx.com.br/ujBmfd"

@@ -114,7 +114,7 @@ function QuestionTextInput({
 
   // Formato simples (sem subquestões)
   return (
-    <div className="mb-6 p-4 rounded-lg">
+    <div className="mb-6 rounded-lg">
       <p className="mb-4">
         {question.number !== undefined && (
           <span style={{ color: '#00776E', fontWeight: 'bold' }}>{question.number}. </span>

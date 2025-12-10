@@ -66,7 +66,7 @@ function CriteriosAvaliacao({
                   backgroundColor: 'white',
                 }}
               >
-                <span className="text-base md:text-2xl"><img src="images/iconeFeliz.png" alt="Sim" className="w-4 h-4 md:w-6 md:h-6" /></span>
+                <span className="text-base md:text-2xl"><img src="images/iconeFeliz.png" alt="Sim" className="w-4 h-4 md:w-14 md:h-10" /></span>
               </th>
               <th
                 className="p-2 md:p-3 text-center"
@@ -75,7 +75,7 @@ function CriteriosAvaliacao({
                   backgroundColor: 'white',
                 }}
               >
-                <span className="text-base md:text-2xl"><img src="images/iconeTriste.png" alt="Não" className="w-4 h-4 md:w-6 md:h-6" /></span>
+                <span className="text-base md:text-2xl"><img src="images/iconeTriste.png" alt="Não" className="w-4 h-4 md:w-14 md:h-10" /></span>
               </th>
             </tr>
           </thead>

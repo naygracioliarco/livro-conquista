@@ -10,7 +10,7 @@ function Footer() {
             alignItems: 'center',
             gap: '20px',
         }}>
-            <img src="images/conquistaLogo.png" alt="Logo" style={{ width: '115.27', height: '66.81' }} />
+            <img src="images/conquistaLogo.png" alt="Logo" style={{ width: '110.27px', height: '62.81px' }} />
             <p style={{
                 color: '#000',
                 textAlign: 'center',

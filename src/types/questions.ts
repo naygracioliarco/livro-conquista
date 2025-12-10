@@ -56,6 +56,7 @@ export interface TextInputQuestion {
     }>;
   }>;
   embeddedContent?: string; // Conteúdo a ser exibido em uma caixa (ex: versos do poema)
+  embeddedContentMaxWidth?: string; // Largura máxima do conteúdo embutido (ex: '400px', '50%', 'fit-content')
   followUpQuestion?: string; // Pergunta adicional com bullet vermelho
 }
 
