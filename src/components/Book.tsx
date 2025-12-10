@@ -85,7 +85,10 @@ function Book() {
                 </ul>
                 {/* Imagem */}
                 <div className="flex flex-col items-center my-6">
-                  <img src="images/noticias.png" className="max-w-full" />
+                  <img
+                    src="images/noticias.png"
+                    className="w-full max-w-[320px] sm:max-w-[380px] md:max-w-[480px] lg:max-w-[520px] h-auto"
+                  />
                   <p className="text-[10px] text-slate-600 mt-2">SachiDesigns, Mykola Syvak/stock.adobe.com
                   </p>
                 </div>

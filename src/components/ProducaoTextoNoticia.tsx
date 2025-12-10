@@ -42,7 +42,7 @@ function ProducaoTextoNoticia() {
     // Adiciona título
     doc.setFontSize(18);
     doc.setFont('helvetica', 'bold');
-    doc.text('Produção de texto – Minha versão', margin, yPosition);
+    doc.text('Produção de texto – Notícia', margin, yPosition);
     yPosition += 15;
 
     // Adiciona o texto com quebra de linha automática

@@ -105,7 +105,7 @@ function TableOfContents() {
             ACESSE O TUTORIAL E APRENDA A MEXER NO LIVRO DIGITAL
           </p>
           <a
-            href="https://example.com/tutorial"
+            href="https://go.plataformaconx.com.br/ujBmfd"
             target="_blank"
             rel="noopener noreferrer"
             className="cursor-pointer self-center md:self-auto"

@@ -90,7 +90,7 @@ function CriteriosAvaliacao({
               return (
                 <tr key={criterio.id}>
                   <td
-                    className="p-2 md:p-3 font-semibold text-sm md:text-base"
+                    className="p-2 md:p-3 font-semibold text-sm md:text-base text-center"
                     style={{
                       border: '3px solid #0E3B5D',
                       color: '#0E3B5D',
@@ -99,6 +99,7 @@ function CriteriosAvaliacao({
                       fontSize: '16px',
                       whiteSpace: 'normal',
                       wordBreak: 'break-word',
+                      textAlign: 'center',
                     }}
                   >
                     {criterio.nome}
