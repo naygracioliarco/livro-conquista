@@ -179,7 +179,7 @@ export const chapterQuestions: Record<string, Question[]> = {
       type: 'table-fill',
       number: 3,
       question: 'Leia novamente os dois textos e identifique quais são as informações principais de cada parágrafo. Em seguida, responda às questões.',
-      columns: ['Parágrafo', 'Texto I', 'Texto II'],
+      columns: ['Parágrafo(s)', 'Texto I', 'Texto II'],
       rows: [
         {
           id: 'row1',

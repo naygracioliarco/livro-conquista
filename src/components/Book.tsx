@@ -23,11 +23,15 @@ import { usePagination } from '../hooks/usePagination';
 import { useScrollPosition } from '../hooks/useScrollPosition';
 import { TeacherAnswers } from './TeacherAnswers';
 
+// Controle de visibilidade do botão do professor
+// Altere para false para ocultar todos os botões "Para o Professor"
+const SHOW_TEACHER_BUTTON = true;
+
 function Book() {
   const { userAnswers, handleAnswerChange } = useUserAnswers();
   const { currentPage, scrollToTop } = usePagination();
   const [showTeacherView, setShowTeacherView] = useState(false);
-  
+
   // Restaura a posição de scroll salva
   useScrollPosition();
 
@@ -44,9 +48,10 @@ function Book() {
           {/* Conteúdo do botão do professor */}
           <div className="my-6">
             <TeacherButton
+              visible={SHOW_TEACHER_BUTTON}
               content={
                 <>
-                  <p className="mb-3" style={{ fontFamily: 'Ubuntu, sans-serif', color: '#000000', fontSize: '16px'}}>
+                  <p className="mb-3" style={{ fontFamily: 'Ubuntu, sans-serif', color: '#000000', fontSize: '16px' }}>
                     EF06LP01, EF06LP02. A proposta de abertura tem o objetivo de mobilizar o repertório dos alunos sobre o gênero textual notícia, conectando o conteúdo a experiências de vida e a temas atuais ligados à tecnologia. Incentive-os a comentar, complementar ou questionar as histórias, sempre com respeito e sob sua mediação. As perguntas propostas visam provocar uma reflexão sobre o que torna um fato noticiável, destacando que a definição do que vira notícia é também uma escolha ética e cultural.
                   </p>
                 </>
@@ -89,12 +94,13 @@ function Book() {
                     src="images/noticias.png"
                     className="w-full max-w-[320px] sm:max-w-[380px] md:max-w-[480px] lg:max-w-[520px] h-auto"
                   />
-                  <p className="text-[10px] text-slate-600 mt-2" style={{fontSize: '10px'}}>SachiDesigns, Mykola Syvak/stock.adobe.com
+                  <p className="text-[10px] text-slate-600 mt-2" style={{ fontSize: '10px' }}>SachiDesigns, Mykola Syvak/stock.adobe.com
                   </p>
                 </div>
                 <Pagination currentPage={5} />
                 <div className="my-6">
                   <TeacherButton
+                    visible={SHOW_TEACHER_BUTTON}
                     content={
                       <>
                         <p className="mb-3">
@@ -110,7 +116,7 @@ function Book() {
 
                   />
                 </div>
-                <h3 style={{marginBottom: '2.0rem', marginTop: '2.0rem'}}>O que é notícia?</h3>
+                <h3 style={{ marginBottom: '2.0rem', marginTop: '2.0rem' }}>O que é notícia?</h3>
                 <p className="mb-4 indent-6">
                   A notícia é um gênero textual do campo jornalístico e tem como principal objetivo
                   informar o público sobre um fato que já aconteceu ou que está acontecendo. Esse fato
@@ -153,6 +159,7 @@ function Book() {
                 <Pagination currentPage={6} />
                 <div className="my-6">
                   <TeacherButton
+                    visible={SHOW_TEACHER_BUTTON}
                     content={
                       <>
                         <p className="mb-3">
@@ -230,10 +237,10 @@ function Book() {
                   {/* Imagem */}
                   <div className="flex flex-col items-center my-6">
                     <img src="images/roboHumanoide.png" className="max-w-[50%]" />
-                    <p className="text-[10px] text-slate-600 mt-2" style={{fontSize: '10px'}}>ADEK BERRY/AFP
+                    <p className="text-[10px] text-slate-600 mt-2" style={{ fontSize: '10px' }}>ADEK BERRY/AFP
                     </p>
                     <div className="border-l-[2px] border-[#00B99D] pl-2 mb-1">
-                      <p className="text-[10px]" style={{fontSize: '10px'}}>Robô humanoide parecido com
+                      <p className="text-[10px]" style={{ fontSize: '10px' }}>Robô humanoide parecido com
                         Albert Einstein no Robot Mall.
                       </p>
                     </div>
@@ -276,6 +283,7 @@ function Book() {
                 {/* Conteúdo do botão do professor */}
                 <div className="my-6">
                   <TeacherButton
+                    visible={SHOW_TEACHER_BUTTON}
                     content={
                       <TeacherAnswers
                         questions={[
@@ -325,6 +333,7 @@ function Book() {
                 {/* Conteúdo do botão do professor */}
                 <div className="my-6">
                   <TeacherButton
+                    visible={SHOW_TEACHER_BUTTON}
                     content={
                       <>
                         <TeacherAnswers
@@ -410,6 +419,7 @@ function Book() {
                 {/* Conteúdo do botão do professor */}
                 <div className="my-6">
                   <TeacherButton
+                    visible={SHOW_TEACHER_BUTTON}
                     content={
                       <>
                         <p className="mb-3">
@@ -517,6 +527,7 @@ function Book() {
                 {/* Conteúdo do botão do professor - Tabela comparativa */}
                 <div className="my-6">
                   <TeacherButton
+                    visible={SHOW_TEACHER_BUTTON}
                     content={
                       <>
                         <p className="mb-3">
@@ -643,6 +654,7 @@ function Book() {
                 {/* Conteúdo do botão do professor */}
                 <div className="my-6">
                   <TeacherButton
+                    visible={SHOW_TEACHER_BUTTON}
                     content={
                       <>
                         <p className="mb-3">
@@ -724,6 +736,7 @@ function Book() {
                 {/* Conteúdo do botão do professor */}
                 <div className="my-6">
                   <TeacherButton
+                    visible={SHOW_TEACHER_BUTTON}
                     content={
                       <>
                         <p className="mb-3">
@@ -787,11 +800,12 @@ function Book() {
                 >
                   EM ‘OLIMPÍADAS de robôs’, máquinas apostam corrida e jogam futebol. Publicado pelo canal SBT News. Disponível em:  <a href="https://www.youtube.com/watch?v=FJgXK06RHUY" target="_blank" rel="noopener noreferrer">https://www.youtube.com/watch?v=FJgXK06RHUY</a>. Acesso em: 18 ago. 2025.
                 </p>
-                
+
                 <Pagination currentPage={14} />
                 {/* Conteúdo do botão do professor - Tabela comparativa */}
                 <div className="my-6">
                   <TeacherButton
+                    visible={SHOW_TEACHER_BUTTON}
                     content={
                       <>
                         <p className="mb-3">
@@ -914,6 +928,7 @@ function Book() {
                 {/* Conteúdo do botão do professor */}
                 <div className="my-6">
                   <TeacherButton
+                    visible={SHOW_TEACHER_BUTTON}
                     content={
                       <>
                         <p className="mb-3">
@@ -992,6 +1007,7 @@ function Book() {
           {/* Conteúdo do botão do professor */}
           <div className="my-6">
             <TeacherButton
+              visible={SHOW_TEACHER_BUTTON}
               content={
                 <>
                   <p className="mb-3">
@@ -1030,12 +1046,13 @@ function Book() {
                 {/* Imagem */}
                 <div className="flex flex-col items-center my-6">
                   <img src="images/lobo.png" className='max-w-[50%]' />
-                  <p className="text-[10px] text-slate-600 mt-2" style={{fontSize: '10px'}}>Hennadii H/Shutterstock
+                  <p className="text-[10px] text-slate-600 mt-2" style={{ fontSize: '10px' }}>Hennadii H/Shutterstock
                   </p>
                 </div>
                 <Pagination currentPage={18} />
                 <div className="my-6">
                   <TeacherButton
+                    visible={SHOW_TEACHER_BUTTON}
                     content={
                       <>
                         <p className="mb-3">
@@ -1047,7 +1064,7 @@ function Book() {
 
                   />
                 </div>
-                <h3 style={{marginBottom: '2.0rem', marginTop: '2.0rem'}}>O que é fábula?</h3>
+                <h3 style={{ marginBottom: '2.0rem', marginTop: '2.0rem' }}>O que é fábula?</h3>
                 <p className="mb-4 indent-6">
                   As fábulas são histórias curtas, simbólicas e protagonizadas por animais que agem como humanos. Essas narrativas existem há milhares de anos e surgiram da tradição oral de povos antigos, mas ainda hoje fazem sentido porque abordam valores humanos importantes em qualquer época, como honestidade, esperteza e respeito.
                 </p>
@@ -1079,6 +1096,7 @@ function Book() {
                 <Pagination currentPage={19} />
                 <div className="my-6">
                   <TeacherButton
+                    visible={SHOW_TEACHER_BUTTON}
                     content={
                       <>
                         <p className="mb-3">
@@ -1128,7 +1146,7 @@ function Book() {
                   {/* Imagem */}
                   <div className="flex flex-col items-center my-6">
                     <img src="images/lebreTartaruga.png" className="max-w-[50%]" />
-                    <p className="text-[10px] text-slate-600 mt-2" style={{fontSize: '10px'}}>WINTER, Milo. A lebre e a tartaruga. <em>In: AESOP. The Aesop for children. [S.l.]</em>: Project Gutenberg, 2006. Disponível em: <a href="http://www.gutenberg.org/etext/19994" target="_blank" rel="noopener noreferrer">http://www.gutenberg.org/etext/19994</a>. Acesso em: 24 set. 2025.
+                    <p className="text-[10px] text-slate-600 mt-2" style={{ fontSize: '10px' }}>WINTER, Milo. A lebre e a tartaruga. <em>In: AESOP. The Aesop for children. [S.l.]</em>: Project Gutenberg, 2006. Disponível em: <a href="http://www.gutenberg.org/etext/19994" target="_blank" rel="noopener noreferrer">http://www.gutenberg.org/etext/19994</a>. Acesso em: 24 set. 2025.
                     </p>
                   </div>
                 </CaixaTexto>
@@ -1146,6 +1164,7 @@ function Book() {
                 {/* Conteúdo do botão do professor - Tabela comparativa */}
                 <div className="my-6">
                   <TeacherButton
+                    visible={SHOW_TEACHER_BUTTON}
                     content={
                       <>
                         <p className="mb-3">
@@ -1329,6 +1348,7 @@ function Book() {
                 <Pagination currentPage={21} />
                 <div className="my-6">
                   <TeacherButton
+                    visible={SHOW_TEACHER_BUTTON}
                     content={
                       <>
                         <p className="mb-3">
@@ -1346,7 +1366,7 @@ function Book() {
                   <strong>Texto II</strong>
                 </p>
                 <CaixaTexto title='O leão e o rato' backgroundColor="white" columns={2}>
-                  <div className="grid grid-cols-1 lg:grid-cols-2" style={{ marginLeft: '10.0rem'}}>
+                  <div className="grid grid-cols-1 lg:grid-cols-2" style={{ marginLeft: '10.0rem' }}>
                     <div>
                       <p className="mb-4">
                         Saiu o rato correndo, <br />
@@ -1397,7 +1417,7 @@ function Book() {
                   {/* Imagem */}
                   <div className="flex flex-col items-center my-6">
                     <img src="images/leao.png" className="max-w-[60%]" />
-                    <p className="text-[10px] text-slate-600 mt-2" style={{fontSize: '10px'}}>tada/stock.adobe.com
+                    <p className="text-[10px] text-slate-600 mt-2" style={{ fontSize: '10px' }}>tada/stock.adobe.com
                     </p>
                   </div>
                 </CaixaTexto>
@@ -1415,6 +1435,7 @@ function Book() {
                 {/* Conteúdo do botão do professor */}
                 <div className="my-6">
                   <TeacherButton
+                    visible={SHOW_TEACHER_BUTTON}
                     content={
                       <>
                         <p className="mb-3">
@@ -1554,11 +1575,12 @@ function Book() {
                     fileName="questoes-pagina-22.pdf"
                   />
                 </div>
-                
+
                 <Pagination currentPage={23} />
                 {/* Conteúdo do botão do professor */}
                 <div className="my-6">
                   <TeacherButton
+                    visible={SHOW_TEACHER_BUTTON}
                     content={
                       <>
                         <p className="mb-3">
@@ -1665,11 +1687,12 @@ function Book() {
                 </ol>
                 <p className="mb-4 indent-6">Sua produção deve manter os personagens da fábula, mas apresentar uma nova versão do enredo que leve o leitor a refletir sobre uma lição diferente daquela da história original.
                 </p>
-                
+
                 <Pagination currentPage={24} />
                 {/* Conteúdo do botão do professor */}
                 <div className="my-6">
                   <TeacherButton
+                    visible={SHOW_TEACHER_BUTTON}
                     content={
                       <>
                         <p className="mb-3">
@@ -1770,6 +1793,7 @@ function Book() {
                 <Pagination currentPage={27} />
                 <div className="my-6">
                   <TeacherButton
+                    visible={SHOW_TEACHER_BUTTON}
                     content={
                       <>
                         <p className="mb-3">
@@ -1820,7 +1844,7 @@ function Book() {
                   {/* Imagem */}
                   <div className="flex flex-col items-center my-6">
                     <img src="images/raposa.png" className="max-w-[50%]" />
-                    <p className="text-[10px] text-slate-600 mt-2" style={{fontSize: '10px'}}>Saenkova Iuliia/stock.adobe.com
+                    <p className="text-[10px] text-slate-600 mt-2" style={{ fontSize: '10px' }}>Saenkova Iuliia/stock.adobe.com
                     </p>
                   </div>
                 </CaixaTexto>
@@ -1838,6 +1862,7 @@ function Book() {
                 {/* Conteúdo do botão do professor */}
                 <div className="my-6">
                   <TeacherButton
+                    visible={SHOW_TEACHER_BUTTON}
                     content={
                       <>
                         <p className="mb-3">
@@ -2032,11 +2057,12 @@ function Book() {
                     fileName="questoes-pagina-28.pdf"
                   />
                 </div>
-                
+
                 <Pagination currentPage={29} />
                 {/* Conteúdo do botão do professor */}
                 <div className="my-6">
                   <TeacherButton
+                    visible={SHOW_TEACHER_BUTTON}
                     content={
                       <>
                         <p className="mb-3">
@@ -2159,7 +2185,7 @@ function Book() {
                     fileName="questoes-pagina-29.pdf"
                   />
                 </div>
-                
+
                 <Pagination currentPage={30} />
                 <ProducaoFinal />
                 <p className="mb-4 indent-6">

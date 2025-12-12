@@ -4,13 +4,19 @@ interface TeacherButtonProps {
     title?: string;
     content?: React.ReactNode;
     answers?: React.ReactNode;
+    visible?: boolean; // Controla a visibilidade do botão
 }
 
 function TeacherButton({
     title,
     content,
-    answers
+    answers,
+    visible = true
 }: TeacherButtonProps) {
+    // Se visible for false, não renderiza nada
+    if (!visible) {
+        return null;
+    }
     const [isOpen, setIsOpen] = useState(false);
 
     return (
@@ -126,4 +132,3 @@ function TeacherButton({
 }
 
 export default TeacherButton;
-
