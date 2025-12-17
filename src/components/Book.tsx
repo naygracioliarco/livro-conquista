@@ -25,7 +25,7 @@ import { TeacherAnswers } from './TeacherAnswers';
 
 // Controle de visibilidade do botão do professor
 // Altere para false para ocultar todos os botões "Para o Professor"
-const SHOW_TEACHER_BUTTON = true;
+const SHOW_TEACHER_BUTTON = false;
 
 function Book() {
   const { userAnswers, handleAnswerChange } = useUserAnswers();
